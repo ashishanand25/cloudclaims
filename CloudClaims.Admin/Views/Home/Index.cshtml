@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "CloudClaims Administration Portal";
+}
+
+<div id="mws-login-wrapper" class="hidden-wrapper">
+    <img src="~/Images/cloud-claims-logo.png" class="generic-center" />
+    <div id="mws-login">
+        <h1>administration portal</h1>
+        <div class="mws-login-lock">
+            <img src="~/Content/mws/css/icons/24/locked-2.png" alt="" />
+        </div>
+        <div id="mws-login-form">
+            <form class="mws-form" action="~/home/index" method="post">
+                <div class="mws-form-row">
+                    <div class="mws-form-item large">
+                        <input type="text" name="username" class="mws-login-username mws-textinput required" placeholder="username" />
+                    </div>
+                </div>
+                <div class="mws-form-row">
+                    <div class="mws-form-item large">
+                        <input type="password" name="password" class="mws-login-password mws-textinput required" placeholder="password" />
+                    </div>
+                </div>
+                <div class="mws-form-row mws-inset">
+                    <ul class="mws-form-list inline">
+                        <li>
+                            <input type="checkbox" id="preference" />
+                            <label for="preference">i want to be a millionaire</label></li>
+                    </ul>
+                </div>
+                <div class="mws-form-row">
+                    <input type="submit" value="login" class="mws-button green mws-login-button" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link href="~/Content/crwn/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="~/Scripts/sticky-footer/footer.css" rel="stylesheet" />
+    <link href="~/Content/CloudClaims.Portal.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/spinner/ui.spinner.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/spinner/jquery.mousewheel.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+
+
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/charts/jquery.sparkline.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/forms/uniform.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/forms/jquery.cleditor.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/forms/jquery.validationEngine-en.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/forms/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/forms/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/forms/autogrowtextarea.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/forms/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/forms/jquery.dualListBox.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/forms/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/forms/chosen.jquery.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/wizard/jquery.form.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/wizard/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/wizard/jquery.form.wizard.js"></script>
+
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/uploader/plupload.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/uploader/plupload.html5.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/uploader/plupload.html4.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/uploader/jquery.plupload.queue.js"></script>
+
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/tables/datatable.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/tables/tablesort.min.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/tables/resizable.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/ui/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/ui/jquery.collapsible.min.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/ui/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/ui/jquery.progress.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/ui/jquery.timeentry.min.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/ui/jquery.colorpicker.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/ui/jquery.jgrowl.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/ui/jquery.breadcrumbs.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/ui/jquery.sourcerer.js"></script>
+
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/calendar.min.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/plugins/elfinder.min.js"></script>
+
+    <script type="text/javascript" src="~/Scripts/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="~/Content/crwn/js/custom.js"></script>
+    <script type="text/javascript" src="~/Scripts/CloudClaims.Portal/Notifications.js"></script>
+    <script type="text/javascript" src="~/Scripts/CloudClaims.Portal/portalUtils.js"></script>
+
+
+</head>
+<body>
+    <script type="text/javascript">
+        var GLOBAL_NOTIFICATIONS_URL = '@Url.Content("~/Shared/Notifications")';
+        var GLOBAL_HOME_URL = '@Url.Content("~/Home/")';
+        var GLOBAL_SETTINGS_URL = '@Url.Content("~/Settings/")';
+        var GLOBAL_SHARED_URL = '@Url.Content("~/Shared/")';
+        var GLOBAL_CONTENTS_URL = '@Url.Content("~/Content/")';
+        var GLOBAL_DRAGGED_ITEM_TYPE = { id: '', type: '', name: ''};      //Used in: gridLayout.js    Used for: Holds the name of the type of item being dragged from footer onto custom form
+    </script>
+    <!-- Left side content -->
+    @{Html.RenderPartial("LeftNav", "Home");}
+    <!-- Right side -->
+    <div id="rightSide">
+        @{Html.RenderAction("TopNav", "Home");}
+        <div class="main-body">
+            @RenderBody()
+        </div>
+        
+    </div>
+    <div class="clear"></div>
+    <script type="text/javascript">
+
+        $(function () {
+
+            //#region PAGE TRANSITIONS
+            $('.hidden-wrapper').show({
+                effect: 'fade',
+                //easing: 'easeInBounce',
+                duration: 650
+                //direction: 'right'
+            });
+            //#endregion
+
+            //#region iPHONE BUTTON
+            $(".cb-enable").click(function () {
+                var parent = $(this).parents('.switch');
+                $('.cb-disable', parent).removeClass('selected');
+                $(this).addClass('selected');
+                //$('.checkbox', parent).attr('checked', true);
+                //$('#' + $(this).attr('for')).toggle();
+            });
+            $(".cb-disable").click(function () {
+                var parent = $(this).parents('.switch');
+                $('.cb-enable', parent).removeClass('selected');
+                $(this).addClass('selected');
+                //$('.checkbox', parent).attr('checked', false);
+                //$('#' + $(this).attr('for')).toggle();
+            });
+            //#endregion
+
+        });
+    </script>
+    
+</body>
+</html>

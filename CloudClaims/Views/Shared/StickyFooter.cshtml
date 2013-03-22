@@ -1,0 +1,195 @@
+﻿@model CloudClaims.ViewModels.vmStickyFooter
+
+<div id="footer">
+    <ul id="footer_menu">
+        <li class="imgmenu"><a href="#"></a></li>
+        @if (Model.pickLayout) {
+            <li class="footer-poppable-button">
+                <a href="#">
+                    <img src="~/Content/fatcow-icons/application_tile_horizontal.png" alt="" />
+                </a>
+                <div class="dropdown_2columns">
+                    <div class="col_2">
+                        <img id="footer-popup-close-layouts" class="footer-popup-close" src="~/Content/fatcow-icons/cancel.png" />
+                        <h2>Pick a layout</h2>
+                        <ul class="layout-picker-list">
+                            <li class="footer-layout-pick-option" data-layout="a">
+                                <img src="~/Content/fatcow-icons/application_tile_horizontal.png" />
+                            </li>
+                            <li class="footer-layout-pick-option" data-layout="b">
+                                <img src="~/Content/fatcow-icons/application_tile_horizontal.png" />
+                            </li>
+                            <li class="footer-layout-pick-option" data-layout="c">
+                                <img src="~/Content/fatcow-icons/application_tile_horizontal.png" />
+                            </li>
+                            <li class="footer-layout-pick-option" data-layout="d">
+                                <img src="~/Content/fatcow-icons/application_tile_horizontal.png" />
+                            </li>
+                            <li class="footer-layout-pick-option" data-layout="e">
+                                <img src="~/Content/fatcow-icons/application_tile_horizontal.png" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        }
+        @if (Model.pickLayout) {
+            <li class="footer-poppable-button">
+                <a href="#">
+                    <img src="~/Content/fatcow-icons/application_add.png" alt="" />
+                </a>
+                <div class="dropdown_2columns">
+                    <div class="col_2">
+                        <img id="footer-popup-close-text" class="footer-popup-close" src="~/Content/fatcow-icons/cancel.png" alt="" />
+                        <h2>Add Content Block</h2>
+                        <ul class="footer-popup-widget-list">
+                            <li>
+                                <div class="content-add-text">
+                                    <img src="~/Content/fatcow-icons/text_dropcaps.png" alt="" />
+                                    Form Element
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content-add-slider">
+                                    <img src="~/Content/fatcow-icons/pictures.png" alt="" />
+                                    Section Divider
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        }
+        @if (Model.personPicker) {
+            <li class="footer-poppable-button">
+                <a href="#">
+                    <img src="~/Content/fatcow-icons/user_gray.png" alt="" />
+                </a>
+                <div class="dropdown_3columns">
+                    <div class="col_3">
+                        <img id="footer-popup-close-library" class="footer-popup-close" src="~/Content/fatcow-icons/cancel.png" alt="" />
+                        <h2>Person Picker</h2>
+                        @{ Html.RenderAction("PersonPicker", "Shared", new CloudClaims.ViewModels.vmPersonPicker { personType = CloudClaims.Data.CustomEnums.PersonType.INTERNAL, person = new List<CloudClaims.Model.CCPerson>() }); }
+                    </div>
+                </div>
+            </li>
+        }
+        @if (Model.textboxPicker) {
+            <li class="footer-poppable-button">
+                <a href="#">
+                    <img src="~/Content/fatcow-icons/application_form.png" alt="" />
+                </a>
+                <div class="dropdown_3columns">
+                    <div class="col_3">
+                        <img id="footer-popup-close-addtextbox" class="footer-popup-close" src="~/Content/fatcow-icons/cancel.png" alt="" />
+                        <h2>Textbox Picker</h2>
+                        @{ Html.RenderAction("TextboxPicker", "Footer"); }
+                    </div>
+                </div>
+            </li>
+        }
+        @if (Model.dateFieldPicker) {
+            <li class="footer-poppable-button">
+                <a href="#">
+                    <img src="~/Content/fatcow-icons/calendar.png" alt="" />
+                </a>
+                <div class="dropdown_3columns">
+                    <div class="col_3">
+                        <img id="footer-popup-close-adddatefield" class="footer-popup-close" src="~/Content/fatcow-icons/cancel.png" alt="" />
+                        <h2>Date Field Picker</h2>
+                        @{ Html.RenderAction("DateFieldPicker", "Footer"); }
+                    </div>
+                </div>
+            </li>
+        }
+        @if (Model.dropdownPicker) {
+            <li class="footer-poppable-button">
+                <a href="#">
+                    <img src="~/Content/fatcow-icons/text_padding_right.png" alt="" />
+                </a>
+                <div class="dropdown_3columns">
+                    <div class="col_3">
+                        <img id="footer-popup-close-adddropdown" class="footer-popup-close" src="~/Content/fatcow-icons/cancel.png" alt="" />
+                        <h2>Dropdown Picker</h2>
+                        @{ Html.RenderAction("DropdownPicker", "Footer"); }
+                    </div>
+                </div>
+            </li>
+        }
+        @if (Model.checkboxPicker) {
+            <li class="footer-poppable-button">
+                <a href="#">
+                    <img src="~/Content/fatcow-icons/text_list_bullets.png" alt="" />
+                </a>
+                <div class="dropdown_3columns">
+                    <div class="col_3">
+                        <img id="footer-popup-close-addcheckbox" class="footer-popup-close" src="~/Content/fatcow-icons/cancel.png" alt="" />
+                        <h2>Checkbox Picker</h2>
+                        @{ Html.RenderAction("CheckboxPicker", "Footer"); }
+                    </div>
+                </div>
+            </li>
+        }
+        @if (Model.personnelPicker) {
+            <li class="footer-poppable-button">
+                <a href="#">
+                    <img src="~/Content/fatcow-icons/user_gray.png" alt="" />
+                </a>
+                <div class="dropdown_3columns">
+                    <div class="col_3">
+                        <img id="footer-popup-close-addpersonnel" class="footer-popup-close" src="~/Content/fatcow-icons/cancel.png" alt="" />
+                        <h2>Personnel Picker</h2>
+                        @{ Html.RenderAction("PersonnelTypePicker", "Footer"); }
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+    <p><a href="#">CloudClaims</a> [Some text here]</p>
+    <ul id="social">
+        <li>
+            <a href="javascript: void(0);" class="tooltip">
+                <img id="sticky-footer-save-changes" src="~/Content/fatcow-icons/disk.png" alt="" />
+                <span>Save Changes</span>
+            </a>
+        </li>
+        @*<li>
+            <a href="#" class="tooltip">
+                <img src="~/Content/fatcow-icons/www_page.png" alt="" />
+                <span>Publish Page</span>
+            </a>
+        </li>*@
+
+        @*<li>
+            <a href="#" class="tooltip">
+                <img src="~/Content/fatcow-icons/world_delete.png" alt="" />
+                <span>Unpublish Page</span>
+            </a>
+        </li>*@
+    </ul>
+</div>
+<script type="text/javascript">
+    $(function () {
+        //Launch starer layout butotn
+        //$('.footer-poppable-button:eq(0)').show('slide', { direction: 'down' }, 500);
+        //When a poppable-footer-button is clicked
+        $('.footer-poppable-button a').click(function () {
+            if ($(this).parent().siblings().children('div').hasClass('footer-button-popup-enable')) {
+                $(this).parent().siblings().children('div .footer-button-popup-enable').slideUp(500, function () {
+                    $(this).removeClass('footer-button-popup-enable');  //Close the popups that are open
+                });
+            }
+            if ($(this).children('div').hasClass('footer-button-popup-enable')) {
+                $(this).siblings('div').slideUp(500, function () { $(this).removeClass('footer-button-popup-enable'); });  //Close this popup
+            } else {
+                $(this).siblings('div').addClass('footer-button-popup-enable').slideDown(500);  //Open this popup
+            }
+        });
+
+        //When a footer popup-close button is clicked
+        $('.footer-popup-close').click(function () {
+            $(this).parent().parent().slideUp(500, function () { $(this).removeClass('footer-button-popup-enable'); });
+        });
+    });
+</script>
+

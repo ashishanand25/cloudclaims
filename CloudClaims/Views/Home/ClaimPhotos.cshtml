@@ -1,0 +1,138 @@
+﻿@model CloudClaims.ViewModels.vmClaimPhotos
+@{ViewBag.Title = "Claim Photos";}
+
+<link href="~/Content/plugins/advanced-slider/css/base/advanced-slider-base.css" rel="stylesheet" />
+<link href="~/Content/plugins/advanced-slider/css/slider-skins/glossy-square/gray/glossy-square-gray.css" rel="stylesheet" />
+<link href="~/Content/plugins/advanced-slider/css/lightbox/prettyPhoto.css" rel="stylesheet" />
+<script src="~/Content/plugins/advanced-slider/js/jquery.touchSwipe.min.js"></script>
+<script src="~/Content/plugins/advanced-slider/js/jquery.easing.1.3.min.js"></script>
+<script src="~/Content/plugins/advanced-slider/js/jquery.advancedSlider.min.js"></script>
+<script src="~/Content/plugins/advanced-slider/js/excanvas.compiled.js"></script>
+<script src="~/Content/plugins/advanced-slider/js/jquery.prettyPhoto.custom.min.js"></script>
+
+@*PHOTO SLIDER*@
+<div class="line"></div>
+<div class="statsRow">
+    <div class="wrapper">
+        <div class="controlB">
+            <div class="advanced-slider" id="claimPhotoSlider">
+                <ul class="slides">
+                    @foreach (var p in Model.claimPhotos) {
+                        <li class="slide">
+                            <a rel="slider-lightbox[g]" href="@p.fileLocation" title="@p.description">
+                                <img class="image" src="@p.fileLocation" alt="@p.title"/>
+                            </a>
+                            <img class="thumbnail" src="@p.fileLocation" alt="@p.title" />
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="line"></div>
+
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+
+    @*MEDIA TABLE*@
+    <div class="widget">
+        <div class="title">
+            <span class="titleIcon">
+                <input type="checkbox" id="titleCheck" name="titleCheck" /></span><h6>Media table</h6>
+        </div>
+        <table cellpadding="0" cellspacing="0" width="100%" class="sTable withCheck mTable" id="checkAll">
+            <thead>
+                <tr>
+                    <td>
+                        <img src="~/Content/crwn/images/icons/tableArrows.png" alt="" /></td>
+                    <td>Image</td>
+                    <td class="sortCol">Title</td>
+                    <td class="sortCol">
+                        <div>Description<span></span></div>
+                    </td>
+                    <td class="sortCol">
+                        <div>Date<span></span></div>
+                    </td>
+                    <td>File info</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="6">
+                        <div class="itemActions">
+                            <label>Apply action:</label>
+                            <select>
+                                <option value="">Select action...</option>
+                                <option value="Edit">Edit</option>
+                                <option value="Delete">Delete</option>
+                                <option value="Move">Move somewhere</option>
+                            </select>
+                        </div>
+                        <div class="tPagination">
+                            <ul>
+                                <li class="prev"><a href="#" title=""></a></li>
+                                <li><a href="#" title="">1</a></li>
+                                <li><a href="#" title="">2</a></li>
+                                <li><a href="#" title="">3</a></li>
+                                <li><a href="#" title="">4</a></li>
+                                <li><a href="#" title="">5</a></li>
+                                <li><a href="#" title="">6</a></li>
+                                <li>...</li>
+                                <li><a href="#" title="">20</a></li>
+                                <li class="next"><a href="#" title=""></a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                @foreach (var p in Model.claimPhotos) {
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="titleCheck2" name="checkRow" /></td>
+                        <td align="center"><a href="images/big.png" title="" rel="lightbox">
+                            <img src="~/Content/crwn/images/user.png" alt="" /></a></td>
+                        <td><a href="@p.fileLocation" download="@p.CCClient.clientGUID-@p.CCClaim.claimGUID-@p.fileName">@p.title</a></td>
+                        <td>@p.description</td>
+                        <td align="center">@p.timeStamp</td>
+                        <td class="fileInfo"><span><strong>Size:</strong> 215 Kb</span><span><strong>Format:</strong> .jpg</span></td>
+                        <td class="actBtns"><a href="#" title="Update" class="tipS">
+                            <img src="~/Content/crwn/images/icons/edit.png" alt="" /></a><a href="#" title="Remove" class="tipS"><img src="~/Content/crwn/images/icons/remove.png" alt="" /></a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#claimPhotoSlider').advancedSlider({
+            //width: '100%',
+            height: '450',
+            responsive: true,
+            skin: 'glossy-square-gray',
+            allowScaleUp: true,
+            shadow: false,
+            effectType: 'swipe',
+            slideshow: true,
+            pauseSlideshowOnHover: true,
+            swipeThreshold: 30,
+            slideButtons: false,
+            thumbnailType: 'scroller',
+            thumbnailWidth: 140,
+            thumbnailHeight: 80,
+            thumbnailButtons: true,
+            thumbnailSwipe: true,
+            thumbnailScrollerResponsive: true,
+            minimumVisibleThumbnails: 4,
+            maximumVisibleThumbnails: 4,
+            keyboardNavigation: false,
+            lightbox: true,
+        });
+    });
+</script>

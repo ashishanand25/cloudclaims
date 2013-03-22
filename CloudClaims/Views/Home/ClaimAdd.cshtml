@@ -1,0 +1,82 @@
+﻿@{ViewBag.Title = "New Claim";}
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    <!-- Wizard with custom fields validation -->
+    <div class="widget">
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/pencil.png" alt="" class="titleIcon" /><h6>Wizard with custom fields validation</h6>
+        </div>
+        <form id="wizard2" method="post" action="submit.html" class="form">
+            <fieldset class="step" id="w2first">
+                <h1>First step description</h1>
+                <div class="formRow">
+                    <label>Username:<span class="req">*</span></label>
+                    <div class="formRight">
+                        <input type="text" name="bazinga" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <label>Password:</label>
+                    <div class="formRight">
+                        <input type="password" name="pw1" id="pw1" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <label>Email:<span class="req">*</span></label>
+                    <div class="formRight">
+                        <input type="text" name="email" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </fieldset>
+            <fieldset id="w2confirmation" class="step">
+                <h1>Second step description</h1>
+                <div class="formRow">
+                    <label>Your city:</label>
+                    <div class="formRight">
+                        <input type="text" name="city1" id="city1" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <label>Something more:</label>
+                    <div class="formRight">
+                        <input type="text" name="smth1" id="smth1" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </fieldset>
+            <div class="wizButtons">
+                <div class="status" id="status2"></div>
+                <span class="wNavButtons">
+                    <input class="basic" id="back2" value="Back" type="reset" />
+                    <input class="blueB ml10" id="next2" value="Next" type="submit" />
+                </span>
+            </div>
+            <div class="clear"></div>
+        </form>
+        <div class="data" id="w2"></div>
+    </div>
+    <!-- Toggles group -->
+    <div class="toggle">
+        <div class="title opened" id="toggleOpened">
+            <img src="~/Content/crwn/images/icons/dark/link2.png" alt="" class="titleIcon" /><h6>Toggles group. Active</h6>
+            <div class="clear"></div>
+        </div>
+        <div class="body">This widget is opened by default. Works in case of adding id="opened" to the widget head</div>
+
+        <div class="title closed">
+            <img src="~/Content/crwn/images/icons/dark/help.png" alt="" class="titleIcon" /><h6>Toggles group. Inactive</h6>
+        </div>
+        <div class="body">This widget is closed by default.</div>
+
+        <div class="title closed">
+            <img src="~/Content/crwn/images/icons/dark/key.png" alt="" class="titleIcon" /><h6>Toggles group. Inactive</h6>
+        </div>
+        <div class="body">This widget is closed by default.</div>
+    </div>
+    <div class="clear"></div>
+</div>

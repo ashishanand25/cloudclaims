@@ -1,0 +1,38 @@
+﻿@model IEnumerable<CloudClaims.ViewModels.vmManageClaims>
+
+@{ViewBag.Title = "Manage Claims";}
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    <!-- Dynamic table -->
+    <div class="widget">
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/full2.png" alt="" class="titleIcon" /><h6>Dynamic table</h6>
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
+            <thead>
+                <tr>
+                    <th>Alias 1</th>
+                    <th>Alias 2</th>
+                    <th>Alias 3</th>
+                    <th>Library</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model) {
+                    <tr>
+                        <td>
+                            <a href="ClaimEditLite?cf=1&guid=@c.ccClaim.claimGUID">
+                                @c.ccClaim.claimAlias1
+                            </a>
+                            &nbsp;[<a href="ClaimEditLite?cf=0&guid=@c.ccClaim.claimGUID">Administrative View</a>]
+                        </td>
+                        <td>@c.ccClaim.claimAlias2</td>
+                        <td>@c.ccClaim.claimAlias3</td>
+                        <td>[ <a href="ClaimPhotos?guid=@c.ccClaim.claimGUID">Photos</a> || <a href="ClaimDocuments?guid=@c.ccClaim.claimGUID">Documents</a> ]</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

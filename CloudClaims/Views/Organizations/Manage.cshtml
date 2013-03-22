@@ -1,0 +1,36 @@
+﻿@model IEnumerable<CloudClaims.Data.Portal.CCClientOrganizationANDCCGenericContactCard>
+@{
+    ViewBag.Title = "Manage Organizations/Clients";
+}
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    <!-- Dynamic table -->
+    <div class="widget">
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>Organizations/Clients</h6>
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Location</th>
+                    <th>Primary Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var u in Model) {
+                    <tr class="gradeA">
+                        <td>
+                            <a href="~/Organizations/Edit?id=@u.org.clientOrgGUID">@u.org.clientOrgName</a>
+                        </td>
+                        <td>@u.org.clientOrgTypeID</td>
+                        <td>@u.contactCard.genericContactCity, @u.contactCard.genericContactState</td>
+                        <td>@u.contactCard.genericContactPhone1</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,155 @@
+﻿@model IEnumerable<String>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CloudClaims Administration - Site Visits</title>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgJDbn0VP_AnX4HsXSjN3cIn0MoEJ4vOw&sensor=false"></script>
+    <script type="text/javascript" src="../../js/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="../../js/json2.js"></script>
+    <script type='text/javascript'>
+        var DISPLAY_COUNT = 20;
+        var myOptions = {};
+        var markerArray = new Array();
+        var map = null;
+        //var geocoder = null;
+        var marker = null;
+        var g_ctr = 0;
+        var last_used_address = "";
+        var splitURLs = {};
+        var global_markers = [];
+        var infowindow = new google.maps.InfoWindow({});
+        var geodata;
+        var markers = [];
+
+        function initialize() {
+
+            myOptions = {
+                center: new google.maps.LatLng(38.5111, -96.8005),
+                zoom: 4,
+                mapTypeId: google.maps.MapTypeId.HYBRID  
+            };
+            map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+            
+            //geocoder = new google.maps.Geocoder();
+            @foreach (var item in Model)
+            {
+            <text>try 
+                {
+                    var ip = '@item';
+                    var url = 'http://api.ipinfodb.com/v3/ip-city/?format=json&key=6d0759103a4ec817ffda18dfba4eafe853125d6960dedffdcfa4a428774d871d&ip=' + ip + '&callback=?';
+                    $.getJSON(url,
+                            function (data) {
+                                if (data['statusCode'] == 'OK') {
+                                    geodata = data;
+                                    JSONString = JSON.stringify(geodata);
+                                    //callback();
+                                    //alert(data.regionName);
+                                    var valuesToPush = new Array();
+                                    valuesToPush[0] = data.latitude;
+                                    valuesToPush[1] = data.longitude;
+                                    valuesToPush[2] = data.cityName + ', ' + data.regionName;
+                                    valuesToPush[3] = data.ipAddress;
+                                    markers.push(valuesToPush);
+                                    addMarker();
+                                }
+                            });
+                        } 
+            catch (err) { }</text>
+            }
+        }
+
+        function addMarker() {
+            for (var i = 0; i < markers.length; i++) {
+                var lat = parseFloat(markers[i][0]);
+                var lng = parseFloat(markers[i][1]);
+                var cityState = markers[i][2];
+                var ipAddress = markers[i][3];
+                var myLatlng = new google.maps.LatLng(lat, lng);
+                var contentString = '<div class="infowindow"><p>' + cityState + '<br/>' + ipAddress + '</p></div>';
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: "Coordinates: " + lat + " , " + lng + " \n Location: " + cityState
+                });
+                marker['infowindow'] = contentString;
+                global_markers[i] = marker;
+                google.maps.event.addListener(global_markers[i], 'click', function () {
+                    infowindow.setContent(this['infowindow']);
+                    infowindow.open(map, this);
+                });
+            }
+            
+        }
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".fadeInbox").hide().fadeIn(4000);
+            $("#map_canvas").hide().fadeIn(4000);
+            $(".subscriberList").hide().fadeIn(8000);
+            
+        });
+        $(window).load(function () {
+            $("#loading").css('visibility', 'hidden');
+        });
+    </script>
+    <style type="text/css">
+        .infowindow
+        {
+            background-color: Yellow;
+            text-align: left;
+            padding: 0px, 0px, 0px, 0px;
+            margin: 0px, 0px, 0px, 0px;
+        }
+        .fadeOutbox, .fadeInbox, .fadeTobox
+        {
+            padding: 10px;
+            margin: 4px;
+            border: 1px solid blue;
+            width: 250px;
+            height: 50px;
+            background-color: #000000;
+            color: white;
+            font: georgia;
+        }
+        
+        .clear
+        {
+            clear: both;
+        }
+    </style>
+</head>
+<body onload="initialize();">
+    <form id="form1" runat="server">
+    <asp:panel id="Panel1" runat="server" style="height: 600px;">
+            <asp:Literal ID="js" runat="server"></asp:Literal>
+            <table width="100%" align="center" border="1">
+                <tr bgcolor="#1569C7" align="center">
+                    <td colspan="2">
+                        <font color="white">CloudClaims&trade; - Site visitors - Last X days</font>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td width="80%">
+                        
+                        <div id="map_canvas" style="width: 100%; height: 620px; margin-bottom: 0.5px;"></div>
+                    </td>
+                    <td align="center" valign="bottom" bgcolor="#FFBD82">
+                        <asp:Label runat="server" id="errors"/>
+                        <div>
+                            @{Html.RenderAction("Subscribers");}
+                        </div>
+                        <div align="center" class="fadeInbox">
+                            <b>DEBUGGING</b><br />
+                            <asp:Label runat="server" id="ajaxtest"/>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </asp:panel>
+    </form>
+</body>
+</html>

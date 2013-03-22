@@ -1,0 +1,257 @@
+﻿@model CloudClaims.ViewModels.vmClaimEditLite
+@using CloudClaims.Data.Portal
+
+@{
+    ViewBag.Title = "ClaimEditLite";
+}
+
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    @using (Html.BeginForm("ClaimEditLite", "Home", FormMethod.Post, new { @class = "form", @id = "validate" })) {
+        @Html.HiddenFor(m => m.ccClaim.claimID)
+        @Html.HiddenFor(m => m.ccClaim.claimGUID)
+        @Html.HiddenFor(m => m.ccClaim.clientID)
+        int ctr = 0;
+        int cdtctr = 0;
+        int cttctr = 0;
+        int cctctr = 0;
+        if (ViewData["message"] != null) {
+        <script>
+            Notifications.displayGlobalNotification({ message: '@ViewData["message"]', type: '@ViewData["type"]' });
+        </script>
+        }
+        if (TempData["message"] != null) {
+        <script>
+            Notifications.displayGlobalNotification({ message: '@TempData["message"]', type: '@TempData["type"]' });
+        </script>
+        }
+        <div class="toggle acc">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Claim Aliases</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                <div class="formRow">
+                    <label>File #<span class="req">*</span></label>
+                    <div class="formRight">
+                        <span class="oneTwo">
+                            @Html.TextBoxFor(m => m.ccClaim.claimAlias1, new { @class = "validate[required]", @autofocus = "autofocus" })
+                        </span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <label>Alias 2</label>
+                    <div class="formRight">
+                        <span class="oneTwo">
+                            @Html.TextBoxFor(m => m.ccClaim.claimAlias2, new { @class = "", @autofocus = "autofocus" })
+                        </span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    <label>Alias 2</label>
+                    <div class="formRight">
+                        <span class="oneTwo">
+                            @Html.TextBoxFor(m => m.ccClaim.claimAlias3, new { @class = "", @autofocus = "autofocus" })
+                        </span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formSubmit">
+                    <input type="submit" value="update" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Claim Event Dates</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                @foreach (var claimDate in @Model.claimDates) {
+                    <div class="formRow @Model.claimDatesCSS[ctr]">
+                        <label>@EverythingToDoWith_CCClaimDateTypes.getClaimDateTypeByID(@Model.ccClaim.clientID, claimDate.claimDateTypeID).claimDateType</label>
+                        <div class="formRight">
+                            <span class="oneFour">
+                                @Html.TextBoxFor(m => m.claimDates[ctr].claimDateStamp, "{0:d}", new { @class = "datepicker", @readonly = "readonly" })
+                                @Html.HiddenFor(m => m.claimDates[ctr].claimDateID)
+                                @Html.HiddenFor(m => m.claimDates[ctr].clientID)
+                                @Html.HiddenFor(m => m.claimDates[ctr].claimGUID)
+                                @Html.HiddenFor(m => m.claimDates[ctr].claimDateTypeID)
+                                @Html.HiddenFor(m => m.claimDates[ctr].claimDateID)
+                            </span>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    ctr++;
+                }
+                <div class="formSubmit">
+                    <input type="submit" value="update" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            @foreach (var cpt in Model.claimPersonnelTypes) {
+                <div class="title">
+                    <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>@cpt.claimPersonnelType</h6>
+                    <div class="clear"></div>
+                </div>
+                <div class="menu_body">
+                    <div class="formRow">
+                        <div id="@cpt.claimPersonnelTypeID" class="droppable-claim-personnel ui-widget-header">
+                            <p>Drop here</p>
+                        </div>
+                        @foreach (var cp in Model.claimPersons) {
+                            if (cp.claimPersonnelTypeID == cpt.claimPersonnelTypeID) {
+                            <div>
+                                @cp.CCPerson.personFName @cp.CCPerson.personLName
+                                @*@{ Html.RenderPartial("GenericContactCard", @cp.CCPerson.CCGenericContactCard); }*@
+                            </div>
+                            }
+
+                        }
+
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            }
+            @*CLAIM DROPDOWN TYPES*@
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Claim Dropdown Types</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                @foreach (var de in Model.SolvedClaimDropdownSettings) {
+                    <div class="formRow">
+                        <label>@EverythingToDoWith_CCSetting_ClaimDropdownTypes.getDropdownTypeName(Model.ccClaim.clientID, de.Key)</label>
+                        <div class="formRight searchDrop">
+                            @Html.Hidden("SolvedClaimDropdownSelectedValues[" + cdtctr + "].Key", de.Key)
+                            @Html.DropDownList("SolvedClaimDropdownSelectedValues[" + cdtctr + "].Value", de.Value, new { @class = "chzn-select", @data_placeholder = "Choose an option...", @style = "width: 350px;" })
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                    cdtctr++;
+                }
+                <div class="formSubmit">
+                    <input type="submit" value="update" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            @*CLAIM TEXTBOX TYPES*@
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Claim Textbox Types</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                @foreach (var de in Model.CCSetting_ClaimTextboxTypes) {
+                    <div class="formRow @Model.claimTextboxCSS[cttctr]">
+                        <label>@de.Value</label>
+                        <div class="formRight">
+                            <div class="oneTwo">
+                                @Html.Hidden("claimTextboxes[" + cttctr + "].Key", de.Key)
+                                @Html.TextBox("claimTextboxes[" + cttctr + "].Value", Model.claimTextboxes[de.Key], new { maxlength = "200" })
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>    
+                    cttctr++;
+                }
+                <div class="formSubmit">
+                    <input type="submit" value="update" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+
+    
+
+            @*CLAIM CHECKBOX TYPES*@
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Claim Checkbox Types</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                @foreach (var de in Model.CCSetting_ClaimCheckboxTypes) 
+                {
+                    <div class="formRow @Model.claimCheckboxCSS[cctctr]">
+                        
+                        @*<div class="formRight">*@
+                            <div class="oneTwo">
+                                @Html.Hidden("claimCheckboxes[" + cctctr + "].Key", de.Key)
+                                @Html.CheckBox("claimCheckboxes[" + cctctr + "].Value", Model.claimCheckboxes[de.Key])
+                                <label>@de.Value</label>
+                            </div>
+                        @*</div>*@
+                        <div class="clear"></div>
+                    </div>    
+                    cctctr++;
+                }
+                <div class="formSubmit">
+                    <input type="submit" value="update" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+    }
+</div>
+@Html.Partial("StickyFooter", new CloudClaims.ViewModels.vmStickyFooter { personPicker = true })
+<script type="text/javascript">
+    var personObject = {
+        personID: '',
+        personFName: '',
+        personLName: '',
+        claimPersonnelTypeID: ''
+    };
+
+    var GLOBAL_personPickerName;
+    $(function () {
+        $(".draggable-claim-personnel").draggable({
+            //revert: "valid",
+            revert: true,
+            opacity: 0.7,
+            helper: "clone",
+            //containment: "#rightSide",
+            scroll: false,
+            cursor: "move",
+            cursorAt: { top: 5, left: 5 },
+            start: function (event, ui) {
+                personObject.personID = $(this).attr('id').replace('personID-', '');
+                personObject.personFName = $(this).children('td:eq(0)').html();
+                personObject.personLName = $(this).children('td:eq(1)').html();
+
+            }
+        });
+        $(".droppable-claim-personnel").droppable({
+            accept: ".draggable-claim-personnel",
+            activeClass: "activate-listening-bucket",
+            drop: function (event, ui) {
+                $(this)
+                  .addClass("dropped-into-listening-bucket")
+                  .find("p")
+                    .html(personObject.personFName + ' ' + personObject.personLName);
+                personObject.claimPersonnelTypeID = $(this).attr('id');
+                //Make AJAX call to add picked person to database
+
+                $.ajax({
+                    url: 'AddClaimPerson',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ claimID: '@Model.ccClaim.claimID', personID: personObject.personID, claimPersonnelTypeID: personObject.claimPersonnelTypeID }),
+                    success: function (data_received) {
+                        Notifications.displayGlobalNotification(data_received, function () {
+                            if (data_received.type == 2) {
+                                //Success
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    });
+
+</script>

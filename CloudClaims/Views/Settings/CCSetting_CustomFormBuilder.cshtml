@@ -1,0 +1,88 @@
+﻿@model List<SelectListItem>
+@{ViewBag.Title = "Custom Form";}
+
+<link href="~/Scripts/gridster/jquery.gridster.css" rel="stylesheet" />
+
+
+<div class="wrapper hidden-wrapper">
+    <form id="validate" class="form">
+        <div class="widget">
+        <form class="form">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Custom Form</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                <div class="formRow">
+                    <label>Form Name:<span class="req">*</span></label>
+                    <div class="formRight">
+                        <div class="oneTwo">
+                            <input id="formName" type="text" maxlength="50" class="validate[required]" autofocus="autofocus" />                            
+                        </div>
+                        <div class="oneTwo">
+                            @Html.DropDownList("formType", Model)
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formRow">
+                    @*<%--PARENT GRID BEGIN--%>*@
+                    <div class="gridster ready"></div>
+                    <div class="widget-delete-dialog display-none">
+                        Are you sure you want to remove this content block from this page?
+                    </div>
+                    @*<%--PARENT GRID END--%>*@
+                    <div class="clear"></div>
+                </div>
+                @*<div class="formSubmit">
+                    <input type="button" value="create" class="greenB" />
+                </div>*@
+                <div class="clear"></div>
+            </div>
+        </form>
+    </div>
+    </form>
+</div>
+@Html.Partial("StickyFooter", new CloudClaims.ViewModels.vmStickyFooter { pickLayout = true, addRow = true, dateFieldPicker = true, dropdownPicker = true, textboxPicker = true, checkboxPicker = true, personnelPicker = true })
+
+<script src="~/Scripts/gridster/jquery.gridster.js"></script>
+<script src="~/Scripts/CloudClaims.Portal/gridLayout.js"></script>
+<script type="text/javascript">
+    
+    
+    function injectDraggedItemOntoWidget(widgetID, itemToInject) {
+
+    }
+    
+    $(function () {
+        
+    });
+
+    $(".droppable-item").droppable({
+        accept: ".draggable-custom-form-item",
+        activeClass: "activate-listening-bucket",
+        drop: function (event, ui) {
+            injectDraggedItemOntoWidget();
+            $(this)
+              .addClass("dropped-into-listening-bucket")
+              .find('p').html('test');
+            //personObject.claimPersonnelTypeID = $(this).attr('id');
+            //Make AJAX call to add picked person to database
+
+            @*$.ajax({
+                url: 'AddClaimPerson',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ claimID: '@Model.ccClaim.claimID', personID: personObject.personID, claimPersonnelTypeID: personObject.claimPersonnelTypeID }),
+                success: function (data_received) {
+                    Notifications.displayGlobalNotification(data_received, function () {
+                        if (data_received.type == 2) {
+                            //Success
+                        }
+                    });
+                }
+            });*@
+        }
+    });
+</script>

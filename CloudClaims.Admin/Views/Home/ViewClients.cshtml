@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CloudClaims.Model.CCClient>
+@{
+    ViewBag.Title = "View All Clients";
+}
+
+
+@{Html.RenderPartial("TopNav");}
+<!-- Start Main Wrapper -->
+<div id="mws-wrapper">
+    @{Html.RenderPartial("LeftNav");}
+    <!-- Main Container Start -->
+    <div id="mws-container" class="clearfix hidden-wrapper">
+        <!-- Inner Container Start -->
+        <div class="container">
+            <!-- Panels Start -->
+            <div class="mws-panel grid_8 mws-collapsible">
+                <div class="mws-panel-header">
+                    <span class="mws-i-24 i-list">CloudClaims' Clients</span>
+                </div>
+                <div class="mws-panel-body">
+                    <table class="mws-datatable-fn mws-table">
+                        <thead>
+                            <tr>
+                                <th>Client Name</th>
+                                <th>GUID</th>
+                                <th>Business Type</th>
+                                <th>Notes</th>
+                                <th>TaxID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model) 
+                            {
+                            <tr class="">
+                                <td>
+                                    <a href="~/Home/ManageClient?id=@item.clientID">@item.clientName</a>
+                                </td>
+                                <td>@item.clientGUID</td>
+                                <td>@item.clientGroup</td>
+                                <td>@item.clientNotes</td>
+                                <td>@item.clientTaxID</td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+            <!-- Panels End -->
+        </div>
+        <!-- Inner Container End -->
+    </div>
+    <!-- Main Container End -->
+</div>
+<script type="text/javascript">
+    //$('.mws-form input').attr('class', 'mws-textinput');
+</script>
+
+@Scripts.Render("~/bundles/jqueryval")

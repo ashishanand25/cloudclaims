@@ -1,0 +1,2083 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CC.PortalModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CCPortalModelStoreContainer">
+          <EntitySet Name="CCClaimCheckboxValues" EntityType="CC.PortalModel.Store.CCClaimCheckboxValues" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCClaimDates" EntityType="CC.PortalModel.Store.CCClaimDates" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCClaimDateTypes" EntityType="CC.PortalModel.Store.CCClaimDateTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCClaimDropdownValues" EntityType="CC.PortalModel.Store.CCClaimDropdownValues" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCClaimMedia" EntityType="CC.PortalModel.Store.CCClaimMedia" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCClaimPersons" EntityType="CC.PortalModel.Store.CCClaimPersons" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCClaims" EntityType="CC.PortalModel.Store.CCClaims" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCClaimTextboxValues" EntityType="CC.PortalModel.Store.CCClaimTextboxValues" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCClientOrganizations" EntityType="CC.PortalModel.Store.CCClientOrganizations" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCClients" EntityType="CC.PortalModel.Store.CCClients" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCCustomLabels" EntityType="CC.PortalModel.Store.CCCustomLabels" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCGenericContactCard" EntityType="CC.PortalModel.Store.CCGenericContactCard" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCGenericContactCardTypes" EntityType="CC.PortalModel.Store.CCGenericContactCardTypes" store:Type="Tables" store:Schema="dbo" store:Name="CCGenericContactCardTypes">
+            <DefiningQuery>SELECT 
+      [CCGenericContactCardTypes].[genericContactCardTypeID] AS [genericContactCardTypeID], 
+      [CCGenericContactCardTypes].[genericContactCardForTable] AS [genericContactCardForTable]
+      FROM [dbo].[CCGenericContactCardTypes] AS [CCGenericContactCardTypes]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CCPersons" EntityType="CC.PortalModel.Store.CCPersons" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCSetting_ClaimCheckboxTypes" EntityType="CC.PortalModel.Store.CCSetting_ClaimCheckboxTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCSetting_ClaimDropdownTypes" EntityType="CC.PortalModel.Store.CCSetting_ClaimDropdownTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCSetting_ClaimDropdownValues" EntityType="CC.PortalModel.Store.CCSetting_ClaimDropdownValues" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCSetting_ClaimPersonnelTypes" EntityType="CC.PortalModel.Store.CCSetting_ClaimPersonnelTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCSetting_ClaimTextboxTypes" EntityType="CC.PortalModel.Store.CCSetting_ClaimTextboxTypes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCSetting_CustomForms" EntityType="CC.PortalModel.Store.CCSetting_CustomForms" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCSetting_CustomFormSections" EntityType="CC.PortalModel.Store.CCSetting_CustomFormSections" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CCSetting_CustomFormSectionSectionItems" EntityType="CC.PortalModel.Store.CCSetting_CustomFormSectionSectionItems" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_CCClaimCheckboxValues_CCClaims" Association="CC.PortalModel.Store.FK_CCClaimCheckboxValues_CCClaims">
+            <End Role="CCClaims" EntitySet="CCClaims" />
+            <End Role="CCClaimCheckboxValues" EntitySet="CCClaimCheckboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimCheckboxValues_CCClients" Association="CC.PortalModel.Store.FK_CCClaimCheckboxValues_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaimCheckboxValues" EntitySet="CCClaimCheckboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimCheckboxValues_CCSetting_ClaimCheckboxTypes" Association="CC.PortalModel.Store.FK_CCClaimCheckboxValues_CCSetting_ClaimCheckboxTypes">
+            <End Role="CCSetting_ClaimCheckboxTypes" EntitySet="CCSetting_ClaimCheckboxTypes" />
+            <End Role="CCClaimCheckboxValues" EntitySet="CCClaimCheckboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDates_CCClaims" Association="CC.PortalModel.Store.FK_CCClaimDates_CCClaims">
+            <End Role="CCClaimDateTypes" EntitySet="CCClaimDateTypes" />
+            <End Role="CCClaimDates" EntitySet="CCClaimDates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDates_CCClients" Association="CC.PortalModel.Store.FK_CCClaimDates_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaimDates" EntitySet="CCClaimDates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDateTypes_CCClients" Association="CC.PortalModel.Store.FK_CCClaimDateTypes_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaimDateTypes" EntitySet="CCClaimDateTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDropdownValues_CCClaims" Association="CC.PortalModel.Store.FK_CCClaimDropdownValues_CCClaims">
+            <End Role="CCClaims" EntitySet="CCClaims" />
+            <End Role="CCClaimDropdownValues" EntitySet="CCClaimDropdownValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDropdownValues_CCClients" Association="CC.PortalModel.Store.FK_CCClaimDropdownValues_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaimDropdownValues" EntitySet="CCClaimDropdownValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDropdownValues_CCSetting_ClaimDropdownTypes" Association="CC.PortalModel.Store.FK_CCClaimDropdownValues_CCSetting_ClaimDropdownTypes">
+            <End Role="CCSetting_ClaimDropdownTypes" EntitySet="CCSetting_ClaimDropdownTypes" />
+            <End Role="CCClaimDropdownValues" EntitySet="CCClaimDropdownValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimMedia_CCClaimPersons" Association="CC.PortalModel.Store.FK_CCClaimMedia_CCClaimPersons">
+            <End Role="CCClaimPersons" EntitySet="CCClaimPersons" />
+            <End Role="CCClaimMedia" EntitySet="CCClaimMedia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimMedia_CCClaims" Association="CC.PortalModel.Store.FK_CCClaimMedia_CCClaims">
+            <End Role="CCClaims" EntitySet="CCClaims" />
+            <End Role="CCClaimMedia" EntitySet="CCClaimMedia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimMedia_CCClients" Association="CC.PortalModel.Store.FK_CCClaimMedia_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaimMedia" EntitySet="CCClaimMedia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimPersons_CCClaims" Association="CC.PortalModel.Store.FK_CCClaimPersons_CCClaims">
+            <End Role="CCClaims" EntitySet="CCClaims" />
+            <End Role="CCClaimPersons" EntitySet="CCClaimPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimPersons_CCClients" Association="CC.PortalModel.Store.FK_CCClaimPersons_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaimPersons" EntitySet="CCClaimPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimPersons_CCPersons" Association="CC.PortalModel.Store.FK_CCClaimPersons_CCPersons">
+            <End Role="CCPersons" EntitySet="CCPersons" />
+            <End Role="CCClaimPersons" EntitySet="CCClaimPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimPersons_CCSetting_ClaimPersonnelTypes" Association="CC.PortalModel.Store.FK_CCClaimPersons_CCSetting_ClaimPersonnelTypes">
+            <End Role="CCSetting_ClaimPersonnelTypes" EntitySet="CCSetting_ClaimPersonnelTypes" />
+            <End Role="CCClaimPersons" EntitySet="CCClaimPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaims_CCClients" Association="CC.PortalModel.Store.FK_CCClaims_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaims" EntitySet="CCClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimTextboxValues_CCClaims" Association="CC.PortalModel.Store.FK_CCClaimTextboxValues_CCClaims">
+            <End Role="CCClaims" EntitySet="CCClaims" />
+            <End Role="CCClaimTextboxValues" EntitySet="CCClaimTextboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimTextboxValues_CCClients" Association="CC.PortalModel.Store.FK_CCClaimTextboxValues_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaimTextboxValues" EntitySet="CCClaimTextboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimTextboxValues_CCSetting_ClaimTextboxTypes" Association="CC.PortalModel.Store.FK_CCClaimTextboxValues_CCSetting_ClaimTextboxTypes">
+            <End Role="CCSetting_ClaimTextboxTypes" EntitySet="CCSetting_ClaimTextboxTypes" />
+            <End Role="CCClaimTextboxValues" EntitySet="CCClaimTextboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClientOrganizations_CCClients" Association="CC.PortalModel.Store.FK_CCClientOrganizations_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClientOrganizations" EntitySet="CCClientOrganizations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCCustomLabels_CCClients" Association="CC.PortalModel.Store.FK_CCCustomLabels_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCCustomLabels" EntitySet="CCCustomLabels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCPersons_CCClients" Association="CC.PortalModel.Store.FK_CCPersons_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCPersons" EntitySet="CCPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCPersons_CCGenericContactCard" Association="CC.PortalModel.Store.FK_CCPersons_CCGenericContactCard">
+            <End Role="CCGenericContactCard" EntitySet="CCGenericContactCard" />
+            <End Role="CCPersons" EntitySet="CCPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimCheckboxTypes_CCClients" Association="CC.PortalModel.Store.FK_CCSetting_ClaimCheckboxTypes_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCSetting_ClaimCheckboxTypes" EntitySet="CCSetting_ClaimCheckboxTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimDropdownTypes_CCClients" Association="CC.PortalModel.Store.FK_CCSetting_ClaimDropdownTypes_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCSetting_ClaimDropdownTypes" EntitySet="CCSetting_ClaimDropdownTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimDropdownValues_CCClients" Association="CC.PortalModel.Store.FK_CCSetting_ClaimDropdownValues_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCSetting_ClaimDropdownValues" EntitySet="CCSetting_ClaimDropdownValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimDropdownValues_CCSetting_ClaimDropdownTypes" Association="CC.PortalModel.Store.FK_CCSetting_ClaimDropdownValues_CCSetting_ClaimDropdownTypes">
+            <End Role="CCSetting_ClaimDropdownTypes" EntitySet="CCSetting_ClaimDropdownTypes" />
+            <End Role="CCSetting_ClaimDropdownValues" EntitySet="CCSetting_ClaimDropdownValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimPersonnelTypes_CCClients" Association="CC.PortalModel.Store.FK_CCSetting_ClaimPersonnelTypes_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCSetting_ClaimPersonnelTypes" EntitySet="CCSetting_ClaimPersonnelTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimTextboxTypes_CCClients" Association="CC.PortalModel.Store.FK_CCSetting_ClaimTextboxTypes_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCSetting_ClaimTextboxTypes" EntitySet="CCSetting_ClaimTextboxTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_CustomFormSectionSectionItems_CCSetting_CustomFormSections" Association="CC.PortalModel.Store.FK_CCSetting_CustomFormSectionSectionItems_CCSetting_CustomFormSections">
+            <End Role="CCSetting_CustomFormSections" EntitySet="CCSetting_CustomFormSections" />
+            <End Role="CCSetting_CustomFormSectionSectionItems" EntitySet="CCSetting_CustomFormSectionSectionItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_SectionItems_CCClients" Association="CC.PortalModel.Store.FK_CCSetting_SectionItems_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCSetting_CustomFormSectionSectionItems" EntitySet="CCSetting_CustomFormSectionSectionItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_SectionTypes_CCClients1" Association="CC.PortalModel.Store.FK_CCSetting_SectionTypes_CCClients1">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCSetting_CustomFormSections" EntitySet="CCSetting_CustomFormSections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_SectionTypes_CCSettings_CustomForms" Association="CC.PortalModel.Store.FK_CCSetting_SectionTypes_CCSettings_CustomForms">
+            <End Role="CCSetting_CustomForms" EntitySet="CCSetting_CustomForms" />
+            <End Role="CCSetting_CustomFormSections" EntitySet="CCSetting_CustomFormSections" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CCClaimCheckboxValues">
+          <Key>
+            <PropertyRef Name="recordID" />
+          </Key>
+          <Property Name="recordID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="claimID" Type="int" Nullable="false" />
+          <Property Name="checkboxTypeID" Type="int" Nullable="false" />
+          <Property Name="checked" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCClaimDates">
+          <Key>
+            <PropertyRef Name="claimDateID" />
+          </Key>
+          <Property Name="claimDateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="claimGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="claimDateTypeID" Type="int" Nullable="false" />
+          <Property Name="claimDateStamp" Type="date" />
+        </EntityType>
+        <EntityType Name="CCClaimDateTypes">
+          <Key>
+            <PropertyRef Name="claimDateTypeID" />
+          </Key>
+          <Property Name="claimDateTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="claimDateType" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="claimDateTypeDisabled" Type="bit" Nullable="false" />
+          <Property Name="claimDateTypeDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCClaimDropdownValues">
+          <Key>
+            <PropertyRef Name="recordID" />
+          </Key>
+          <Property Name="recordID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="claimID" Type="int" Nullable="false" />
+          <Property Name="dropdownTypeID" Type="int" Nullable="false" />
+          <Property Name="dropdownValueID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCClaimMedia">
+          <Key>
+            <PropertyRef Name="mediaID" />
+          </Key>
+          <Property Name="mediaID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="claimID" Type="int" Nullable="false" />
+          <Property Name="uploadedByPersonID" Type="int" Nullable="false" />
+          <Property Name="timeStamp" Type="datetime" Nullable="false" />
+          <Property Name="mediaType" Type="nvarchar" MaxLength="50" />
+          <Property Name="title" Type="nvarchar" MaxLength="500" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="fileName" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="fileLocation" Type="nvarchar" Nullable="false" MaxLength="2048" />
+          <Property Name="deletedFlag" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCClaimPersons">
+          <Key>
+            <PropertyRef Name="claimPersonID" />
+          </Key>
+          <Property Name="claimPersonID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="claimID" Type="int" Nullable="false" />
+          <Property Name="personID" Type="int" Nullable="false" />
+          <Property Name="claimPersonnelTypeID" Type="int" Nullable="false" />
+          <Property Name="creationDate" Type="datetime" Nullable="false" />
+          <Property Name="claimPersonDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCClaims">
+          <Key>
+            <PropertyRef Name="claimID" />
+          </Key>
+          <Property Name="claimID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="claimGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="claimAlias1" Type="nvarchar" MaxLength="100" />
+          <Property Name="claimAlias2" Type="nvarchar" MaxLength="100" />
+          <Property Name="claimAlias3" Type="nvarchar" MaxLength="100" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCClaimTextboxValues">
+          <Key>
+            <PropertyRef Name="recordID" />
+          </Key>
+          <Property Name="recordID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="claimID" Type="int" Nullable="false" />
+          <Property Name="textboxTypeID" Type="int" Nullable="false" />
+          <Property Name="textboxValue" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="CCClientOrganizations">
+          <Key>
+            <PropertyRef Name="clientOrgID" />
+          </Key>
+          <Property Name="clientOrgID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientOrgGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="clientOrgTypeID" Type="int" Nullable="false" />
+          <Property Name="clientOrgName" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="clientOrgGenericContactCardID" Type="int" />
+        </EntityType>
+        <EntityType Name="CCClients">
+          <Key>
+            <PropertyRef Name="clientID" />
+          </Key>
+          <Property Name="clientID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="clientName" Type="nvarchar" Nullable="false" MaxLength="300" />
+          <Property Name="clientGenericContactCardID" Type="int" />
+          <Property Name="clientTaxID" Type="nvarchar" MaxLength="20" />
+          <Property Name="clientTimeZone" Type="int" />
+          <Property Name="clientNotes" Type="nvarchar" MaxLength="2000" />
+          <Property Name="clientDomainName" Type="nvarchar" MaxLength="200" />
+          <Property Name="clientInactive" Type="bit" />
+          <Property Name="clientGroup" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="CCCustomLabels">
+          <Key>
+            <PropertyRef Name="labelID" />
+          </Key>
+          <Property Name="labelID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="tableName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="columnName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="labelText" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CCGenericContactCard">
+          <Key>
+            <PropertyRef Name="genericContactCardID" />
+          </Key>
+          <Property Name="genericContactCardID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="genericContactCardTypeID" Type="int" Nullable="false" />
+          <Property Name="genericContactAddrLine1" Type="nvarchar" MaxLength="200" />
+          <Property Name="genericContactAddrLine2" Type="nvarchar" MaxLength="200" />
+          <Property Name="genericContactCity" Type="nvarchar" MaxLength="100" />
+          <Property Name="genericContactState" Type="nvarchar" MaxLength="100" />
+          <Property Name="genericContactZIP" Type="nvarchar" MaxLength="20" />
+          <Property Name="genericContactCountry" Type="nvarchar" MaxLength="20" />
+          <Property Name="genericContactPhone1" Type="nvarchar" MaxLength="20" />
+          <Property Name="genericContactPhone2" Type="nvarchar" MaxLength="20" />
+          <Property Name="genericContactPhone3" Type="nvarchar" MaxLength="20" />
+          <Property Name="genericContactPhone4" Type="nvarchar" MaxLength="20" />
+          <Property Name="genericContactPhone5" Type="nvarchar" MaxLength="20" />
+          <Property Name="genericContactFax" Type="nvarchar" MaxLength="20" />
+          <Property Name="genericContactEMail1" Type="nvarchar" MaxLength="100" />
+          <Property Name="genericContactEMail2" Type="nvarchar" MaxLength="100" />
+          <Property Name="genericContactWebsite" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'CC.Portal.dbo.CCGenericContactCardTypes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="CCGenericContactCardTypes">
+          <Key>
+            <PropertyRef Name="genericContactCardTypeID" />
+            <PropertyRef Name="genericContactCardForTable" />
+          </Key>
+          <Property Name="genericContactCardTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="genericContactCardForTable" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CCPersons">
+          <Key>
+            <PropertyRef Name="personID" />
+          </Key>
+          <Property Name="personID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="personGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="personParentTable" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="personParentID" Type="int" />
+          <Property Name="personFName" Type="nvarchar" MaxLength="100" />
+          <Property Name="personLName" Type="nvarchar" MaxLength="100" />
+          <Property Name="personMName" Type="nvarchar" MaxLength="20" />
+          <Property Name="personTitle" Type="nvarchar" MaxLength="20" />
+          <Property Name="personSuffix" Type="nvarchar" MaxLength="20" />
+          <Property Name="personGenericContactCardID" Type="int" />
+          <Property Name="personInactive" Type="bit" />
+          <Property Name="personClientOrgID" Type="int" />
+          <Property Name="personCreationDate" Type="datetime" Nullable="false" />
+          <Property Name="personUserName" Type="nvarchar" MaxLength="100" />
+          <Property Name="personPassword" Type="nvarchar" MaxLength="100" />
+          <Property Name="personRoleID" Type="int" />
+        </EntityType>
+        <EntityType Name="CCSetting_ClaimCheckboxTypes">
+          <Key>
+            <PropertyRef Name="checkboxTypeID" />
+          </Key>
+          <Property Name="checkboxTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="checkboxName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="checkboxDisabled" Type="bit" />
+          <Property Name="checkboxDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="CCSetting_ClaimDropdownTypes">
+          <Key>
+            <PropertyRef Name="dropdownTypeID" />
+          </Key>
+          <Property Name="dropdownTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="dropdownName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="hideOnNewClaim" Type="bit" Nullable="false" />
+          <Property Name="dropdownDisabled" Type="bit" Nullable="false" />
+          <Property Name="dropdownDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCSetting_ClaimDropdownValues">
+          <Key>
+            <PropertyRef Name="ddValueID" />
+          </Key>
+          <Property Name="ddValueID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="claimDropdownTypeID" Type="int" Nullable="false" />
+          <Property Name="ddValueItem" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="sortOrder" Type="int" />
+          <Property Name="itemDisabled" Type="bit" Nullable="false" />
+          <Property Name="itemDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCSetting_ClaimPersonnelTypes">
+          <Key>
+            <PropertyRef Name="claimPersonnelTypeID" />
+          </Key>
+          <Property Name="claimPersonnelTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="claimPersonnelType" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="allowMultiple" Type="bit" Nullable="false" />
+          <Property Name="claimPersonnelTypeDisabled" Type="bit" Nullable="false" />
+          <Property Name="claimPersonnelTypeDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCSetting_ClaimTextboxTypes">
+          <Key>
+            <PropertyRef Name="textboxTypeID" />
+          </Key>
+          <Property Name="textboxTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="textboxName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="textboxDisabled" Type="bit" />
+          <Property Name="textboxDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="CCSetting_CustomForms">
+          <Key>
+            <PropertyRef Name="formID" />
+          </Key>
+          <Property Name="formID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="formType" Type="nvarchar" MaxLength="50" />
+          <Property Name="formName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="serializedForm" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCSetting_CustomFormSections">
+          <Key>
+            <PropertyRef Name="sectionID" />
+          </Key>
+          <Property Name="sectionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="formID" Type="int" Nullable="false" />
+          <Property Name="sectionName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="sortOrder" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CCSetting_CustomFormSectionSectionItems">
+          <Key>
+            <PropertyRef Name="sectionItemID" />
+          </Key>
+          <Property Name="sectionItemID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="int" Nullable="false" />
+          <Property Name="sectionID" Type="int" Nullable="false" />
+          <Property Name="elementType" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="elementTypeID" Type="int" Nullable="false" />
+          <Property Name="elementDisabled" Type="bit" Nullable="false" />
+          <Property Name="elementDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CCClaimCheckboxValues_CCClaims">
+          <End Role="CCClaims" Type="CC.PortalModel.Store.CCClaims" Multiplicity="1" />
+          <End Role="CCClaimCheckboxValues" Type="CC.PortalModel.Store.CCClaimCheckboxValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaims">
+              <PropertyRef Name="claimID" />
+            </Principal>
+            <Dependent Role="CCClaimCheckboxValues">
+              <PropertyRef Name="claimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimCheckboxValues_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCClaimCheckboxValues" Type="CC.PortalModel.Store.CCClaimCheckboxValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimCheckboxValues">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimCheckboxValues_CCSetting_ClaimCheckboxTypes">
+          <End Role="CCSetting_ClaimCheckboxTypes" Type="CC.PortalModel.Store.CCSetting_ClaimCheckboxTypes" Multiplicity="1" />
+          <End Role="CCClaimCheckboxValues" Type="CC.PortalModel.Store.CCClaimCheckboxValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimCheckboxTypes">
+              <PropertyRef Name="checkboxTypeID" />
+            </Principal>
+            <Dependent Role="CCClaimCheckboxValues">
+              <PropertyRef Name="checkboxTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDates_CCClaims">
+          <End Role="CCClaimDateTypes" Type="CC.PortalModel.Store.CCClaimDateTypes" Multiplicity="1" />
+          <End Role="CCClaimDates" Type="CC.PortalModel.Store.CCClaimDates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaimDateTypes">
+              <PropertyRef Name="claimDateTypeID" />
+            </Principal>
+            <Dependent Role="CCClaimDates">
+              <PropertyRef Name="claimDateTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDates_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCClaimDates" Type="CC.PortalModel.Store.CCClaimDates" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimDates">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDateTypes_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCClaimDateTypes" Type="CC.PortalModel.Store.CCClaimDateTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimDateTypes">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDropdownValues_CCClaims">
+          <End Role="CCClaims" Type="CC.PortalModel.Store.CCClaims" Multiplicity="1" />
+          <End Role="CCClaimDropdownValues" Type="CC.PortalModel.Store.CCClaimDropdownValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaims">
+              <PropertyRef Name="claimID" />
+            </Principal>
+            <Dependent Role="CCClaimDropdownValues">
+              <PropertyRef Name="claimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDropdownValues_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCClaimDropdownValues" Type="CC.PortalModel.Store.CCClaimDropdownValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimDropdownValues">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDropdownValues_CCSetting_ClaimDropdownTypes">
+          <End Role="CCSetting_ClaimDropdownTypes" Type="CC.PortalModel.Store.CCSetting_ClaimDropdownTypes" Multiplicity="1" />
+          <End Role="CCClaimDropdownValues" Type="CC.PortalModel.Store.CCClaimDropdownValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimDropdownTypes">
+              <PropertyRef Name="dropdownTypeID" />
+            </Principal>
+            <Dependent Role="CCClaimDropdownValues">
+              <PropertyRef Name="dropdownTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimMedia_CCClaimPersons">
+          <End Role="CCClaimPersons" Type="CC.PortalModel.Store.CCClaimPersons" Multiplicity="1" />
+          <End Role="CCClaimMedia" Type="CC.PortalModel.Store.CCClaimMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaimPersons">
+              <PropertyRef Name="claimPersonID" />
+            </Principal>
+            <Dependent Role="CCClaimMedia">
+              <PropertyRef Name="uploadedByPersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimMedia_CCClaims">
+          <End Role="CCClaims" Type="CC.PortalModel.Store.CCClaims" Multiplicity="1" />
+          <End Role="CCClaimMedia" Type="CC.PortalModel.Store.CCClaimMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaims">
+              <PropertyRef Name="claimID" />
+            </Principal>
+            <Dependent Role="CCClaimMedia">
+              <PropertyRef Name="claimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimMedia_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCClaimMedia" Type="CC.PortalModel.Store.CCClaimMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimMedia">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimPersons_CCClaims">
+          <End Role="CCClaims" Type="CC.PortalModel.Store.CCClaims" Multiplicity="1" />
+          <End Role="CCClaimPersons" Type="CC.PortalModel.Store.CCClaimPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaims">
+              <PropertyRef Name="claimID" />
+            </Principal>
+            <Dependent Role="CCClaimPersons">
+              <PropertyRef Name="claimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimPersons_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCClaimPersons" Type="CC.PortalModel.Store.CCClaimPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimPersons">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimPersons_CCPersons">
+          <End Role="CCPersons" Type="CC.PortalModel.Store.CCPersons" Multiplicity="1" />
+          <End Role="CCClaimPersons" Type="CC.PortalModel.Store.CCClaimPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCPersons">
+              <PropertyRef Name="personID" />
+            </Principal>
+            <Dependent Role="CCClaimPersons">
+              <PropertyRef Name="personID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimPersons_CCSetting_ClaimPersonnelTypes">
+          <End Role="CCSetting_ClaimPersonnelTypes" Type="CC.PortalModel.Store.CCSetting_ClaimPersonnelTypes" Multiplicity="1" />
+          <End Role="CCClaimPersons" Type="CC.PortalModel.Store.CCClaimPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimPersonnelTypes">
+              <PropertyRef Name="claimPersonnelTypeID" />
+            </Principal>
+            <Dependent Role="CCClaimPersons">
+              <PropertyRef Name="claimPersonnelTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaims_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCClaims" Type="CC.PortalModel.Store.CCClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaims">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimTextboxValues_CCClaims">
+          <End Role="CCClaims" Type="CC.PortalModel.Store.CCClaims" Multiplicity="1" />
+          <End Role="CCClaimTextboxValues" Type="CC.PortalModel.Store.CCClaimTextboxValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaims">
+              <PropertyRef Name="claimID" />
+            </Principal>
+            <Dependent Role="CCClaimTextboxValues">
+              <PropertyRef Name="claimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimTextboxValues_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCClaimTextboxValues" Type="CC.PortalModel.Store.CCClaimTextboxValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimTextboxValues">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimTextboxValues_CCSetting_ClaimTextboxTypes">
+          <End Role="CCSetting_ClaimTextboxTypes" Type="CC.PortalModel.Store.CCSetting_ClaimTextboxTypes" Multiplicity="1" />
+          <End Role="CCClaimTextboxValues" Type="CC.PortalModel.Store.CCClaimTextboxValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimTextboxTypes">
+              <PropertyRef Name="textboxTypeID" />
+            </Principal>
+            <Dependent Role="CCClaimTextboxValues">
+              <PropertyRef Name="textboxTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClientOrganizations_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCClientOrganizations" Type="CC.PortalModel.Store.CCClientOrganizations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClientOrganizations">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCCustomLabels_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCCustomLabels" Type="CC.PortalModel.Store.CCCustomLabels" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCCustomLabels">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCPersons_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCPersons" Type="CC.PortalModel.Store.CCPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCPersons">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCPersons_CCGenericContactCard">
+          <End Role="CCGenericContactCard" Type="CC.PortalModel.Store.CCGenericContactCard" Multiplicity="0..1" />
+          <End Role="CCPersons" Type="CC.PortalModel.Store.CCPersons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCGenericContactCard">
+              <PropertyRef Name="genericContactCardID" />
+            </Principal>
+            <Dependent Role="CCPersons">
+              <PropertyRef Name="personGenericContactCardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimCheckboxTypes_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCSetting_ClaimCheckboxTypes" Type="CC.PortalModel.Store.CCSetting_ClaimCheckboxTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimCheckboxTypes">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimDropdownTypes_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCSetting_ClaimDropdownTypes" Type="CC.PortalModel.Store.CCSetting_ClaimDropdownTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimDropdownTypes">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimDropdownValues_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCSetting_ClaimDropdownValues" Type="CC.PortalModel.Store.CCSetting_ClaimDropdownValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimDropdownValues">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimDropdownValues_CCSetting_ClaimDropdownTypes">
+          <End Role="CCSetting_ClaimDropdownTypes" Type="CC.PortalModel.Store.CCSetting_ClaimDropdownTypes" Multiplicity="1" />
+          <End Role="CCSetting_ClaimDropdownValues" Type="CC.PortalModel.Store.CCSetting_ClaimDropdownValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimDropdownTypes">
+              <PropertyRef Name="dropdownTypeID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimDropdownValues">
+              <PropertyRef Name="claimDropdownTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimPersonnelTypes_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCSetting_ClaimPersonnelTypes" Type="CC.PortalModel.Store.CCSetting_ClaimPersonnelTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimPersonnelTypes">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimTextboxTypes_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCSetting_ClaimTextboxTypes" Type="CC.PortalModel.Store.CCSetting_ClaimTextboxTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimTextboxTypes">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_CustomFormSectionSectionItems_CCSetting_CustomFormSections">
+          <End Role="CCSetting_CustomFormSections" Type="CC.PortalModel.Store.CCSetting_CustomFormSections" Multiplicity="1" />
+          <End Role="CCSetting_CustomFormSectionSectionItems" Type="CC.PortalModel.Store.CCSetting_CustomFormSectionSectionItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_CustomFormSections">
+              <PropertyRef Name="sectionID" />
+            </Principal>
+            <Dependent Role="CCSetting_CustomFormSectionSectionItems">
+              <PropertyRef Name="sectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_SectionItems_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCSetting_CustomFormSectionSectionItems" Type="CC.PortalModel.Store.CCSetting_CustomFormSectionSectionItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_CustomFormSectionSectionItems">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_SectionTypes_CCClients1">
+          <End Role="CCClients" Type="CC.PortalModel.Store.CCClients" Multiplicity="1" />
+          <End Role="CCSetting_CustomFormSections" Type="CC.PortalModel.Store.CCSetting_CustomFormSections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_CustomFormSections">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_SectionTypes_CCSettings_CustomForms">
+          <End Role="CCSetting_CustomForms" Type="CC.PortalModel.Store.CCSetting_CustomForms" Multiplicity="1" />
+          <End Role="CCSetting_CustomFormSections" Type="CC.PortalModel.Store.CCSetting_CustomFormSections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_CustomForms">
+              <PropertyRef Name="formID" />
+            </Principal>
+            <Dependent Role="CCSetting_CustomFormSections">
+              <PropertyRef Name="formID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CC.PortalModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CCPortalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CCClaimDates" EntityType="CC.PortalModel.CCClaimDate" />
+          <EntitySet Name="CCClaimDateTypes" EntityType="CC.PortalModel.CCClaimDateType" />
+          <EntitySet Name="CCClaimPersons" EntityType="CC.PortalModel.CCClaimPerson" />
+          <EntitySet Name="CCClaims" EntityType="CC.PortalModel.CCClaim" />
+          <EntitySet Name="CCClientOrganizations" EntityType="CC.PortalModel.CCClientOrganization" />
+          <EntitySet Name="CCClients" EntityType="CC.PortalModel.CCClient" />
+          <EntitySet Name="CCCustomLabels" EntityType="CC.PortalModel.CCCustomLabel" />
+          <EntitySet Name="CCGenericContactCards" EntityType="CC.PortalModel.CCGenericContactCard" />
+          <EntitySet Name="CCGenericContactCardTypes" EntityType="CC.PortalModel.CCGenericContactCardType" />
+          <EntitySet Name="CCPersons" EntityType="CC.PortalModel.CCPerson" />
+          <EntitySet Name="CCSetting_ClaimDropdownTypes" EntityType="CC.PortalModel.CCSetting_ClaimDropdownTypes" />
+          <EntitySet Name="CCSetting_ClaimDropdownValues" EntityType="CC.PortalModel.CCSetting_ClaimDropdownValues" />
+          <EntitySet Name="CCSetting_ClaimPersonnelTypes" EntityType="CC.PortalModel.CCSetting_ClaimPersonnelTypes" />
+          <AssociationSet Name="FK_CCClaimDates_CCClaims" Association="CC.PortalModel.FK_CCClaimDates_CCClaims">
+            <End Role="CCClaimDateTypes" EntitySet="CCClaimDateTypes" />
+            <End Role="CCClaimDates" EntitySet="CCClaimDates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDates_CCClients" Association="CC.PortalModel.FK_CCClaimDates_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaimDates" EntitySet="CCClaimDates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDateTypes_CCClients" Association="CC.PortalModel.FK_CCClaimDateTypes_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaimDateTypes" EntitySet="CCClaimDateTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimPersons_CCClaims" Association="CC.PortalModel.FK_CCClaimPersons_CCClaims">
+            <End Role="CCClaims" EntitySet="CCClaims" />
+            <End Role="CCClaimPersons" EntitySet="CCClaimPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimPersons_CCClients" Association="CC.PortalModel.FK_CCClaimPersons_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaimPersons" EntitySet="CCClaimPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimPersons_CCPersons" Association="CC.PortalModel.FK_CCClaimPersons_CCPersons">
+            <End Role="CCPersons" EntitySet="CCPersons" />
+            <End Role="CCClaimPersons" EntitySet="CCClaimPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimPersons_CCSetting_ClaimPersonnelTypes" Association="CC.PortalModel.FK_CCClaimPersons_CCSetting_ClaimPersonnelTypes">
+            <End Role="CCSetting_ClaimPersonnelTypes" EntitySet="CCSetting_ClaimPersonnelTypes" />
+            <End Role="CCClaimPersons" EntitySet="CCClaimPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaims_CCClients" Association="CC.PortalModel.FK_CCClaims_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClaims" EntitySet="CCClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClientOrganizations_CCClients" Association="CC.PortalModel.FK_CCClientOrganizations_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCClientOrganizations" EntitySet="CCClientOrganizations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCCustomLabels_CCClients" Association="CC.PortalModel.FK_CCCustomLabels_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCCustomLabels" EntitySet="CCCustomLabels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCPersons_CCClients" Association="CC.PortalModel.FK_CCPersons_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCPersons" EntitySet="CCPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimDropdownTypes_CCClients" Association="CC.PortalModel.FK_CCSetting_ClaimDropdownTypes_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCSetting_ClaimDropdownTypes" EntitySet="CCSetting_ClaimDropdownTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimDropdownValues_CCClients" Association="CC.PortalModel.FK_CCSetting_ClaimDropdownValues_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCSetting_ClaimDropdownValues" EntitySet="CCSetting_ClaimDropdownValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimPersonnelTypes_CCClients" Association="CC.PortalModel.FK_CCSetting_ClaimPersonnelTypes_CCClients">
+            <End Role="CCClients" EntitySet="CCClients" />
+            <End Role="CCSetting_ClaimPersonnelTypes" EntitySet="CCSetting_ClaimPersonnelTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCPersons_CCGenericContactCard" Association="CC.PortalModel.FK_CCPersons_CCGenericContactCard">
+            <End Role="CCGenericContactCard" EntitySet="CCGenericContactCards" />
+            <End Role="CCPersons" EntitySet="CCPersons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimDropdownValues_CCSetting_ClaimDropdownTypes" Association="CC.PortalModel.FK_CCSetting_ClaimDropdownValues_CCSetting_ClaimDropdownTypes">
+            <End Role="CCSetting_ClaimDropdownTypes" EntitySet="CCSetting_ClaimDropdownTypes" />
+            <End Role="CCSetting_ClaimDropdownValues" EntitySet="CCSetting_ClaimDropdownValues" />
+          </AssociationSet>
+          <EntitySet Name="CCClaimDropdownValues" EntityType="CC.PortalModel.CCClaimDropdownValue" />
+          <AssociationSet Name="FK_CCClaimDropdownValues_CCClaims" Association="CC.PortalModel.FK_CCClaimDropdownValues_CCClaims">
+            <End Role="CCClaim" EntitySet="CCClaims" />
+            <End Role="CCClaimDropdownValue" EntitySet="CCClaimDropdownValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDropdownValues_CCClients" Association="CC.PortalModel.FK_CCClaimDropdownValues_CCClients">
+            <End Role="CCClient" EntitySet="CCClients" />
+            <End Role="CCClaimDropdownValue" EntitySet="CCClaimDropdownValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDropdownValues_CCSetting_ClaimDropdownTypes" Association="CC.PortalModel.FK_CCClaimDropdownValues_CCSetting_ClaimDropdownTypes">
+            <End Role="CCSetting_ClaimDropdownTypes" EntitySet="CCSetting_ClaimDropdownTypes" />
+            <End Role="CCClaimDropdownValue" EntitySet="CCClaimDropdownValues" />
+          </AssociationSet>
+          <EntitySet Name="CCClaimTextboxValues" EntityType="CC.PortalModel.CCClaimTextboxValue" />
+          <EntitySet Name="CCSetting_ClaimTextboxTypes" EntityType="CC.PortalModel.CCSetting_ClaimTextboxTypes" />
+          <AssociationSet Name="FK_CCClaimTextboxValues_CCClaims" Association="CC.PortalModel.FK_CCClaimTextboxValues_CCClaims">
+            <End Role="CCClaim" EntitySet="CCClaims" />
+            <End Role="CCClaimTextboxValue" EntitySet="CCClaimTextboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimTextboxValues_CCClients" Association="CC.PortalModel.FK_CCClaimTextboxValues_CCClients">
+            <End Role="CCClient" EntitySet="CCClients" />
+            <End Role="CCClaimTextboxValue" EntitySet="CCClaimTextboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimTextboxValues_CCSetting_ClaimTextboxTypes" Association="CC.PortalModel.FK_CCClaimTextboxValues_CCSetting_ClaimTextboxTypes">
+            <End Role="CCSetting_ClaimTextboxTypes" EntitySet="CCSetting_ClaimTextboxTypes" />
+            <End Role="CCClaimTextboxValue" EntitySet="CCClaimTextboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_ClaimTextboxTypes_CCClients" Association="CC.PortalModel.FK_CCSetting_ClaimTextboxTypes_CCClients">
+            <End Role="CCClient" EntitySet="CCClients" />
+            <End Role="CCSetting_ClaimTextboxTypes" EntitySet="CCSetting_ClaimTextboxTypes" />
+          </AssociationSet>
+          <EntitySet Name="CCSetting_ClaimCheckboxTypes" EntityType="CC.PortalModel.CCSetting_ClaimCheckboxTypes" />
+          <AssociationSet Name="FK_CCSetting_ClaimCheckboxTypes_CCClients" Association="CC.PortalModel.FK_CCSetting_ClaimCheckboxTypes_CCClients">
+            <End Role="CCClient" EntitySet="CCClients" />
+            <End Role="CCSetting_ClaimCheckboxTypes" EntitySet="CCSetting_ClaimCheckboxTypes" />
+          </AssociationSet>
+          <EntitySet Name="CCClaimCheckboxValues" EntityType="CC.PortalModel.CCClaimCheckboxValue" />
+          <AssociationSet Name="FK_CCClaimCheckboxValues_CCClaims" Association="CC.PortalModel.FK_CCClaimCheckboxValues_CCClaims">
+            <End Role="CCClaim" EntitySet="CCClaims" />
+            <End Role="CCClaimCheckboxValue" EntitySet="CCClaimCheckboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimCheckboxValues_CCClients" Association="CC.PortalModel.FK_CCClaimCheckboxValues_CCClients">
+            <End Role="CCClient" EntitySet="CCClients" />
+            <End Role="CCClaimCheckboxValue" EntitySet="CCClaimCheckboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimCheckboxValues_CCSetting_ClaimCheckboxTypes" Association="CC.PortalModel.FK_CCClaimCheckboxValues_CCSetting_ClaimCheckboxTypes">
+            <End Role="CCSetting_ClaimCheckboxTypes" EntitySet="CCSetting_ClaimCheckboxTypes" />
+            <End Role="CCClaimCheckboxValue" EntitySet="CCClaimCheckboxValues" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimDropdownValues_CCSetting_ClaimDropdownValues" Association="CC.PortalModel.FK_CCClaimDropdownValues_CCSetting_ClaimDropdownValues">
+            <End Role="CCSetting_ClaimDropdownValues" EntitySet="CCSetting_ClaimDropdownValues" />
+            <End Role="CCClaimDropdownValue" EntitySet="CCClaimDropdownValues" />
+          </AssociationSet>
+          <EntitySet Name="CCSetting_CustomFormSections" EntityType="CC.PortalModel.CCSetting_CustomFormSections" />
+          <EntitySet Name="CCSetting_CustomFormSectionSectionItems" EntityType="CC.PortalModel.CCSetting_CustomFormSectionSectionItems" />
+          <AssociationSet Name="FK_CCSetting_SectionItems_CCClients" Association="CC.PortalModel.FK_CCSetting_SectionItems_CCClients">
+            <End Role="CCClient" EntitySet="CCClients" />
+            <End Role="CCSetting_CustomFormSectionSectionItems" EntitySet="CCSetting_CustomFormSectionSectionItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_SectionTypes_CCClients1" Association="CC.PortalModel.FK_CCSetting_SectionTypes_CCClients1">
+            <End Role="CCClient" EntitySet="CCClients" />
+            <End Role="CCSetting_CustomFormSections" EntitySet="CCSetting_CustomFormSections" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCSetting_CustomFormSectionSectionItems_CCSetting_CustomFormSections" Association="CC.PortalModel.FK_CCSetting_CustomFormSectionSectionItems_CCSetting_CustomFormSections">
+            <End Role="CCSetting_CustomFormSections" EntitySet="CCSetting_CustomFormSections" />
+            <End Role="CCSetting_CustomFormSectionSectionItems" EntitySet="CCSetting_CustomFormSectionSectionItems" />
+          </AssociationSet>
+          <EntitySet Name="CCSetting_CustomForms" EntityType="CC.PortalModel.CCSetting_CustomForms" />
+          <AssociationSet Name="FK_CCSetting_SectionTypes_CCSettings_CustomForms" Association="CC.PortalModel.FK_CCSetting_SectionTypes_CCSettings_CustomForms">
+            <End Role="CCSetting_CustomForms" EntitySet="CCSetting_CustomForms" />
+            <End Role="CCSetting_CustomFormSections" EntitySet="CCSetting_CustomFormSections" />
+          </AssociationSet>
+          <EntitySet Name="CCClaimMedias" EntityType="CC.PortalModel.CCClaimMedia" />
+          <AssociationSet Name="FK_CCClaimMedia_CCClaimPersons" Association="CC.PortalModel.FK_CCClaimMedia_CCClaimPersons">
+            <End Role="CCClaimPerson" EntitySet="CCClaimPersons" />
+            <End Role="CCClaimMedia" EntitySet="CCClaimMedias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimMedia_CCClaims" Association="CC.PortalModel.FK_CCClaimMedia_CCClaims">
+            <End Role="CCClaim" EntitySet="CCClaims" />
+            <End Role="CCClaimMedia" EntitySet="CCClaimMedias" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CCClaimMedia_CCClients" Association="CC.PortalModel.FK_CCClaimMedia_CCClients">
+            <End Role="CCClient" EntitySet="CCClients" />
+            <End Role="CCClaimMedia" EntitySet="CCClaimMedias" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="CCClaimDate">
+          <Key>
+            <PropertyRef Name="claimDateID" />
+          </Key>
+          <Property Name="claimDateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="claimGUID" Type="Guid" Nullable="false" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="claimDateTypeID" Type="Int32" Nullable="false" />
+          <Property Name="claimDateStamp" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CCClaimDateType" Relationship="CC.PortalModel.FK_CCClaimDates_CCClaims" FromRole="CCClaimDates" ToRole="CCClaimDateTypes" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCClaimDates_CCClients" FromRole="CCClaimDates" ToRole="CCClients" />
+        </EntityType>
+        <EntityType Name="CCClaimDateType">
+          <Key>
+            <PropertyRef Name="claimDateTypeID" />
+          </Key>
+          <Property Name="claimDateTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="claimDateType" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="claimDateTypeDisabled" Type="Boolean" Nullable="false" />
+          <Property Name="claimDateTypeDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CCClaimDates" Relationship="CC.PortalModel.FK_CCClaimDates_CCClaims" FromRole="CCClaimDateTypes" ToRole="CCClaimDates" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCClaimDateTypes_CCClients" FromRole="CCClaimDateTypes" ToRole="CCClients" />
+        </EntityType>
+        <EntityType Name="CCClaimPerson">
+          <Key>
+            <PropertyRef Name="claimPersonID" />
+          </Key>
+          <Property Name="claimPersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="claimID" Type="Int32" Nullable="false" />
+          <Property Name="personID" Type="Int32" Nullable="false" />
+          <Property Name="claimPersonnelTypeID" Type="Int32" Nullable="false" />
+          <Property Name="creationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="claimPersonDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CCClaim" Relationship="CC.PortalModel.FK_CCClaimPersons_CCClaims" FromRole="CCClaimPersons" ToRole="CCClaims" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCClaimPersons_CCClients" FromRole="CCClaimPersons" ToRole="CCClients" />
+          <NavigationProperty Name="CCPerson" Relationship="CC.PortalModel.FK_CCClaimPersons_CCPersons" FromRole="CCClaimPersons" ToRole="CCPersons" />
+          <NavigationProperty Name="CCSetting_ClaimPersonnelTypes" Relationship="CC.PortalModel.FK_CCClaimPersons_CCSetting_ClaimPersonnelTypes" FromRole="CCClaimPersons" ToRole="CCSetting_ClaimPersonnelTypes" />
+          <NavigationProperty Name="CCClaimMedias" Relationship="CC.PortalModel.FK_CCClaimMedia_CCClaimPersons" FromRole="CCClaimPerson" ToRole="CCClaimMedia" />
+        </EntityType>
+        <EntityType Name="CCClaim">
+          <Key>
+            <PropertyRef Name="claimID" />
+          </Key>
+          <Property Name="claimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="claimGUID" Type="Guid" Nullable="false" />
+          <Property Name="claimAlias1" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="claimAlias2" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="claimAlias3" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CCClaimPersons" Relationship="CC.PortalModel.FK_CCClaimPersons_CCClaims" FromRole="CCClaims" ToRole="CCClaimPersons" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCClaims_CCClients" FromRole="CCClaims" ToRole="CCClients" />
+          <NavigationProperty Name="CCClaimDropdownValues" Relationship="CC.PortalModel.FK_CCClaimDropdownValues_CCClaims" FromRole="CCClaim" ToRole="CCClaimDropdownValue" />
+          <NavigationProperty Name="CCClaimTextboxValues" Relationship="CC.PortalModel.FK_CCClaimTextboxValues_CCClaims" FromRole="CCClaim" ToRole="CCClaimTextboxValue" />
+          <NavigationProperty Name="CCClaimCheckboxValues" Relationship="CC.PortalModel.FK_CCClaimCheckboxValues_CCClaims" FromRole="CCClaim" ToRole="CCClaimCheckboxValue" />
+          <NavigationProperty Name="CCClaimMedias" Relationship="CC.PortalModel.FK_CCClaimMedia_CCClaims" FromRole="CCClaim" ToRole="CCClaimMedia" />
+        </EntityType>
+        <EntityType Name="CCClientOrganization">
+          <Key>
+            <PropertyRef Name="clientOrgID" />
+          </Key>
+          <Property Name="clientOrgID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientOrgGUID" Type="Guid" Nullable="false" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="clientOrgTypeID" Type="Int32" Nullable="false" />
+          <Property Name="clientOrgName" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="clientOrgGenericContactCardID" Type="Int32" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCClientOrganizations_CCClients" FromRole="CCClientOrganizations" ToRole="CCClients" />
+        </EntityType>
+        <EntityType Name="CCClient">
+          <Key>
+            <PropertyRef Name="clientID" />
+          </Key>
+          <Property Name="clientID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientGUID" Type="Guid" Nullable="false" />
+          <Property Name="clientName" Type="String" Nullable="false" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="clientGenericContactCardID" Type="Int32" />
+          <Property Name="clientTaxID" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="clientTimeZone" Type="Int32" />
+          <Property Name="clientNotes" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="clientDomainName" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="clientInactive" Type="Boolean" />
+          <Property Name="clientGroup" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CCClaimDates" Relationship="CC.PortalModel.FK_CCClaimDates_CCClients" FromRole="CCClients" ToRole="CCClaimDates" />
+          <NavigationProperty Name="CCClaimDateTypes" Relationship="CC.PortalModel.FK_CCClaimDateTypes_CCClients" FromRole="CCClients" ToRole="CCClaimDateTypes" />
+          <NavigationProperty Name="CCClaimPersons" Relationship="CC.PortalModel.FK_CCClaimPersons_CCClients" FromRole="CCClients" ToRole="CCClaimPersons" />
+          <NavigationProperty Name="CCClaims" Relationship="CC.PortalModel.FK_CCClaims_CCClients" FromRole="CCClients" ToRole="CCClaims" />
+          <NavigationProperty Name="CCClientOrganizations" Relationship="CC.PortalModel.FK_CCClientOrganizations_CCClients" FromRole="CCClients" ToRole="CCClientOrganizations" />
+          <NavigationProperty Name="CCCustomLabels" Relationship="CC.PortalModel.FK_CCCustomLabels_CCClients" FromRole="CCClients" ToRole="CCCustomLabels" />
+          <NavigationProperty Name="CCPersons" Relationship="CC.PortalModel.FK_CCPersons_CCClients" FromRole="CCClients" ToRole="CCPersons" />
+          <NavigationProperty Name="CCSetting_ClaimDropdownTypes" Relationship="CC.PortalModel.FK_CCSetting_ClaimDropdownTypes_CCClients" FromRole="CCClients" ToRole="CCSetting_ClaimDropdownTypes" />
+          <NavigationProperty Name="CCSetting_ClaimDropdownValues" Relationship="CC.PortalModel.FK_CCSetting_ClaimDropdownValues_CCClients" FromRole="CCClients" ToRole="CCSetting_ClaimDropdownValues" />
+          <NavigationProperty Name="CCSetting_ClaimPersonnelTypes" Relationship="CC.PortalModel.FK_CCSetting_ClaimPersonnelTypes_CCClients" FromRole="CCClients" ToRole="CCSetting_ClaimPersonnelTypes" />
+          <NavigationProperty Name="CCClaimDropdownValues" Relationship="CC.PortalModel.FK_CCClaimDropdownValues_CCClients" FromRole="CCClient" ToRole="CCClaimDropdownValue" />
+          <NavigationProperty Name="CCClaimTextboxValues" Relationship="CC.PortalModel.FK_CCClaimTextboxValues_CCClients" FromRole="CCClient" ToRole="CCClaimTextboxValue" />
+          <NavigationProperty Name="CCSetting_ClaimTextboxTypes" Relationship="CC.PortalModel.FK_CCSetting_ClaimTextboxTypes_CCClients" FromRole="CCClient" ToRole="CCSetting_ClaimTextboxTypes" />
+          <NavigationProperty Name="CCSetting_ClaimCheckboxTypes" Relationship="CC.PortalModel.FK_CCSetting_ClaimCheckboxTypes_CCClients" FromRole="CCClient" ToRole="CCSetting_ClaimCheckboxTypes" />
+          <NavigationProperty Name="CCClaimCheckboxValues" Relationship="CC.PortalModel.FK_CCClaimCheckboxValues_CCClients" FromRole="CCClient" ToRole="CCClaimCheckboxValue" />
+          <NavigationProperty Name="CCSetting_CustomFormSectionSectionItems" Relationship="CC.PortalModel.FK_CCSetting_SectionItems_CCClients" FromRole="CCClient" ToRole="CCSetting_CustomFormSectionSectionItems" />
+          <NavigationProperty Name="CCSetting_CustomFormSections" Relationship="CC.PortalModel.FK_CCSetting_SectionTypes_CCClients1" FromRole="CCClient" ToRole="CCSetting_CustomFormSections" />
+          <NavigationProperty Name="CCClaimMedias" Relationship="CC.PortalModel.FK_CCClaimMedia_CCClients" FromRole="CCClient" ToRole="CCClaimMedia" />
+        </EntityType>
+        <EntityType Name="CCCustomLabel">
+          <Key>
+            <PropertyRef Name="labelID" />
+          </Key>
+          <Property Name="labelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="tableName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="columnName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="labelText" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCCustomLabels_CCClients" FromRole="CCCustomLabels" ToRole="CCClients" />
+        </EntityType>
+        <EntityType Name="CCGenericContactCard">
+          <Key>
+            <PropertyRef Name="genericContactCardID" />
+          </Key>
+          <Property Name="genericContactCardID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="genericContactCardTypeID" Type="Int32" Nullable="false" />
+          <Property Name="genericContactAddrLine1" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactAddrLine2" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactCity" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactState" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactZIP" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactCountry" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactPhone1" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactPhone2" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactPhone3" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactPhone4" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactPhone5" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactFax" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactEMail1" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactEMail2" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="genericContactWebsite" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="CCPersons" Relationship="CC.PortalModel.FK_CCPersons_CCGenericContactCard" FromRole="CCGenericContactCard" ToRole="CCPersons" />
+        </EntityType>
+        <EntityType Name="CCGenericContactCardType">
+          <Key>
+            <PropertyRef Name="genericContactCardTypeID" />
+            <PropertyRef Name="genericContactCardForTable" />
+          </Key>
+          <Property Name="genericContactCardTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="genericContactCardForTable" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="CCPerson">
+          <Key>
+            <PropertyRef Name="personID" />
+          </Key>
+          <Property Name="personID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="personGUID" Type="Guid" Nullable="false" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="personParentTable" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="personParentID" Type="Int32" />
+          <Property Name="personFName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="personLName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="personMName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="personTitle" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="personSuffix" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="personGenericContactCardID" Type="Int32" />
+          <Property Name="personInactive" Type="Boolean" />
+          <Property Name="personClientOrgID" Type="Int32" />
+          <Property Name="personCreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="personUserName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="personPassword" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="personRoleID" Type="Int32" />
+          <NavigationProperty Name="CCClaimPersons" Relationship="CC.PortalModel.FK_CCClaimPersons_CCPersons" FromRole="CCPersons" ToRole="CCClaimPersons" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCPersons_CCClients" FromRole="CCPersons" ToRole="CCClients" />
+          <NavigationProperty Name="CCGenericContactCard" Relationship="CC.PortalModel.FK_CCPersons_CCGenericContactCard" FromRole="CCPersons" ToRole="CCGenericContactCard" />
+        </EntityType>
+        <EntityType Name="CCSetting_ClaimDropdownTypes">
+          <Key>
+            <PropertyRef Name="dropdownTypeID" />
+          </Key>
+          <Property Name="dropdownTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="dropdownName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="hideOnNewClaim" Type="Boolean" Nullable="false" />
+          <Property Name="dropdownDisabled" Type="Boolean" Nullable="false" />
+          <Property Name="dropdownDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCSetting_ClaimDropdownTypes_CCClients" FromRole="CCSetting_ClaimDropdownTypes" ToRole="CCClients" />
+          <NavigationProperty Name="CCSetting_ClaimDropdownValues" Relationship="CC.PortalModel.FK_CCSetting_ClaimDropdownValues_CCSetting_ClaimDropdownTypes" FromRole="CCSetting_ClaimDropdownTypes" ToRole="CCSetting_ClaimDropdownValues" />
+          <NavigationProperty Name="CCClaimDropdownValues" Relationship="CC.PortalModel.FK_CCClaimDropdownValues_CCSetting_ClaimDropdownTypes" FromRole="CCSetting_ClaimDropdownTypes" ToRole="CCClaimDropdownValue" />
+        </EntityType>
+        <EntityType Name="CCSetting_ClaimDropdownValues">
+          <Key>
+            <PropertyRef Name="ddValueID" />
+          </Key>
+          <Property Name="ddValueID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="claimDropdownTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ddValueItem" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="sortOrder" Type="Int32" />
+          <Property Name="itemDisabled" Type="Boolean" Nullable="false" />
+          <Property Name="itemDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCSetting_ClaimDropdownValues_CCClients" FromRole="CCSetting_ClaimDropdownValues" ToRole="CCClients" />
+          <NavigationProperty Name="CCSetting_ClaimDropdownTypes" Relationship="CC.PortalModel.FK_CCSetting_ClaimDropdownValues_CCSetting_ClaimDropdownTypes" FromRole="CCSetting_ClaimDropdownValues" ToRole="CCSetting_ClaimDropdownTypes" />
+          <NavigationProperty Name="CCClaimDropdownValues" Relationship="CC.PortalModel.FK_CCClaimDropdownValues_CCSetting_ClaimDropdownValues" FromRole="CCSetting_ClaimDropdownValues" ToRole="CCClaimDropdownValue" />
+        </EntityType>
+        <EntityType Name="CCSetting_ClaimPersonnelTypes">
+          <Key>
+            <PropertyRef Name="claimPersonnelTypeID" />
+          </Key>
+          <Property Name="claimPersonnelTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clientID" Type="Int32" Nullable="false" />
+          <Property Name="claimPersonnelType" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="allowMultiple" Type="Boolean" Nullable="false" />
+          <Property Name="claimPersonnelTypeDisabled" Type="Boolean" Nullable="false" />
+          <Property Name="claimPersonnelTypeDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CCClaimPersons" Relationship="CC.PortalModel.FK_CCClaimPersons_CCSetting_ClaimPersonnelTypes" FromRole="CCSetting_ClaimPersonnelTypes" ToRole="CCClaimPersons" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCSetting_ClaimPersonnelTypes_CCClients" FromRole="CCSetting_ClaimPersonnelTypes" ToRole="CCClients" />
+        </EntityType>
+        <Association Name="FK_CCClaimDates_CCClaims">
+          <End Role="CCClaimDateTypes" Type="CC.PortalModel.CCClaimDateType" Multiplicity="1" />
+          <End Role="CCClaimDates" Type="CC.PortalModel.CCClaimDate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaimDateTypes">
+              <PropertyRef Name="claimDateTypeID" />
+            </Principal>
+            <Dependent Role="CCClaimDates">
+              <PropertyRef Name="claimDateTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDates_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.CCClient" Multiplicity="1" />
+          <End Role="CCClaimDates" Type="CC.PortalModel.CCClaimDate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimDates">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDateTypes_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.CCClient" Multiplicity="1" />
+          <End Role="CCClaimDateTypes" Type="CC.PortalModel.CCClaimDateType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimDateTypes">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimPersons_CCClaims">
+          <End Role="CCClaims" Type="CC.PortalModel.CCClaim" Multiplicity="1" />
+          <End Role="CCClaimPersons" Type="CC.PortalModel.CCClaimPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaims">
+              <PropertyRef Name="claimID" />
+            </Principal>
+            <Dependent Role="CCClaimPersons">
+              <PropertyRef Name="claimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimPersons_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.CCClient" Multiplicity="1" />
+          <End Role="CCClaimPersons" Type="CC.PortalModel.CCClaimPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimPersons">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimPersons_CCPersons">
+          <End Role="CCPersons" Type="CC.PortalModel.CCPerson" Multiplicity="1" />
+          <End Role="CCClaimPersons" Type="CC.PortalModel.CCClaimPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCPersons">
+              <PropertyRef Name="personID" />
+            </Principal>
+            <Dependent Role="CCClaimPersons">
+              <PropertyRef Name="personID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimPersons_CCSetting_ClaimPersonnelTypes">
+          <End Role="CCSetting_ClaimPersonnelTypes" Type="CC.PortalModel.CCSetting_ClaimPersonnelTypes" Multiplicity="1" />
+          <End Role="CCClaimPersons" Type="CC.PortalModel.CCClaimPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimPersonnelTypes">
+              <PropertyRef Name="claimPersonnelTypeID" />
+            </Principal>
+            <Dependent Role="CCClaimPersons">
+              <PropertyRef Name="claimPersonnelTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaims_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.CCClient" Multiplicity="1" />
+          <End Role="CCClaims" Type="CC.PortalModel.CCClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaims">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClientOrganizations_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.CCClient" Multiplicity="1" />
+          <End Role="CCClientOrganizations" Type="CC.PortalModel.CCClientOrganization" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClientOrganizations">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCCustomLabels_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.CCClient" Multiplicity="1" />
+          <End Role="CCCustomLabels" Type="CC.PortalModel.CCCustomLabel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCCustomLabels">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCPersons_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.CCClient" Multiplicity="1" />
+          <End Role="CCPersons" Type="CC.PortalModel.CCPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCPersons">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimDropdownTypes_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.CCClient" Multiplicity="1" />
+          <End Role="CCSetting_ClaimDropdownTypes" Type="CC.PortalModel.CCSetting_ClaimDropdownTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimDropdownTypes">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimDropdownValues_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.CCClient" Multiplicity="1" />
+          <End Role="CCSetting_ClaimDropdownValues" Type="CC.PortalModel.CCSetting_ClaimDropdownValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimDropdownValues">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimPersonnelTypes_CCClients">
+          <End Role="CCClients" Type="CC.PortalModel.CCClient" Multiplicity="1" />
+          <End Role="CCSetting_ClaimPersonnelTypes" Type="CC.PortalModel.CCSetting_ClaimPersonnelTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClients">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimPersonnelTypes">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCPersons_CCGenericContactCard">
+          <End Role="CCGenericContactCard" Type="CC.PortalModel.CCGenericContactCard" Multiplicity="0..1" />
+          <End Role="CCPersons" Type="CC.PortalModel.CCPerson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCGenericContactCard">
+              <PropertyRef Name="genericContactCardID" />
+            </Principal>
+            <Dependent Role="CCPersons">
+              <PropertyRef Name="personGenericContactCardID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimDropdownValues_CCSetting_ClaimDropdownTypes">
+          <End Role="CCSetting_ClaimDropdownTypes" Type="CC.PortalModel.CCSetting_ClaimDropdownTypes" Multiplicity="1" />
+          <End Role="CCSetting_ClaimDropdownValues" Type="CC.PortalModel.CCSetting_ClaimDropdownValues" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimDropdownTypes">
+              <PropertyRef Name="dropdownTypeID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimDropdownValues">
+              <PropertyRef Name="claimDropdownTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CCClaimDropdownValue">
+          <Key>
+            <PropertyRef Name="recordID" />
+          </Key>
+          <Property Type="Int32" Name="recordID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="clientID" Nullable="false" />
+          <Property Type="Int32" Name="claimID" Nullable="false" />
+          <Property Type="Int32" Name="dropdownTypeID" Nullable="false" />
+          <Property Type="Int32" Name="dropdownValueID" Nullable="false" />
+          <NavigationProperty Name="CCClaim" Relationship="CC.PortalModel.FK_CCClaimDropdownValues_CCClaims" FromRole="CCClaimDropdownValue" ToRole="CCClaim" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCClaimDropdownValues_CCClients" FromRole="CCClaimDropdownValue" ToRole="CCClient" />
+          <NavigationProperty Name="CCSetting_ClaimDropdownTypes" Relationship="CC.PortalModel.FK_CCClaimDropdownValues_CCSetting_ClaimDropdownTypes" FromRole="CCClaimDropdownValue" ToRole="CCSetting_ClaimDropdownTypes" />
+          <NavigationProperty Name="CCSetting_ClaimDropdownValues" Relationship="CC.PortalModel.FK_CCClaimDropdownValues_CCSetting_ClaimDropdownValues" FromRole="CCClaimDropdownValue" ToRole="CCSetting_ClaimDropdownValues" />
+        </EntityType>
+        <Association Name="FK_CCClaimDropdownValues_CCClaims">
+          <End Type="CC.PortalModel.CCClaim" Role="CCClaim" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimDropdownValue" Role="CCClaimDropdownValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaim">
+              <PropertyRef Name="claimID" />
+            </Principal>
+            <Dependent Role="CCClaimDropdownValue">
+              <PropertyRef Name="claimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDropdownValues_CCClients">
+          <End Type="CC.PortalModel.CCClient" Role="CCClient" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimDropdownValue" Role="CCClaimDropdownValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClient">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimDropdownValue">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDropdownValues_CCSetting_ClaimDropdownTypes">
+          <End Type="CC.PortalModel.CCSetting_ClaimDropdownTypes" Role="CCSetting_ClaimDropdownTypes" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimDropdownValue" Role="CCClaimDropdownValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimDropdownTypes">
+              <PropertyRef Name="dropdownTypeID" />
+            </Principal>
+            <Dependent Role="CCClaimDropdownValue">
+              <PropertyRef Name="dropdownTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CCClaimTextboxValue">
+          <Key>
+            <PropertyRef Name="recordID" />
+          </Key>
+          <Property Type="Int32" Name="recordID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="clientID" Nullable="false" />
+          <Property Type="Int32" Name="claimID" Nullable="false" />
+          <Property Type="Int32" Name="textboxTypeID" Nullable="false" />
+          <Property Type="String" Name="textboxValue" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CCClaim" Relationship="CC.PortalModel.FK_CCClaimTextboxValues_CCClaims" FromRole="CCClaimTextboxValue" ToRole="CCClaim" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCClaimTextboxValues_CCClients" FromRole="CCClaimTextboxValue" ToRole="CCClient" />
+          <NavigationProperty Name="CCSetting_ClaimTextboxTypes" Relationship="CC.PortalModel.FK_CCClaimTextboxValues_CCSetting_ClaimTextboxTypes" FromRole="CCClaimTextboxValue" ToRole="CCSetting_ClaimTextboxTypes" />
+        </EntityType>
+        <EntityType Name="CCSetting_ClaimTextboxTypes">
+          <Key>
+            <PropertyRef Name="textboxTypeID" />
+          </Key>
+          <Property Type="Int32" Name="textboxTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="clientID" Nullable="false" />
+          <Property Type="String" Name="textboxName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="textboxDisabled" />
+          <Property Type="Boolean" Name="textboxDeleted" />
+          <NavigationProperty Name="CCClaimTextboxValues" Relationship="CC.PortalModel.FK_CCClaimTextboxValues_CCSetting_ClaimTextboxTypes" FromRole="CCSetting_ClaimTextboxTypes" ToRole="CCClaimTextboxValue" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCSetting_ClaimTextboxTypes_CCClients" FromRole="CCSetting_ClaimTextboxTypes" ToRole="CCClient" />
+        </EntityType>
+        <Association Name="FK_CCClaimTextboxValues_CCClaims">
+          <End Type="CC.PortalModel.CCClaim" Role="CCClaim" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimTextboxValue" Role="CCClaimTextboxValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaim">
+              <PropertyRef Name="claimID" />
+            </Principal>
+            <Dependent Role="CCClaimTextboxValue">
+              <PropertyRef Name="claimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimTextboxValues_CCClients">
+          <End Type="CC.PortalModel.CCClient" Role="CCClient" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimTextboxValue" Role="CCClaimTextboxValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClient">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimTextboxValue">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimTextboxValues_CCSetting_ClaimTextboxTypes">
+          <End Type="CC.PortalModel.CCSetting_ClaimTextboxTypes" Role="CCSetting_ClaimTextboxTypes" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimTextboxValue" Role="CCClaimTextboxValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimTextboxTypes">
+              <PropertyRef Name="textboxTypeID" />
+            </Principal>
+            <Dependent Role="CCClaimTextboxValue">
+              <PropertyRef Name="textboxTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_ClaimTextboxTypes_CCClients">
+          <End Type="CC.PortalModel.CCClient" Role="CCClient" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCSetting_ClaimTextboxTypes" Role="CCSetting_ClaimTextboxTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClient">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimTextboxTypes">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CCSetting_ClaimCheckboxTypes">
+          <Key>
+            <PropertyRef Name="checkboxTypeID" />
+          </Key>
+          <Property Type="Int32" Name="checkboxTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="clientID" Nullable="false" />
+          <Property Type="String" Name="checkboxName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="checkboxDisabled" />
+          <Property Type="Boolean" Name="checkboxDeleted" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCSetting_ClaimCheckboxTypes_CCClients" FromRole="CCSetting_ClaimCheckboxTypes" ToRole="CCClient" />
+          <NavigationProperty Name="CCClaimCheckboxValues" Relationship="CC.PortalModel.FK_CCClaimCheckboxValues_CCSetting_ClaimCheckboxTypes" FromRole="CCSetting_ClaimCheckboxTypes" ToRole="CCClaimCheckboxValue" />
+        </EntityType>
+        <Association Name="FK_CCSetting_ClaimCheckboxTypes_CCClients">
+          <End Type="CC.PortalModel.CCClient" Role="CCClient" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCSetting_ClaimCheckboxTypes" Role="CCSetting_ClaimCheckboxTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClient">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_ClaimCheckboxTypes">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CCClaimCheckboxValue">
+          <Key>
+            <PropertyRef Name="recordID" />
+          </Key>
+          <Property Type="Int32" Name="recordID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="clientID" Nullable="false" />
+          <Property Type="Int32" Name="claimID" Nullable="false" />
+          <Property Type="Int32" Name="checkboxTypeID" Nullable="false" />
+          <Property Type="Boolean" Name="checked" Nullable="false" />
+          <NavigationProperty Name="CCClaim" Relationship="CC.PortalModel.FK_CCClaimCheckboxValues_CCClaims" FromRole="CCClaimCheckboxValue" ToRole="CCClaim" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCClaimCheckboxValues_CCClients" FromRole="CCClaimCheckboxValue" ToRole="CCClient" />
+          <NavigationProperty Name="CCSetting_ClaimCheckboxTypes" Relationship="CC.PortalModel.FK_CCClaimCheckboxValues_CCSetting_ClaimCheckboxTypes" FromRole="CCClaimCheckboxValue" ToRole="CCSetting_ClaimCheckboxTypes" />
+        </EntityType>
+        <Association Name="FK_CCClaimCheckboxValues_CCClaims">
+          <End Type="CC.PortalModel.CCClaim" Role="CCClaim" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimCheckboxValue" Role="CCClaimCheckboxValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaim">
+              <PropertyRef Name="claimID" />
+            </Principal>
+            <Dependent Role="CCClaimCheckboxValue">
+              <PropertyRef Name="claimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimCheckboxValues_CCClients">
+          <End Type="CC.PortalModel.CCClient" Role="CCClient" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimCheckboxValue" Role="CCClaimCheckboxValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClient">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimCheckboxValue">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimCheckboxValues_CCSetting_ClaimCheckboxTypes">
+          <End Type="CC.PortalModel.CCSetting_ClaimCheckboxTypes" Role="CCSetting_ClaimCheckboxTypes" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimCheckboxValue" Role="CCClaimCheckboxValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimCheckboxTypes">
+              <PropertyRef Name="checkboxTypeID" />
+            </Principal>
+            <Dependent Role="CCClaimCheckboxValue">
+              <PropertyRef Name="checkboxTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimDropdownValues_CCSetting_ClaimDropdownValues">
+          <End Type="CC.PortalModel.CCSetting_ClaimDropdownValues" Role="CCSetting_ClaimDropdownValues" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimDropdownValue" Role="CCClaimDropdownValue" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_ClaimDropdownValues">
+              <PropertyRef Name="ddValueID" />
+            </Principal>
+            <Dependent Role="CCClaimDropdownValue">
+              <PropertyRef Name="dropdownValueID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CCSetting_CustomFormSections">
+          <Key>
+            <PropertyRef Name="sectionID" />
+          </Key>
+          <Property Type="Int32" Name="sectionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="clientID" Nullable="false" />
+          <Property Type="Int32" Name="formID" Nullable="false" />
+          <Property Type="String" Name="sectionName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="sortOrder" Nullable="false" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCSetting_SectionTypes_CCClients1" FromRole="CCSetting_CustomFormSections" ToRole="CCClient" />
+          <NavigationProperty Name="CCSetting_CustomFormSectionSectionItems" Relationship="CC.PortalModel.FK_CCSetting_CustomFormSectionSectionItems_CCSetting_CustomFormSections" FromRole="CCSetting_CustomFormSections" ToRole="CCSetting_CustomFormSectionSectionItems" />
+          <NavigationProperty Name="CCSetting_CustomForms" Relationship="CC.PortalModel.FK_CCSetting_SectionTypes_CCSettings_CustomForms" FromRole="CCSetting_CustomFormSections" ToRole="CCSetting_CustomForms" />
+        </EntityType>
+        <EntityType Name="CCSetting_CustomFormSectionSectionItems">
+          <Key>
+            <PropertyRef Name="sectionItemID" />
+          </Key>
+          <Property Type="Int32" Name="sectionItemID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="clientID" Nullable="false" />
+          <Property Type="Int32" Name="sectionID" Nullable="false" />
+          <Property Type="String" Name="elementType" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="elementTypeID" Nullable="false" />
+          <Property Type="Boolean" Name="elementDisabled" Nullable="false" />
+          <Property Type="Boolean" Name="elementDeleted" Nullable="false" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCSetting_SectionItems_CCClients" FromRole="CCSetting_CustomFormSectionSectionItems" ToRole="CCClient" />
+          <NavigationProperty Name="CCSetting_CustomFormSections" Relationship="CC.PortalModel.FK_CCSetting_CustomFormSectionSectionItems_CCSetting_CustomFormSections" FromRole="CCSetting_CustomFormSectionSectionItems" ToRole="CCSetting_CustomFormSections" />
+        </EntityType>
+        <Association Name="FK_CCSetting_SectionItems_CCClients">
+          <End Type="CC.PortalModel.CCClient" Role="CCClient" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCSetting_CustomFormSectionSectionItems" Role="CCSetting_CustomFormSectionSectionItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClient">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_CustomFormSectionSectionItems">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_SectionTypes_CCClients1">
+          <End Type="CC.PortalModel.CCClient" Role="CCClient" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCSetting_CustomFormSections" Role="CCSetting_CustomFormSections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClient">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCSetting_CustomFormSections">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCSetting_CustomFormSectionSectionItems_CCSetting_CustomFormSections">
+          <End Type="CC.PortalModel.CCSetting_CustomFormSections" Role="CCSetting_CustomFormSections" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCSetting_CustomFormSectionSectionItems" Role="CCSetting_CustomFormSectionSectionItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_CustomFormSections">
+              <PropertyRef Name="sectionID" />
+            </Principal>
+            <Dependent Role="CCSetting_CustomFormSectionSectionItems">
+              <PropertyRef Name="sectionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CCSetting_CustomForms">
+          <Key>
+            <PropertyRef Name="formID" />
+          </Key>
+          <Property Type="Int32" Name="formID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="clientID" Nullable="false" />
+          <Property Type="String" Name="formType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="formName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="serializedForm" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CCSetting_CustomFormSections" Relationship="CC.PortalModel.FK_CCSetting_SectionTypes_CCSettings_CustomForms" FromRole="CCSetting_CustomForms" ToRole="CCSetting_CustomFormSections" />
+        </EntityType>
+        <Association Name="FK_CCSetting_SectionTypes_CCSettings_CustomForms">
+          <End Type="CC.PortalModel.CCSetting_CustomForms" Role="CCSetting_CustomForms" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCSetting_CustomFormSections" Role="CCSetting_CustomFormSections" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCSetting_CustomForms">
+              <PropertyRef Name="formID" />
+            </Principal>
+            <Dependent Role="CCSetting_CustomFormSections">
+              <PropertyRef Name="formID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CCClaimMedia">
+          <Key>
+            <PropertyRef Name="mediaID" />
+          </Key>
+          <Property Type="Int32" Name="mediaID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="clientID" Nullable="false" />
+          <Property Type="Int32" Name="claimID" Nullable="false" />
+          <Property Type="Int32" Name="uploadedByPersonID" Nullable="false" />
+          <Property Type="DateTime" Name="timeStamp" Nullable="false" Precision="3" />
+          <Property Type="String" Name="mediaType" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="title" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="description" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fileName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="fileLocation" Nullable="false" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CCClaimPerson" Relationship="CC.PortalModel.FK_CCClaimMedia_CCClaimPersons" FromRole="CCClaimMedia" ToRole="CCClaimPerson" />
+          <NavigationProperty Name="CCClaim" Relationship="CC.PortalModel.FK_CCClaimMedia_CCClaims" FromRole="CCClaimMedia" ToRole="CCClaim" />
+          <NavigationProperty Name="CCClient" Relationship="CC.PortalModel.FK_CCClaimMedia_CCClients" FromRole="CCClaimMedia" ToRole="CCClient" />
+          <Property Type="Boolean" Name="deletedFlag" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CCClaimMedia_CCClaimPersons">
+          <End Type="CC.PortalModel.CCClaimPerson" Role="CCClaimPerson" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimMedia" Role="CCClaimMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaimPerson">
+              <PropertyRef Name="claimPersonID" />
+            </Principal>
+            <Dependent Role="CCClaimMedia">
+              <PropertyRef Name="uploadedByPersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimMedia_CCClaims">
+          <End Type="CC.PortalModel.CCClaim" Role="CCClaim" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimMedia" Role="CCClaimMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClaim">
+              <PropertyRef Name="claimID" />
+            </Principal>
+            <Dependent Role="CCClaimMedia">
+              <PropertyRef Name="claimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CCClaimMedia_CCClients">
+          <End Type="CC.PortalModel.CCClient" Role="CCClient" Multiplicity="1" />
+          <End Type="CC.PortalModel.CCClaimMedia" Role="CCClaimMedia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CCClient">
+              <PropertyRef Name="clientID" />
+            </Principal>
+            <Dependent Role="CCClaimMedia">
+              <PropertyRef Name="clientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CCPortalModelStoreContainer" CdmEntityContainer="CCPortalEntities">
+          <EntitySetMapping Name="CCClaimDates">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCClaimDate">
+              <MappingFragment StoreEntitySet="CCClaimDates">
+                <ScalarProperty Name="claimDateID" ColumnName="claimDateID" />
+                <ScalarProperty Name="claimGUID" ColumnName="claimGUID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="claimDateTypeID" ColumnName="claimDateTypeID" />
+                <ScalarProperty Name="claimDateStamp" ColumnName="claimDateStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCClaimDateTypes">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCClaimDateType">
+              <MappingFragment StoreEntitySet="CCClaimDateTypes">
+                <ScalarProperty Name="claimDateTypeID" ColumnName="claimDateTypeID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="claimDateType" ColumnName="claimDateType" />
+                <ScalarProperty Name="claimDateTypeDisabled" ColumnName="claimDateTypeDisabled" />
+                <ScalarProperty Name="claimDateTypeDeleted" ColumnName="claimDateTypeDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCClaimPersons">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCClaimPerson">
+              <MappingFragment StoreEntitySet="CCClaimPersons">
+                <ScalarProperty Name="claimPersonID" ColumnName="claimPersonID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="claimID" ColumnName="claimID" />
+                <ScalarProperty Name="personID" ColumnName="personID" />
+                <ScalarProperty Name="claimPersonnelTypeID" ColumnName="claimPersonnelTypeID" />
+                <ScalarProperty Name="creationDate" ColumnName="creationDate" />
+                <ScalarProperty Name="claimPersonDeleted" ColumnName="claimPersonDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCClaims">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCClaim">
+              <MappingFragment StoreEntitySet="CCClaims">
+                <ScalarProperty Name="claimID" ColumnName="claimID" />
+                <ScalarProperty Name="claimGUID" ColumnName="claimGUID" />
+                <ScalarProperty Name="claimAlias1" ColumnName="claimAlias1" />
+                <ScalarProperty Name="claimAlias2" ColumnName="claimAlias2" />
+                <ScalarProperty Name="claimAlias3" ColumnName="claimAlias3" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCClientOrganizations">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCClientOrganization">
+              <MappingFragment StoreEntitySet="CCClientOrganizations">
+                <ScalarProperty Name="clientOrgID" ColumnName="clientOrgID" />
+                <ScalarProperty Name="clientOrgGUID" ColumnName="clientOrgGUID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="clientOrgTypeID" ColumnName="clientOrgTypeID" />
+                <ScalarProperty Name="clientOrgName" ColumnName="clientOrgName" />
+                <ScalarProperty Name="clientOrgGenericContactCardID" ColumnName="clientOrgGenericContactCardID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCClients">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCClient">
+              <MappingFragment StoreEntitySet="CCClients">
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="clientGUID" ColumnName="clientGUID" />
+                <ScalarProperty Name="clientName" ColumnName="clientName" />
+                <ScalarProperty Name="clientGenericContactCardID" ColumnName="clientGenericContactCardID" />
+                <ScalarProperty Name="clientTaxID" ColumnName="clientTaxID" />
+                <ScalarProperty Name="clientTimeZone" ColumnName="clientTimeZone" />
+                <ScalarProperty Name="clientNotes" ColumnName="clientNotes" />
+                <ScalarProperty Name="clientDomainName" ColumnName="clientDomainName" />
+                <ScalarProperty Name="clientInactive" ColumnName="clientInactive" />
+                <ScalarProperty Name="clientGroup" ColumnName="clientGroup" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCCustomLabels">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCCustomLabel">
+              <MappingFragment StoreEntitySet="CCCustomLabels">
+                <ScalarProperty Name="labelID" ColumnName="labelID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="tableName" ColumnName="tableName" />
+                <ScalarProperty Name="columnName" ColumnName="columnName" />
+                <ScalarProperty Name="labelText" ColumnName="labelText" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCGenericContactCards">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCGenericContactCard">
+              <MappingFragment StoreEntitySet="CCGenericContactCard">
+                <ScalarProperty Name="genericContactCardID" ColumnName="genericContactCardID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="genericContactCardTypeID" ColumnName="genericContactCardTypeID" />
+                <ScalarProperty Name="genericContactAddrLine1" ColumnName="genericContactAddrLine1" />
+                <ScalarProperty Name="genericContactAddrLine2" ColumnName="genericContactAddrLine2" />
+                <ScalarProperty Name="genericContactCity" ColumnName="genericContactCity" />
+                <ScalarProperty Name="genericContactState" ColumnName="genericContactState" />
+                <ScalarProperty Name="genericContactZIP" ColumnName="genericContactZIP" />
+                <ScalarProperty Name="genericContactCountry" ColumnName="genericContactCountry" />
+                <ScalarProperty Name="genericContactPhone1" ColumnName="genericContactPhone1" />
+                <ScalarProperty Name="genericContactPhone2" ColumnName="genericContactPhone2" />
+                <ScalarProperty Name="genericContactPhone3" ColumnName="genericContactPhone3" />
+                <ScalarProperty Name="genericContactPhone4" ColumnName="genericContactPhone4" />
+                <ScalarProperty Name="genericContactPhone5" ColumnName="genericContactPhone5" />
+                <ScalarProperty Name="genericContactFax" ColumnName="genericContactFax" />
+                <ScalarProperty Name="genericContactEMail1" ColumnName="genericContactEMail1" />
+                <ScalarProperty Name="genericContactEMail2" ColumnName="genericContactEMail2" />
+                <ScalarProperty Name="genericContactWebsite" ColumnName="genericContactWebsite" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCGenericContactCardTypes">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCGenericContactCardType">
+              <MappingFragment StoreEntitySet="CCGenericContactCardTypes">
+                <ScalarProperty Name="genericContactCardTypeID" ColumnName="genericContactCardTypeID" />
+                <ScalarProperty Name="genericContactCardForTable" ColumnName="genericContactCardForTable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCPersons">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCPerson">
+              <MappingFragment StoreEntitySet="CCPersons">
+                <ScalarProperty Name="personID" ColumnName="personID" />
+                <ScalarProperty Name="personGUID" ColumnName="personGUID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="personParentTable" ColumnName="personParentTable" />
+                <ScalarProperty Name="personParentID" ColumnName="personParentID" />
+                <ScalarProperty Name="personFName" ColumnName="personFName" />
+                <ScalarProperty Name="personLName" ColumnName="personLName" />
+                <ScalarProperty Name="personMName" ColumnName="personMName" />
+                <ScalarProperty Name="personTitle" ColumnName="personTitle" />
+                <ScalarProperty Name="personSuffix" ColumnName="personSuffix" />
+                <ScalarProperty Name="personGenericContactCardID" ColumnName="personGenericContactCardID" />
+                <ScalarProperty Name="personInactive" ColumnName="personInactive" />
+                <ScalarProperty Name="personClientOrgID" ColumnName="personClientOrgID" />
+                <ScalarProperty Name="personCreationDate" ColumnName="personCreationDate" />
+                <ScalarProperty Name="personUserName" ColumnName="personUserName" />
+                <ScalarProperty Name="personPassword" ColumnName="personPassword" />
+                <ScalarProperty Name="personRoleID" ColumnName="personRoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCSetting_ClaimDropdownTypes">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCSetting_ClaimDropdownTypes">
+              <MappingFragment StoreEntitySet="CCSetting_ClaimDropdownTypes">
+                <ScalarProperty Name="dropdownTypeID" ColumnName="dropdownTypeID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="dropdownName" ColumnName="dropdownName" />
+                <ScalarProperty Name="hideOnNewClaim" ColumnName="hideOnNewClaim" />
+                <ScalarProperty Name="dropdownDisabled" ColumnName="dropdownDisabled" />
+                <ScalarProperty Name="dropdownDeleted" ColumnName="dropdownDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCSetting_ClaimDropdownValues">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCSetting_ClaimDropdownValues">
+              <MappingFragment StoreEntitySet="CCSetting_ClaimDropdownValues">
+                <ScalarProperty Name="ddValueID" ColumnName="ddValueID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="claimDropdownTypeID" ColumnName="claimDropdownTypeID" />
+                <ScalarProperty Name="ddValueItem" ColumnName="ddValueItem" />
+                <ScalarProperty Name="sortOrder" ColumnName="sortOrder" />
+                <ScalarProperty Name="itemDisabled" ColumnName="itemDisabled" />
+                <ScalarProperty Name="itemDeleted" ColumnName="itemDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCSetting_ClaimPersonnelTypes">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCSetting_ClaimPersonnelTypes">
+              <MappingFragment StoreEntitySet="CCSetting_ClaimPersonnelTypes">
+                <ScalarProperty Name="claimPersonnelTypeID" ColumnName="claimPersonnelTypeID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="claimPersonnelType" ColumnName="claimPersonnelType" />
+                <ScalarProperty Name="allowMultiple" ColumnName="allowMultiple" />
+                <ScalarProperty Name="claimPersonnelTypeDisabled" ColumnName="claimPersonnelTypeDisabled" />
+                <ScalarProperty Name="claimPersonnelTypeDeleted" ColumnName="claimPersonnelTypeDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCClaimDropdownValues">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCClaimDropdownValue">
+              <MappingFragment StoreEntitySet="CCClaimDropdownValues">
+                <ScalarProperty Name="dropdownValueID" ColumnName="dropdownValueID" />
+                <ScalarProperty Name="dropdownTypeID" ColumnName="dropdownTypeID" />
+                <ScalarProperty Name="claimID" ColumnName="claimID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="recordID" ColumnName="recordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCClaimTextboxValues">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCClaimTextboxValue">
+              <MappingFragment StoreEntitySet="CCClaimTextboxValues">
+                <ScalarProperty Name="textboxValue" ColumnName="textboxValue" />
+                <ScalarProperty Name="textboxTypeID" ColumnName="textboxTypeID" />
+                <ScalarProperty Name="claimID" ColumnName="claimID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="recordID" ColumnName="recordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCSetting_ClaimTextboxTypes">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCSetting_ClaimTextboxTypes">
+              <MappingFragment StoreEntitySet="CCSetting_ClaimTextboxTypes">
+                <ScalarProperty Name="textboxDeleted" ColumnName="textboxDeleted" />
+                <ScalarProperty Name="textboxDisabled" ColumnName="textboxDisabled" />
+                <ScalarProperty Name="textboxName" ColumnName="textboxName" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="textboxTypeID" ColumnName="textboxTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCSetting_ClaimCheckboxTypes">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCSetting_ClaimCheckboxTypes">
+              <MappingFragment StoreEntitySet="CCSetting_ClaimCheckboxTypes">
+                <ScalarProperty Name="checkboxDeleted" ColumnName="checkboxDeleted" />
+                <ScalarProperty Name="checkboxDisabled" ColumnName="checkboxDisabled" />
+                <ScalarProperty Name="checkboxName" ColumnName="checkboxName" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="checkboxTypeID" ColumnName="checkboxTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCClaimCheckboxValues">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCClaimCheckboxValue">
+              <MappingFragment StoreEntitySet="CCClaimCheckboxValues">
+                <ScalarProperty Name="checked" ColumnName="checked" />
+                <ScalarProperty Name="checkboxTypeID" ColumnName="checkboxTypeID" />
+                <ScalarProperty Name="claimID" ColumnName="claimID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="recordID" ColumnName="recordID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCSetting_CustomFormSections">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCSetting_CustomFormSections">
+              <MappingFragment StoreEntitySet="CCSetting_CustomFormSections">
+                <ScalarProperty Name="sortOrder" ColumnName="sortOrder" />
+                <ScalarProperty Name="sectionName" ColumnName="sectionName" />
+                <ScalarProperty Name="formID" ColumnName="formID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="sectionID" ColumnName="sectionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCSetting_CustomFormSectionSectionItems">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCSetting_CustomFormSectionSectionItems">
+              <MappingFragment StoreEntitySet="CCSetting_CustomFormSectionSectionItems">
+                <ScalarProperty Name="elementDeleted" ColumnName="elementDeleted" />
+                <ScalarProperty Name="elementDisabled" ColumnName="elementDisabled" />
+                <ScalarProperty Name="elementTypeID" ColumnName="elementTypeID" />
+                <ScalarProperty Name="elementType" ColumnName="elementType" />
+                <ScalarProperty Name="sectionID" ColumnName="sectionID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="sectionItemID" ColumnName="sectionItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCSetting_CustomForms">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCSetting_CustomForms">
+              <MappingFragment StoreEntitySet="CCSetting_CustomForms">
+                <ScalarProperty Name="serializedForm" ColumnName="serializedForm" />
+                <ScalarProperty Name="formName" ColumnName="formName" />
+                <ScalarProperty Name="formType" ColumnName="formType" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="formID" ColumnName="formID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CCClaimMedias">
+            <EntityTypeMapping TypeName="CC.PortalModel.CCClaimMedia">
+              <MappingFragment StoreEntitySet="CCClaimMedia">
+                <ScalarProperty Name="deletedFlag" ColumnName="deletedFlag" />
+                <ScalarProperty Name="fileLocation" ColumnName="fileLocation" />
+                <ScalarProperty Name="fileName" ColumnName="fileName" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="mediaType" ColumnName="mediaType" />
+                <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+                <ScalarProperty Name="uploadedByPersonID" ColumnName="uploadedByPersonID" />
+                <ScalarProperty Name="claimID" ColumnName="claimID" />
+                <ScalarProperty Name="clientID" ColumnName="clientID" />
+                <ScalarProperty Name="mediaID" ColumnName="mediaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

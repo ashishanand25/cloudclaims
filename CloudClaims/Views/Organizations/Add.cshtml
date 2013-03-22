@@ -1,0 +1,51 @@
+﻿@model CloudClaims.Data.Portal.CCClientOrganizationANDCCGenericContactCard
+
+@{ViewBag.Title = "Add Organization/Client";}
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    @using (Html.BeginForm("Add", "Organizations", FormMethod.Post, new { @class = "form", @id = "validate" })) {
+        if (!this.ViewData.ModelState.IsValid) {
+        <div class="nNote nFailure hideit">
+            <p>
+                <strong>FAILURE: </strong>
+                @Html.ValidationSummary()
+            </p>
+        </div>
+        }
+        <div class="nNote nSuccess hideit" style="display: none;">
+            <p><strong>SUCCESS: </strong>Success message! hoooraaay!!!!</p>
+        </div>  
+           
+        <div class="widget">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Add Organization/Client</h6>
+            </div>
+            <div class="formRow">
+                <label>Organization/Client:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.org.clientOrgName, new { @class = "validate[required]", @autofocus = "autofocus" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <d iv class="formSubmit">
+                    <input type="submit" value="create" class="greenB" />
+                </d>
+            <div class="clear"></div>
+        </div>
+           
+        <div class="toggle acc">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>Contact Info</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                @Html.Partial("GenericContactCard", new CloudClaims.Model.CCGenericContactCard(), new ViewDataDictionary(Html.ViewDataContainer.ViewData) { TemplateInfo = new System.Web.Mvc.TemplateInfo { HtmlFieldPrefix = "contactCard" } })
+                <div class="formSubmit">
+                    <input type="submit" value="create" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    }
+</div>

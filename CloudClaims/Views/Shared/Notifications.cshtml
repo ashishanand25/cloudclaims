@@ -1,0 +1,58 @@
+﻿@model CloudClaims.ViewModels.vmNotifications
+@switch (Model.type) {
+    case CloudClaims.Data.CustomEnums.NotificationType.WARNING: {
+    <div class="nNote nWarning hideit">
+        <p><strong>WARNING: </strong>@Model.message</p>
+    </div>
+            break;
+        }
+    case CloudClaims.Data.CustomEnums.NotificationType.INFORMATION: {
+    <div class="nNote nInformation hideit">
+        <p><strong>INFORMATION: </strong>@Model.message</p>
+    </div>    
+            break;
+        }
+    case CloudClaims.Data.CustomEnums.NotificationType.SUCCESS: {
+    <div class="nNote nSuccess hideit">
+        <p><strong>SUCCESS: </strong>@Model.message</p>
+    </div>
+            break;
+        }
+    case CloudClaims.Data.CustomEnums.NotificationType.FAILURE: {
+    <div class="nNote nFailure hideit">
+        <p><strong>FAILURE: </strong>@Model.message</p>
+    </div>
+            break;
+        }
+    default: {
+            break;
+        }
+}
+
+
+<script type="text/javascript">
+    //===== Notification boxes =====//
+    $(".hideit").click(function () {
+        $(this).fadeTo(200, 0.00, function () { //fade
+            $(this).hide('slide', { direction: 'up' }, 500, function () { //slide up
+                $(this).remove(); //then remove from the DOM
+            });
+        });
+    });
+@switch (Model.type) {
+    case CloudClaims.Data.CustomEnums.NotificationType.FAILURE:
+    case CloudClaims.Data.CustomEnums.NotificationType.WARNING: {
+    <text> setTimeout(function () {
+    $(".hideit").hide('slide', { direction: 'up' }, 500, function () { $(this).remove(); });
+}, 9000); </text>
+            break;
+        }
+    case CloudClaims.Data.CustomEnums.NotificationType.SUCCESS:
+    case CloudClaims.Data.CustomEnums.NotificationType.INFORMATION: {
+    <text> setTimeout(function () {
+    $(".hideit").hide('slide', { direction: 'up' }, 500, function () { $(this).remove(); });
+}, 4000); </text>
+            break;
+        }
+}
+</script>

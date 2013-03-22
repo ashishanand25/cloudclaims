@@ -1,0 +1,35 @@
+﻿@model IEnumerable<CloudClaims.Model.CCPerson>
+@{
+    ViewBag.Title = "Manage Internal Users";
+}
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    <!-- Dynamic table -->
+    <div class="widget">
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>Internal Users</h6>
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Created</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var u in Model) {
+                    <tr class="gradeA">
+                        <td>
+                            <a href="~/Users/EditInternal?id=@u.personGUID">@u.personFName @u.personMName @u.personLName</a>
+                        </td>
+                        <td>@u.personUserName</td>
+                        <td>@u.personPassword</td>
+                        <td>@u.personCreationDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

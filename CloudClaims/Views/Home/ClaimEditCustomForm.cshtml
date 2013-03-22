@@ -1,0 +1,359 @@
+﻿@model CloudClaims.ViewModels.vmClaimEditLite
+@using CloudClaims.Data.Portal
+
+<link href="~/Scripts/gridster/jquery.gridster.css" rel="stylesheet" />
+<link href="~/Scripts/select2/select2.css" rel="stylesheet" />
+@{
+    ViewBag.Title = @Model.vmCustomForm.formName;
+}
+
+<div class="wrapper hidden-wrapper">
+    @using (Html.BeginForm("ClaimEditLite", "Home", FormMethod.Post, new { @class = "form", @id = "validate" })) {
+        @Html.HiddenFor(m => m.ccClaim.claimID)
+        @Html.HiddenFor(m => m.ccClaim.claimGUID)
+        @Html.HiddenFor(m => m.ccClaim.clientID)
+        if (ViewData["message"] != null) {
+        <script>
+            Notifications.displayGlobalNotification({ message: '@ViewData["message"]', type: '@ViewData["type"]' });
+        </script>
+        }
+        if (TempData["message"] != null) {
+        <script>
+            Notifications.displayGlobalNotification({ message: '@TempData["message"]', type: '@TempData["type"]' });
+        </script>
+        }
+        <div class="toggle acc">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>@Model.vmCustomForm.formName</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                <div class="formRow">
+                    @*<%--PARENT GRID BEGIN--%>*@
+                    <div class="gridster ready"></div>
+                    @*<%--PARENT GRID END--%>*@
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    }
+</div>
+@Html.Partial("StickyFooter", new CloudClaims.ViewModels.vmStickyFooter { personPicker = true })
+<script src="~/Scripts/gridster/jquery.gridster.js"></script>
+<script src="~/Scripts/select2/select2.js"></script>
+<script type="text/javascript">
+    //Used for generating GUIDs
+    function S4() {
+        return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+    }
+
+    //Used for generating GUIDs
+    function guid() {
+        return (S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4());
+    }
+
+    //Reports back to the vmClaimEditListJSON object if a form element value is updated
+    function inputChanged(element) {
+        //Detect elementtype by checking the parent LI item
+        var elementtype = $(element).closest('li.widgetx').attr('data-elementtype').toString();
+        var elementtypeid = $(element).closest('li.widgetx').attr('data-elementtypeid');
+        console.log('elemettype: ' + elementtype + ', elementtypeid: ' + elementtypeid);
+        //#region SWITCH elementtype
+        switch (elementtype) {
+            //#region CHECKBOXES
+            case 'checkbox':
+                {
+                    $.each(vmClaimEditLiteJSON.claimCheckboxes, function () {
+                        if (elementtypeid.replace(/\D/g, '') === this.label) {
+                            this.value = $(element).is(':checked') ? 'True' : 'False';
+                        }
+                    });
+                    break;
+                }
+                //#endregion
+                //#region TEXTBOXES
+            case 'textbox':
+                {
+                    $.each(vmClaimEditLiteJSON.claimTextboxes, function () {
+                        if (elementtypeid.replace(/\D/g, '') === this.label) {
+                            this.value = $(element).val();
+                        }
+                    });
+                    break;
+                }
+                //#endregion
+                //#region DROPDOWNS
+            case 'dropdown':
+                {
+                    //var templateDropdownTypeID = parseInt(this.elementtypeid.replace(/\D/g, ''));
+                    $.each(vmClaimEditLiteJSON.claimDropdowns, function () {
+                        if (parseInt(elementtypeid.replace(/\D/g, '')) === parseInt(this.dropdownTypeID)) {
+                            $.each(this.dropdownValues, function () {
+                                if (parseInt($(element).val()) === parseInt(this.Value)) {
+                                    this.Selected = true;
+                                } else {
+                                    this.Selected = false;
+                                }
+                            });
+                        }
+                    });
+                    break;
+                }
+                //#endregion
+                //#region DATEFIELD
+            case 'datefield':
+                {
+                    $.each(vmClaimEditLiteJSON.claimDates, function () {
+                        if (elementtypeid.replace(/\D/g, '') === this.label) {
+                            this.value = $(element).val();
+                        }
+                    });
+                    break;
+                }
+                //#endregion
+                //#region PERSONNEL
+            case 'personnel':
+                {
+                    break;
+                }
+                //#endregion
+        }
+        //#endregion
+        //Ready to post back updated vmClaimEditLiteJSON
+
+    }
+
+    var vmClaimEditLiteJSON = {};
+    $(function () {
+        //#region HTML MARKUP VARIABLES
+
+        var HTML_InjectElement = new Array();
+        HTML_InjectElement['textbox'] = '<div class="formRow">' +
+                                            '<div class="span12">' +
+                                                '<input type="hidden" id="" />' +
+                                                '<label></label>' +
+                                                '<input type="text" />' +
+                                            '</div>' +
+                                            '<div class="clear"></div>' +
+                                        '</div>';
+
+        HTML_InjectElement['dropdown'] = '<div class="formRow">' +
+                                            '<div class="oneFourx">' +
+                                                '<input type="hidden" id="" />' +
+                                                '<label></label><br />' +
+                                                '<select data-placeholder="Choose an Option..." class="select2" style="width:250px;"><option value=""></option></select>' +
+                                            '</div>' +
+                                            '<div class="clear"></div>' +
+                                        '</div>';
+
+        HTML_InjectElement['datefield'] = '<div class="formRow">' +
+                                                '<div class="oneTwo">' +
+                                                    '<input type="hidden" id="" />' +
+                                                    '<img src="' + GLOBAL_CONTENTS_URL + 'fatcow-icons/calendar.png" alt="" class="icon" width="16" />' +
+                                                    '<label></label>' +
+                                                    '<input type="text" class="datepicker" />' +
+                                                '</div>' +
+                                                '<div class="clear"></div>' +
+                                            '</div>';
+
+        HTML_InjectElement['checkbox'] = '<div class="formRow">' +
+                                            '<div class="span12">' +
+                                                '<input type="hidden" id="" />' +
+                                                '<label></label>' +
+                                                '<input type="checkbox" />' +
+                                            '</div>' +
+                                            '<div class="clear"></div>' +
+                                        '</div>';
+
+        HTML_InjectElement['personnel'] = '<div class="formRow">' +
+                                            '<div class="span12">' +
+                                                '<input type="hidden" id="" />' +
+                                                '<img src="' + GLOBAL_CONTENTS_URL + 'fatcow-icons/user_gray.png" alt="" class="icon" width="16" />' +
+                                                '<label></label>' +
+                                                '<input type="text" />' +
+                                            '</div>' +
+                                            '<div class="clear"></div>' +
+                                        '</div>';
+        //#endregion
+
+        var gridster;
+        var WIDGET_WIDTH;
+        var WIDGET_HEIGHT = 40;
+        var grid_margin = 0;
+        var block_params = {
+            max_width: 6,
+            max_height: 6
+        };
+
+
+        //#region LOAD MODEL INTO vmClaimEditLiteJSON
+        $.ajax({
+            url: GLOBAL_HOME_URL + 'ClaimEditLiteJSON',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ guid: '@Model.ccClaim.claimGUID' }),
+            success: function (data_received) {
+                vmClaimEditLiteJSON = data_received;
+            }
+        });
+        //#endregion
+
+
+        $.ajax({
+            url: GLOBAL_SETTINGS_URL + 'GetCustomFormGridsterObject',
+            type: 'POST',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ formID: '@Model.vmCustomForm.formID' }),
+            success: function (data_received) {
+                $('.gridster').html('<ul></ul>');
+                WIDGET_WIDTH = Math.ceil(($('.gridster').width() / 6) - 2);
+                gridster = $(".gridster ul").gridster({
+                    widget_margins: [grid_margin, grid_margin],
+                    widget_base_dimensions: [WIDGET_WIDTH, WIDGET_HEIGHT],
+                    min_cols: 1,
+                    max_size_x: 6,
+                    max_size_y: 2
+                }).data('gridster').disable();
+                $.each(data_received, function () {
+                    //console.log(this);
+                    var gridsterObjectInstance = this;
+                    var newID = guid();
+                    gridster.add_widget('<li id="' + newID + '" class="widgetx" data-type="CONTENT"><div class="widget-content"></div></li>', this.size_x, this.size_y, this.col, this.row, this.elementtype, this.elementtypeid);
+                    var elementTitle;
+                    $.ajax({
+                        url: GLOBAL_SETTINGS_URL + 'GetFormElementTitle',
+                        type: 'POST',
+                        async: false,
+                        dataType: 'json',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify({ elementType: this.elementtype, elementTypeID: this.elementtypeid.replace(/\D/g, '') }),
+                        success: function (data_received) {
+                            elementTitle = data_received;
+                        }
+                    });
+                    //Populate each widget with HTML input elements
+                    if (this.elementtype !== 'notset') {
+                        $('#' + newID).find('.widget-content')
+                            .html(HTML_InjectElement[this.elementtype].replace('<label></label>', '<label>' + elementTitle + '</label>'));
+                    }
+                    //#region SWITCH
+                    switch (this.elementtype) {
+                            //#region CHECKBOXES
+                        case 'checkbox':
+                            {
+                                if (vmClaimEditLiteJSON.claimCheckboxes.length) {
+                                    $.each(vmClaimEditLiteJSON.claimCheckboxes, function () {
+                                        if (gridsterObjectInstance.elementtypeid.replace(/\D/g, '') === this.label) {
+                                            if (this.value == 'True') {
+                                                $('#' + newID).find('input[type="checkbox"]').attr('checked', true);
+                                            }
+                                        }
+                                    });
+                                }
+                                $('#' + newID).find('input[type="checkbox"]').on('change', function () {
+                                    inputChanged($(this));
+                                });
+                                $('#' + newID).find('input[type="checkbox"]').uniform();
+                                break;
+                            }
+                            //#endregion
+                            //#region TEXTBOXES
+                        case 'textbox':
+                            {
+                                //$(this).attr('data-elementtype', 'textbox');
+                                //$(this).attr('data-elementtypeid', 'textboxTypeID-' + GLOBAL_DRAGGED_ITEM_TYPE.id);
+                                if (vmClaimEditLiteJSON.claimTextboxes.length) {
+                                    $.each(vmClaimEditLiteJSON.claimTextboxes, function () {
+                                        if (gridsterObjectInstance.elementtypeid.replace(/\D/g, '') === this.label) {
+                                            $('#' + newID).find('input[type="text"]').val(this.value);
+                                            $('#' + newID).find('input[type="text"]').on('keyup', function () {
+                                                inputChanged($(this));
+                                            });
+                                        }
+                                    });
+                                }
+                                break;
+                            }
+                            //#endregion
+                            //#region DROPDOWNS
+                        case 'dropdown':
+                            {
+                                var templateDropdownTypeID = parseInt(this.elementtypeid.replace(/\D/g, ''));
+                                if (vmClaimEditLiteJSON.claimDropdowns.length) {
+                                    $.each(vmClaimEditLiteJSON.claimDropdowns, function () {
+                                        var dropdownTypeID = this.dropdownTypeID;
+                                        if (templateDropdownTypeID === dropdownTypeID) {
+                                            $('#' + newID).find('select').attr('id', 'dropdownTypeID-' + dropdownTypeID);
+                                            $.each(this.dropdownValues, function () {
+                                                switch (this.Selected) {
+                                                    case true: {
+                                                        $('#dropdownTypeID-' + dropdownTypeID).append('<option selected value="' + this.Value + '">' + this.Text + '</option>');
+                                                        break;
+                                                    }
+                                                    case false: {
+                                                        $('#dropdownTypeID-' + dropdownTypeID).append('<option value="' + this.Value + '">' + this.Text + '</option>');
+                                                        break;
+                                                    }
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                                //$('#' + newID).find('select').uniform();
+                                $('#' + newID).find('select').on('change', function () {
+                                    inputChanged($(this));
+                                });
+                                $('#' + newID).find('.select2').select2();
+
+                                break;
+                            }
+                            //#endregion
+                            //#region DATEFIELD
+                        case 'datefield':
+                            {
+                                //$(this).attr('data-elementtype', 'datefield');
+                                //$(this).attr('data-elementtypeid', 'datefieldTypeID-' + GLOBAL_DRAGGED_ITEM_TYPE.id);
+                                if (vmClaimEditLiteJSON.claimDates.length) {
+                                    $.each(vmClaimEditLiteJSON.claimDates, function () {
+                                        if (gridsterObjectInstance.elementtypeid.replace(/\D/g, '') === this.label) {
+                                            $('#' + newID).find('input[type="text"]').val(this.value);
+                                        }
+                                    });
+                                }
+                                $('#' + newID).find('input[type="text"]').on('change', function () {
+                                    inputChanged($(this));
+                                });
+                                $('#' + newID).find('.datepicker').datepicker({
+                                    defaultDate: new Date(),
+                                    showButtonPanel: false,
+                                    autoSize: true,
+                                    changeMonth: true,
+                                    changeYear: true,
+                                    //appendText: '(mm/dd/yyyy)',
+                                    dateFormat: 'mm/dd/yy'
+                                });
+                                break;
+                            }
+                            //#endregion
+                            //#region PERSONNEL
+                        case 'personnel':
+                            {
+                                break;
+                            }
+                            //#endregion
+                    }
+                });
+                //$('.gridster').css('border', '1px dashed rgba(102, 102, 102, 0.52)');
+            }
+        });
+
+        
+
+        $('#sticky-footer-save-changes').click(function () {
+            console.log('save changes was clicked');
+        });
+    });
+</script>

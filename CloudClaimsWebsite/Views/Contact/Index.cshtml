@@ -1,0 +1,128 @@
+﻿<!-- Primary Page Layout
+	================================================== -->
+
+<!-- BEGIN WRAPPER -->
+<div id="wrapper">
+
+
+    <!-- BEGIN HEADER -->
+    @{Html.RenderPartial("_Layout_Header"); }
+    <!-- END HEADER -->
+
+
+
+    <!-- BEGIN PAGE HEADING -->
+    <section id="heading">
+
+        <div class="container">
+
+            <div class="grid_8">
+                <!-- BEGIN PAGE HEADING -->
+                <header class="page-heading">
+                    <h1>Contact Info</h1>
+                    <nav class="breadcrumbs">
+                        <ul>
+                            <li><a href="index.html">home</a></li>
+                            <li class="current">contact</li>
+                        </ul>
+                    </nav>
+                </header>
+                <!-- END PAGE HEADING -->
+            </div>
+
+
+
+        </div>
+
+    </section>
+    <!-- END PAGE HEADING -->
+    <!-- BEGIN CONTENT HOLDER -->
+    <div id="content-wrapper">
+
+        <div class="indent">
+
+            <div class="container">
+                <div class="grid_12">
+
+                    <!-- BEGIN GOOGLE MAP -->
+                    <div class="map-wrapper">
+                        <div id="map_canvas"></div>
+                    </div>
+                    <!-- END GOOGLE MAP -->
+
+                </div>
+            </div>
+
+            <div class="container">
+
+                <div class="grid_8">
+                    <h4 class="alt-title">send us mail</h4>
+
+                    <!-- BEGIN CONTACT FORM -->
+                    <form method="post" action="sendEmail.php" id="contact-form" class="contact-form">
+                        <div class="grid_5 alpha">
+                            <div class="field clearfix">
+                                <textarea name="comments" id="comments" cols="30" rows="10" placeholder="your message..."></textarea>
+                            </div>
+                        </div>
+                        <div class="grid_3 omega">
+                            <div class="field clearfix">
+                                <input type="text" name="name" id="name" placeholder="your name ..." />
+                            </div>
+                            <div class="field clearfix">
+                                <input type="text" name="email" id="email" placeholder="your email..." />
+                            </div>
+                            <div class="field clearfix">
+                                <input type="text" name="subject" id="subject" placeholder="subject..." />
+                            </div>
+                            <div class="btn-wrapper">
+                                <input type="button" name="submit" id="submit" value="send" onclick="javascript: void (0);" /><i class="btn-marker"></i>
+                            </div>
+                            <div id="response"></div>
+                        </div>
+                    </form>
+                    <!-- END CONTACT FORM -->
+
+                </div>
+
+                <div class="grid_4">
+                    <div class="prefix_1_2">
+                        <h4 class="alt-title">CONTACTS</h4>
+                        <!-- BEGIN ADDRESS -->
+                        <address>
+                            cloudclaims.net is located in New York, NY <br />
+                            <strong>Email:</strong> <a href="mailto:info@cloudclaims.net"><b>info@cloudclaims.net</b></a><br />
+                        </address>
+                        <!-- END ADDRESS -->
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- END CONTENT HOLDER -->
+    <!-- BEGIN FOOTER -->
+    @{Html.RenderPartial("_Layout_Footer");}
+    <!-- END FOOTER -->
+
+
+</div>
+<!-- END WRAPPER -->
+
+
+<!-- Google Map Init-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="js/jquery.ui.map.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //getter
+        var zoom = $('#map_canvas').gmap('option', 'zoom');
+
+        $('#map_canvas').gmap().bind('init', function (ev, map) {
+            $('#map_canvas').gmap('addMarker', { 'position': '40.75102830623012, -73.98553848266602', 'bounds': true });
+            $('#map_canvas').gmap('option', 'zoom', 12);
+        });
+    });
+</script>

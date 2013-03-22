@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CloudClaimsWebsite.Models.emailSubscription>
+<link rel="stylesheet" type="text/css" href="../../js/tipsy/tipsy.css"
+    media="screen" />
+<script type="text/javascript" src="../../js/tipsy/jquery.tipsy-min.js"></script>
+<style>
+    .subscriberList, li
+    {
+        list-style-type: none;
+        padding: 0 0 0 5;
+        margin: 0 0 0 0;
+        font-family: Courier New;
+        color: White;
+        text-align: left;
+        font-size: 14px;
+    }
+    .subscriberList
+    {
+        border: solid;
+        background: black;
+        padding: 10px;
+        margin: 4px;
+        width: 250px;
+        height: 460px;
+        opacity:0.8;
+        overflow-x: hidden;
+        overflow-y: scroll;
+    }
+    
+    #counter
+    {
+        display: inline;
+        background-color:Red;
+        height: 100px;
+        width: 100px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        padding: 0.3em;
+    }
+</style>
+<ul class="subscriberList" style="height: 50px; height: auto; overflow: hidden;">
+    <li style="text-align: center;"><b>SIGN-UP REQUESTS</b> <div id="counter">@Model.Count()</div></li>
+</ul>
+<ul class="subscriberList">
+    <style>
+    #tipsyStyle 
+    {
+        text-align: left;
+    }
+    </style>
+    @foreach (var item in Model)
+    {
+        <li class="mws-tooltip-e" title="<div id=tipsyStyle><b>Who: </b>@item.emailAddress<BR><b>Where: </b>@item.IPAddress<BR><b>When: </b>@item.timeStamp</div>">@item.emailAddress</li>
+    }
+</ul>
+<script type="text/javascript">
+    /* Tooltips */
+    if ($.fn.tipsy) {
+        var gravity = ['n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw'];
+        for (var i in gravity)
+            $(".mws-tooltip-" + gravity[i]).tipsy({ gravity: gravity[i], delayIn: 500, fade: true, opacity: 1, html: true });
+
+        $('input[title], select[title], textarea[title]').tipsy({ trigger: 'focus', gravity: 'w', opacity: 1, html: true });
+    }
+</script>

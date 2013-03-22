@@ -1,0 +1,60 @@
+﻿@model CloudClaims.Data.Portal.CCClientOrganizationANDCCGenericContactCard
+
+@{ViewBag.Title = "Edit Organization/Client";}
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    @using (Html.BeginForm("Edit", "Organizations", FormMethod.Post, new { @class = "form", @id = "validate" })) {
+        if (ViewData["message"] != null || !this.ViewData.ModelState.IsValid) {
+        <script>
+            Notifications.displayGlobalNotification({ message: '@ViewData["message"]', type: '@ViewData["type"]' });
+        </script>
+        }
+        @Html.HiddenFor(m => m.org.clientOrgID)
+        @Html.HiddenFor(m => m.org.clientOrgGUID)
+        @Html.HiddenFor(m => m.org.clientID)
+        @Html.HiddenFor(m => m.org.clientOrgGenericContactCardID)
+            
+          
+        <!-- Toggles group -->
+        <div class="toggle acc">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Edit Organization/Client</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                <div class="formRow">
+                    <label>Organization/Client:<span class="req">*</span></label>
+                    <div class="formRight">
+                        @Html.TextBoxFor(m => m.org.clientOrgName, new { @class = "validate[required]", @autofocus = "autofocus" })
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formSubmit">
+                    <input type="submit" value="save" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>Contact Info</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                @Html.Partial("GenericContactCard", Model.contactCard, new ViewDataDictionary(Html.ViewDataContainer.ViewData) { TemplateInfo = new System.Web.Mvc.TemplateInfo { HtmlFieldPrefix = "contactCard" } })
+                <div class="formSubmit">
+                    <input type="submit" value="save" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>More Info</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                DEAN
+            </div>
+        </div>
+        <div class="clear"></div>
+    }
+</div>
+

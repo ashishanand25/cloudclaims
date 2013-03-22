@@ -1,0 +1,127 @@
+﻿@model CloudClaims.ViewModels.vmClaimDocuments
+@{ViewBag.Title = "Claim Documents";}
+
+<link href="~/Content/plugins/advanced-slider/css/base/advanced-slider-base.css" rel="stylesheet" />
+<link href="~/Content/plugins/advanced-slider/css/slider-skins/glossy-square/gray/glossy-square-gray.css" rel="stylesheet" />
+<link href="~/Content/plugins/advanced-slider/css/scrollbar-skins/scrollbar-2-dark/scrollbar-2-dark.css" rel="stylesheet" />
+<script src="~/Content/plugins/advanced-slider/js/jquery.touchSwipe.min.js"></script>
+<script src="~/Content/plugins/advanced-slider/js/jquery.easing.1.3.min.js"></script>
+<script src="~/Content/plugins/advanced-slider/js/jquery.advancedSlider.min.js"></script>
+<script src="~/Content/plugins/advanced-slider/js/excanvas.compiled.js"></script>
+
+<style type="text/css">
+    .glossy-square-gray .thumbnail {
+        background-color: inherit;
+    }
+
+    
+</style>
+
+@*DOCUMENT SLIDER*@
+<div class="line"></div>
+<div class="statsRow">
+    <div class="wrapper">
+        <div class="controlB">
+            <div class="advanced-slider" id="claimDocumentSlider">
+                <ul class="slides">
+                    @foreach (var d in Model.claimDocuments) {
+                        <li class="slide">
+                            @*<a rel="slider-lightbox[g]" href="@d.fileLocation" title="@d.description">
+                                <img class="image" src="@d.fileLocation" alt="@d.title"/>
+                            </a>*@
+                            @*<img class="thumbnail" src="@p.fileLocation" alt="@p.title" />*@
+                            <div class="thumbnail">
+                                <a href="ClaimDocumentEdit?id=@d.mediaID">
+                                    <div class="long">@d.title</div>
+                                </a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    <!-- Dynamic table -->
+    <div class="widget">
+        <div class="title">
+            <span class="titleIcon">
+                <input type="checkbox" id="titleCheck" name="titleCheck" /></span><h6>Media table</h6>
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" class="sTable withCheck mTable" id="checkAll">
+            <thead>
+                <tr>
+                    <td>
+                        <img src="~/Content/crwn/images/icons/tableArrows.png" alt="" /></td>
+                    <td>Doc Type</td>
+                    <td class="sortCol">Title</td>
+                    <td class="sortCol">
+                        <div>Description<span></span></div>
+                    </td>
+                    <td class="sortCol">
+                        <div>Date<span></span></div>
+                    </td>
+                    <td>File Info</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model.claimDocuments) {
+                    <tr>
+                        <td>
+                            <input type="checkbox" id="titleCheck2" name="checkRow" />
+                        </td>
+                        <td>@d.mediaType</td>
+                        <td>
+                            <a href="ClaimDocumentEdit?id=@d.mediaID">@d.title</a>
+                        </td>
+                        <td>
+                            @d.description
+                        </td>
+                        <td>
+                            @d.timeStamp
+                        </td>
+                        <td class="fileInfo">
+                            <span><strong>Size:</strong> 215 Kb</span><span><strong>Format:</strong> .jpg</span>
+                        </td>
+                        <td class="actBtns"><a href="#" title="Update" class="tipS">
+                            <img src="~/Content/crwn/images/icons/edit.png" alt="" /></a><a href="#" title="Remove" class="tipS"><img src="~/Content/crwn/images/icons/remove.png" alt="" /></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#claimDocumentSlider').advancedSlider({
+            //width: '100%',
+            height: '100',
+            responsive: true,
+            skin: 'glossy-square-gray',
+            shadow: false,
+            effectType: 'swipe',
+            slideshow: true,
+            pauseSlideshowOnHover: true,
+            swipeThreshold: 30,
+            slideButtons: false,
+            thumbnailType: 'scroller',
+            thumbnailWidth: 180,
+            thumbnailHeight: 60,
+            thumbnailButtons: true,
+            thumbnailSwipe: true,
+            thumbnailScrollerResponsive: true,
+            minimumVisibleThumbnails: 3,
+            maximumVisibleThumbnails: 3,
+            keyboardNavigation: false,
+        });
+        $('.slider-main').remove();
+    });
+</script>

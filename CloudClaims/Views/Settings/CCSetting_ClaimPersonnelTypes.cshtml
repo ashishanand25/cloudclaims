@@ -1,0 +1,149 @@
+﻿@model IEnumerable<CloudClaims.Model.CCSetting_ClaimPersonnelTypes>
+
+<form class="form" id="form-claim-personnel-types">
+    <div class="formRow">
+        <label>Add new claim personnel type: </label>
+        <div class="formRight">
+            <span class="oneTwo">
+                <input id="claim-personnel-type" type="text" class="validate[required]" name="req" />
+            </span>
+            <a id="add-claim-personnel-type" href="#" title="" class="button greenB">
+                <img src="~/Content/crwn/images/icons/light/add.png" alt="" class="icon">
+                <span>Add</span>
+            </a>
+        </div>
+        <div id="result"></div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="widget">
+        <table cellpadding="0" cellspacing="0" width="100%" class="sTable taskWidget">
+            <thead>
+                <tr>
+                    <td>Claim Personnel Type</td>
+                    <td width="15%">Status</td>
+                    <td width="10%">Action</td>
+                </tr>
+            </thead>
+            <tbody id="table-claim-personnel-types">
+                @foreach (var d in Model) {
+                    <tr id="row-claim-personnel-type-@d.claimPersonnelTypeID">
+                        @if (d.claimPersonnelTypeDisabled) { 
+                            <td class="taskD">
+                                <span>@d.claimPersonnelType</span>
+                            </td>
+                            <td>
+                                @*<span class="red f11">@d.claimPersonnelTypeDisabled.ToString().Replace("False", "Enabled").Replace("True", "Disabled")</span>*@
+                                <div class="field switch">
+                                    @*<input class="no-uniform" type="radio" id="radio1" name="field" />
+                                    <input class="no-uniform" type="radio" id="radio2" name="field"   />*@
+                                    <label for="radio1" class="claim-personnel-type cb-enable"><span>Enabled</span></label>
+                                    <label for="radio2" class="claim-personnel-type cb-disable selected"><span>Disabled</span></label>
+                                </div>
+
+                            </td>
+                        } else { 
+                            <td class="taskPr">
+                                <span>@d.claimPersonnelType</span>
+                            </td>
+                            <td>
+                                @*<span class="green f11">@d.claimPersonnelTypeDisabled.ToString().Replace("False", "Enabled").Replace("True", "Disabled")</span>*@
+                                <div class="field switch">
+                                    @*<input class="no-uniform" type="radio" id="radio1" name="field" />
+                                    <input class="no-uniform" type="radio" id="radio2" name="field"   />*@
+                                    <label for="radio1" class="claim-personnel-type cb-enable selected"><span>Enabled</span></label>
+                                    <label for="radio2" class="claim-personnel-type cb-disable"><span>Disabled</span></label>
+                                </div>
+
+                            </td>
+                        }
+                        <td class="actBtns">
+                            @Html.HiddenFor(m => d.claimPersonnelTypeID)
+                            <a href="#" title="Update" class="tipS">
+                                <img src="~/Content/crwn/images/icons/edit.png" alt="" />
+                            </a>
+                            <a href="#" id="@d.claimPersonnelTypeID" title="Remove" class="remove-claim-personnel-type">
+                                <img src="~/Content/crwn/images/icons/remove.png" alt="" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</form>
+<script type="text/javascript">
+    $(function () {
+        $('#add-claim-personnel-type').click(function () {
+            if ($("#form-claim-personnel-types").validationEngine('validate')) {
+                $.ajax({
+                    url: 'AddClaimPersonnelType',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ claimPersonnelType: $('#claim-personnel-type').val() }),
+                    success: function (data_received) {
+                        Notifications.displayGlobalNotification(data_received, function () {
+                            if (data_received.type == 3) {
+                                //
+                            }
+                        });
+                    }
+                });
+            }
+
+        });
+
+        $('.remove-claim-personnel-type').click(function () {
+            var item = $(this);
+            var itemID = $(this).attr('id');
+            $.ajax({
+                url: 'DeleteClaimPersonnelType',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ id: itemID }),
+                success: function (data_received) {
+                    Notifications.displayGlobalNotification(data_received, function () {
+                        if (data_received.type == 2) {
+                            $('#row-claim-personnel-type-' + itemID).fadeOut(1000, function () {
+                                $(this).remove();
+                            });
+                        }
+                    });
+                }
+            });
+        });
+
+        $('.cb-enable, .cb-disable').click(function () {
+            if ($(this).hasClass('claim-personnel-type')) {
+                var enableORdisable;
+                var newLight;
+                if ($(this).hasClass('cb-enable')) {
+                    enableORdisable = false;
+                    newLight = "taskPr";
+                } else if ($(this).hasClass('cb-disable')) {
+                    enableORdisable = true;
+                    newLight = "taskD";
+                }
+                var item = $(this);
+                var itemID = $(this).parent().parent().parent().attr('id').replace('row-claim-personnel-type-', '');
+                $.ajax({
+                    url: GLOBAL_SETTINGS_URL + 'DisableClaimPersonnelType',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ claimPersonnelTypeID: itemID, state: enableORdisable }),
+                    success: function (data_received) {
+                        Notifications.displayGlobalNotification(data_received, function () {
+                            if (data_received.type == 2) {
+                                //Success
+                                item.parent().parent().parent().find('td:eq(0)').attr('class', newLight);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    });
+</script>

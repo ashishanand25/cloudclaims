@@ -1,0 +1,165 @@
+﻿<!-- Primary Page Layout
+	================================================== -->
+
+<!-- BEGIN WRAPPER -->
+<div id="wrapper">
+
+
+    <!-- BEGIN HEADER -->
+    @{Html.RenderPartial("_Layout_Header"); }
+    <!-- END HEADER -->
+
+    <!-- BEGIN PAGE HEADING -->
+    <section id="heading">
+        <div class="container">
+            <div class="grid_8">
+                <!-- BEGIN PAGE HEADING -->
+                <header class="page-heading">
+                    <h1>Features</h1>
+                    <nav class="breadcrumbs">
+                        <ul>
+                            <li><a href="Home">home</a></li>
+                            <li>details</li>
+                            <li class="current">features</li>
+                        </ul>
+                    </nav>
+                </header>
+                <!-- END PAGE HEADING -->
+            </div>
+        </div>
+    </section>
+    <!-- END PAGE HEADING -->
+    <!-- BEGIN CONTENT HOLDER -->
+    <div id="content-wrapper">
+
+        <section class="indent">
+
+            <div class="container">
+
+                <div id="content" class="grid_8">
+
+                    <h2>Features Overview</h2>
+                    <p><strong>cloudclaims.net</strong> is built by a team of motivated people with an entrepreneurial drive & solid pior experience in building CMS software for the insurance industry. We leverage our experience to present a Web 2.0 look-and-feel for the tech savvy adjuster in you. We understand your needs and have evolved from mistakes, what beats that? Give us a call to learn more!</p>
+
+                    @*<div class="spacer"></div>*@
+                    <!--//.spacer -->
+
+                    <!-- BEGIN BOX -->
+                    <div class="box">
+                        <ul class="services clearfix">
+                            <li>
+                                <i class="icon i-pointer"></i>
+                                <h5><a href="#">Workload Assessment & Assignment with Google Maps</a></h5>
+                                Fast and easy to use during a CAT. With drag-and-drop style claim assignment via maps. Localize by postal codes. Contact us to watch a demo!
+                            </li>
+                            <li>
+                                <i class="icon i-cloud"></i>
+                                <h5><a href="#">Cloud-based Data/Photo Archiving</a></h5>
+                                Upload and forget. Each document and photo has a permanent URL. Make it public or private. Share with colleagues securely.
+                            </li>
+                            <li>
+                                <i class="icon i-diagram"></i>
+                                <h5><a href="#">Analytics & Charting</a></h5>
+                                Dashboard-style charting and analytics on your claim data. Your numbers. Your staff performance. Your sales. Your receivables.
+                            </li>
+                            <li>
+                                <i class="icon i-book"></i>
+                                <h5><a href="#">Bookmarks & Shortcuts</a></h5>
+                                Managing too many claims and staff? Access any point in your workflow with tiny URL's. Mark claims as 'favorites'.
+                            </li>
+
+                            <li>
+                                <i class="icon i-clock"></i>
+                                <h5><a href="#">Timelog Management</a></h5>
+                                Fast data-entry screens for timelog management. Setup custom services, fees and fee schedules. Setup alerts and notifications that trigger with a timelog addition.
+                            </li>
+                            <li>
+                                <i class="icon i-money"></i>
+                                <h5><a href="#">Invocing</a></h5>
+                                Create invoices & setup auto emailers for billing. Manage accounts payables/receivables. Setup pending milestone alerts. Custom templates.
+                            </li>
+                            <li>
+                                <i class="icon i-talk"></i>
+                                <h5><a href="#">Diary Notes & Messaging Framework</a></h5>
+                                State of the art notifications system with role based messaging. Email, wireless texts and instant messaging all managed through one platform. Search archived messages.
+                            </li>
+                            <li>
+                                <i class="icon i-docs"></i>
+                                <h5><a href="#">Document Management</a></h5>
+                                A one stop for uploading Word/Excel documents and converting to PDF on-the-fly. Combine documents, attachments and enclosures. Bundle photos and documents to PDF.
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- END BOX -->
+                </div>
+
+                <!-- BEGIN SIDEBAR -->
+                <aside id="sidebar" class="grid_4">
+
+                    <div class="prefix_1_2">
+
+                        <!-- BEGIN CUSTOM MENU WIDGET -->
+                        <div class="widget custom-menu-widget">
+                            <h4>Technical Overview:</h4>
+                            <ul>
+                                <li><b>Work on the field</b> with your tablets & smart phone: Compatible with <b>iPad/iPhone/Android</b> devices</li>
+                                <li>Predictive real-time validation: <b>Precise & quick</b> data-entry</li>
+                                <li>Customizable dashboard views: See what's important to <u>your</u> workload!</li>
+                                <li>Fast <b> searching & navigation</b>: Optimized to quickly search from upto <b>1 million claims</b></li>
+                            </ul>
+                        </div>
+                        <!-- END WIDGET -->
+
+                        <!-- BEGIN CUSTOM MENU WIDGET -->
+                        <div class="widget testimonials-widget">
+                            <h4>happy customers:</h4>
+                            <ul class="testimonials-list">
+                                <li>
+                                    <blockquote>The team at cloudclaims.net has truly leveraged their experience in the CMS arena coupled with being technologically modern</blockquote>
+                                    <span class="testi-info">
+                                        <a href="#">Linda Panthers</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <blockquote>cloudclaims.net offers what other CMS guys offer but at fraction of the price, sales team was truly competitive and hungry to gain my trust</blockquote>
+                                    <span class="testi-info">
+                                        <a href="#">Jaime Cook</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <blockquote>Finding a good claims management system that is affordable is one burden I will never need to worry about anymore</blockquote>
+                                    <span class="testi-info">
+                                        <a href="#">Phil Jeanman</a>
+                                    </span>
+                                </li>
+                                <li>
+                                    <blockquote>Unlike other software I tried, cloudclaims.net literally has no learning curve and there's no need for training processes. Very intuitvie indeed</blockquote>
+                                    <span class="testi-info">
+                                        <a href="#">Thelma Baldwin</a>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- END WIDGET -->
+
+                    </div>
+
+                </aside>
+                <!-- END SIDEBAR -->
+
+            </div>
+
+        </section>
+
+    </div>
+    <!-- END CONTENT HOLDER -->
+
+
+  
+    <!-- BEGIN FOOTER -->
+      @{Html.RenderPartial("_Layout_Footer");}
+    <!-- END FOOTER -->
+
+
+</div>
+<!-- END WRAPPER -->

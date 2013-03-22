@@ -1,0 +1,85 @@
+﻿@model CloudClaims.Data.Portal.CCPersonANDCCGenericContactCard
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    @using (Html.BeginForm("AddInternal", "Users", FormMethod.Post, new { @class = "form", @id = "validate" })) {
+        if (!this.ViewData.ModelState.IsValid) {
+        <div class="nNote nFailure hideit">
+            <p>
+                <strong>FAILURE: </strong>
+                @Html.ValidationSummary()
+            </p>
+        </div>
+        }
+        <div class="nNote nSuccess hideit" style="display: none;">
+            <p><strong>SUCCESS: </strong>Success message! hoooraaay!!!!</p>
+        </div>  
+        <div class="widget">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Add new internal user</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>First name:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personFName, new { @class = "validate[required]", @autofocus = "autofocus" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Middle name:</label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personMName, new { @class = "" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>First name:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personLName, new { @class = "validate[required]" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Username:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personUserName, new { @class = "validate[required]" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Password:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.PasswordFor(m => m.person.personPassword, new { @class = "validate[required]" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Repeat password:<span class="req">*</span></label>
+                <div class="formRight">
+                    <input type="password" class="validate[required,equals[person_personPassword]]" name="personPassword2" id="personPassword2" />
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="formSubmit">
+                <input type="submit" value="create" class="greenB" />
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="toggle acc">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>Contact Info</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                @Html.Partial("GenericContactCard", new CloudClaims.Model.CCGenericContactCard(), new ViewDataDictionary(Html.ViewDataContainer.ViewData) { TemplateInfo = new System.Web.Mvc.TemplateInfo { HtmlFieldPrefix = "contactCard" } })
+                <div class="formSubmit">
+                    <input type="submit" value="create" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+            
+    }
+</div>

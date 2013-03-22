@@ -1,0 +1,32 @@
+﻿@model IEnumerable<CloudClaims.Model.CCSetting_CustomForms>
+@{
+    ViewBag.Title = "Manage Custom Forms";
+}
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    <!-- Dynamic table -->
+    <div class="widget">
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>Custom Forms</h6>
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
+            <thead>
+                <tr>
+                    <th>Form Name</th>
+                    <th>Form Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var u in Model) {
+                    <tr class="gradeA">
+                        <td>
+                            <a href="~/Settings/CCSetting_CustomFormBuilder?formID=@u.formID">@u.formName</a>
+                        </td>
+                        <td>@u.formType</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,125 @@
+﻿@model CloudClaims.Model.CCGenericContactCard
+
+@Html.HiddenFor(model => model.clientID)
+@Html.HiddenFor(model => model.genericContactCardID)
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactAddrLine1)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactAddrLine1, new { @class = "mws-textinput" })
+        @Html.ValidationMessageFor(model => model.genericContactAddrLine1)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactAddrLine2)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactAddrLine2, new { @class = "mws-textinput" })
+        @Html.ValidationMessageFor(model => model.genericContactAddrLine2)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactCity)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactCity, new { @class = "mws-textinput" })
+        @Html.ValidationMessageFor(model => model.genericContactCity)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactState)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactState, new { @class = "mws-textinput" })
+        @Html.ValidationMessageFor(model => model.genericContactState)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactZIP)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactZIP, new { @class = "mws-textinput" })
+        @Html.ValidationMessageFor(model => model.genericContactZIP)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactCountry)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactCountry, new { @class = "mws-textinput" })
+        @Html.ValidationMessageFor(model => model.genericContactCountry)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactPhone1)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactPhone1, new { @class = "mws-textinput maskPhoneExt" })
+        @Html.ValidationMessageFor(model => model.genericContactPhone1)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactPhone2)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactPhone2, new { @class = "mws-textinput maskPhoneExt" })
+        @Html.ValidationMessageFor(model => model.genericContactPhone2)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactPhone3)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactPhone3, new { @class = "mws-textinput maskPhoneExt" })
+        @Html.ValidationMessageFor(model => model.genericContactPhone3)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactPhone4)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactPhone4, new { @class = "mws-textinput maskPhoneExt" })
+        @Html.ValidationMessageFor(model => model.genericContactPhone4)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactPhone5)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactPhone5, new { @class = "mws-textinput maskPhoneExt" })
+        @Html.ValidationMessageFor(model => model.genericContactPhone5)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactFax)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactFax, new { @class = "mws-textinput  maskPhone" })
+        @Html.ValidationMessageFor(model => model.genericContactFax)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactEMail1)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactEMail1, new { @class = "mws-textinput  validate[required,custom[email]]" })
+        @Html.ValidationMessageFor(model => model.genericContactEMail1)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactEMail2)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactEMail2, new { @class = "mws-textinput  validate[custom[email]]" })
+        @Html.ValidationMessageFor(model => model.genericContactEMail2)
+    </div>
+    <div class="clear"></div>
+</div>
+<div class="mws-form-row">
+    @Html.LabelFor(model => model.genericContactWebsite)
+    <div class="formRight">
+        @Html.TextBoxFor(model => model.genericContactWebsite, new { @class = "mws-textinput" })
+        @Html.ValidationMessageFor(model => model.genericContactWebsite)
+    </div>
+    <div class="clear"></div>
+</div>
+

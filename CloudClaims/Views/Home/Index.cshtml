@@ -1,0 +1,137 @@
+﻿@{ViewBag.Title = "CloudClaims Dashboard";}
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    <div class="widgets">
+        <div class="oneTwo">
+            <!-- Invoices stats widget -->
+            <div class="widget">
+                <div class="title">
+                    <img src="~/Content/crwn/images/icons/dark/money2.png" alt="" class="titleIcon" /><h6>Invoices statistics</h6>
+                </div>
+                <div class="wInvoice">
+                    <ul>
+                        <li>
+                            <h4 class="green">$63,456</h4>
+                            <span>amount paid</span></li>
+                        <li>
+                            <h4 class="blue">$218,518</h4>
+                            <span>in queue</span></li>
+                        <li>
+                            <h4 class="red">$16,542</h4>
+                            <span>total taxes</span></li>
+                    </ul>
+                    <div class="content">
+                        <div class="contentProgress">
+                            <div class="barG tipN" title="61%" id="bar5"></div>
+                        </div>
+                        <ul class="ruler">
+                            <li>0</li>
+                            <li class="textC">50%</li>
+                            <li class="textR">100%</li>
+                        </ul>
+                        <div class="clear"></div>
+                        <div class="invButtons">
+                            <a href="#" title="" class="bFirst button basic">
+                                <img src="~/Content/crwn/images/icons/dark/photos.png" class="icon" alt="" /><span>Add new invoice</span></a>
+                            <a href="#" title="" class="bLast button basic">
+                                <img src="~/Content/crwn/images/icons/dark/pdfDoc.png" class="icon" alt="" /><span>Generate report</span></a>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="oneTwo">
+            <!-- Latest update widget -->
+            <div class="widget">
+                <div class="title">
+                    <img src="~/Content/crwn/images/icons/dark/refresh4.png" alt="" class="titleIcon" /><h6>Latest updates</h6>
+                </div>
+
+                <div class="updates">
+                    <div class="newUpdate">
+                        <div class="uDone">
+                            <a href="#" title=""><strong>A new server is on the board!</strong></a>
+                            <span>We've just set up a new server. Our gurus ...</span>
+                        </div>
+                        <div class="uDate"><span class="uDay">08</span>feb</div>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="newUpdate">
+                        <span class="uAlert">
+                            <a href="#" title=""><strong>[ URGENT ] ex.ua was closed by government</strong></a>
+                            <span>But already everything was solved. It will ...</span>
+                        </span>
+                        <span class="uDate"><span class="uDay">08</span>feb</span>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="newUpdate">
+                        <span class="uDone">
+                            <a href="#" title=""><strong>The goal was reached!</strong></a>
+                            <span>We just passed 1000 sales! Congrats to all</span>
+                        </span>
+                        <span class="uDate"><span class="uDay">07</span>feb</span>
+                        <div class="clear"></div>
+                    </div>
+
+                    <div class="newUpdate">
+                        <span class="uNotice">
+                            <a href="#" title=""><strong>Meat a new team member - Don Corleone</strong></a>
+                            <span>Very dyplomatic and flexible sales manager</span>
+                        </span>
+                        <span class="uDate"><span class="uDay">06</span>feb</span>
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- My tasks table widget -->
+            <div class="widget">
+                <div class="title">
+                    <img src="~/Content/crwn/images/icons/dark/timer.png" alt="" class="titleIcon" /><h6>My tasks</h6>
+                    <div class="num"><a href="#" class="blueNum">+245</a></div>
+                </div>
+                <table cellpadding="0" cellspacing="0" width="100%" class="sTable taskWidget">
+                    <thead>
+                        <tr>
+                            <td>Description</td>
+                            <td width="100">Status</td>
+                            <td width="60">Acts</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="taskPr"><a href="#" title="">Finish design</a></td>
+                            <td><span class="green f11">in progress</span></td>
+                            <td class="actBtns"><a href="#" title="Update" class="tipS">
+                                <img src="~/Content/crwn/images/icons/edit.png" alt="" /></a><a href="#" title="Remove" class="tipS"><img src="~/Content/crwn/images/icons/remove.png" alt="" /></a></td>
+                        </tr>
+                        <tr>
+                            <td class="taskP"><a href="#" title="">Get HTML done</a></td>
+                            <td><span class="lGrey f11">pending</span></td>
+                            <td class="actBtns"><a href="#" title="Update" class="tipS">
+                                <img src="~/Content/crwn/images/icons/edit.png" alt="" /></a><a href="#" title="Remove" class="tipS"><img src="~/Content/crwn/images/icons/remove.png" alt="" /></a></td>
+                        </tr>
+                        <tr>
+                            <td class="taskP"><a href="#" title="">Connect jQuery stuff</a></td>
+                            <td><span class="lGrey f11">pending</span></td>
+                            <td class="actBtns"><a href="#" title="Update" class="tipS">
+                                <img src="~/Content/crwn/images/icons/edit.png" alt="" /></a><a href="#" title="Remove" class="tipS"><img src="~/Content/crwn/images/icons/remove.png" alt="" /></a></td>
+                        </tr>
+                        <tr>
+                            <td class="taskD"><a href="#" title="">Start beta testing</a></td>
+                            <td><span class="red f11">done</span></td>
+                            <td class="actBtns"><a href="#" title="Update" class="tipS">
+                                <img src="~/Content/crwn/images/icons/edit.png" alt="" /></a><a href="#" title="Remove" class="tipS"><img src="~/Content/crwn/images/icons/remove.png" alt="" /></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+

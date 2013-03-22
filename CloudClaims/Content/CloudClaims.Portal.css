@@ -1,0 +1,363 @@
+﻿.main-body {
+    margin-top: 88px;
+}
+
+/*#region GENERICS*/
+.display-none {
+    display: none !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+.margin-y {
+    margin-left: 2px !important;
+    margin-right: 2px !important;
+}
+/*#endregion*/
+
+/*#region NOTIFICATIONS*/
+
+.notifcations-placeholder {
+    margin-left: 2px;
+}
+
+    .notifcations-placeholder p {
+        text-align: left;
+    }
+/*#endregion*/
+
+/*#region BACKGROUNDS*/
+.disabled-background {
+    background: rgba(168, 11, 11, 0.39);
+}
+
+.activate-listening-bucket {
+    width: 350px;
+    border: 1px dashed #808080;
+    background: rgba(255, 106, 0, 0.38);
+}
+
+.dropped-into-listening-bucket {
+    width: 350px;
+    border: 1px dashed #808080;
+    background: rgba(118, 224, 81, 0.52);
+}
+
+
+/*#endregion*/
+
+/*#region DATEPICKER*/
+.ui-datepicker .ui-state-highlight, .ui-datepicker .ui-state-active {
+    background: #ffd800 !important;
+}
+
+/* css for timepicker http://trentrichardson.com/examples/timepicker/ */
+.ui-timepicker-div .ui-widget-header {
+    margin-bottom: 8px;
+}
+
+.ui-timepicker-div dl {
+    text-align: left;
+}
+
+    .ui-timepicker-div dl dt {
+        height: 25px;
+        margin-bottom: -25px;
+    }
+
+    .ui-timepicker-div dl dd {
+        margin: 0 10px 10px 65px;
+    }
+
+.ui-timepicker-div td {
+    font-size: 90%;
+}
+
+.ui-tpicker-grid-label {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ui-timepicker-rtl {
+    direction: rtl;
+}
+
+    .ui-timepicker-rtl dl {
+        text-align: right;
+    }
+
+        .ui-timepicker-rtl dl dd {
+            margin: 0 65px 10px 10px;
+        }
+/*#endregion*/
+
+/*#region FOOTER STYLES*/
+.layout-picker-list li {
+    display: inline-block !important;
+    padding: 0 !important;
+}
+
+.footer-layout-pick-option {
+    margin-left: 7px;
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.footer-poppable-button > a:hover img {
+    margin-top: 3px;
+}
+
+
+.footer-popup-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+    .footer-popup-close:hover {
+        margin-right: -1px;
+        margin-top: 1px;
+    }
+
+.footer-poppable-button {
+    /*display: none;*/
+}
+
+.footer-layout-pick-option img {
+    -moz-opacity: 0.7;
+    opacity: 0.7;
+}
+
+.footer-layout-pick-option:hover img {
+    margin-top: -5px;
+    -moz-opacity: 1;
+    opacity: 1;
+}
+
+.footer-button-popup-enable {
+    /*display: block !important;*/
+    position: absolute !important;
+    margin: 0 0 0 -16px !important;
+    bottom: 40px;
+    background-color: #222222;
+    border: 1px solid #111111;
+    -moz-border-radius: 7px 7px 0px 0px;
+    -webkit-border-radius: 7px 7px 0px 0px;
+    border-radius: 7px 7px 0px 0px;
+}
+
+.footer-popup-widget-list li {
+    float: none !important;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid #161616 !important;
+    border-left: none !important;
+    padding: 12px 10px 12px 10px !important;
+}
+
+    .footer-popup-widget-list li div {
+        display: inline-block;
+        width: 260px;
+        vertical-align: middle;
+        color: #cccccc;
+        cursor: pointer;
+    }
+
+        .footer-popup-widget-list li div img {
+            -moz-opacity: 0.7;
+            opacity: 0.7;
+        }
+
+        .footer-popup-widget-list li div:hover {
+            color: #ffffff;
+        }
+
+            .footer-popup-widget-list li div:hover img {
+                -moz-opacity: 1;
+                opacity: 1;
+            }
+
+.dropdown_3columns .dataTables_filter input[type="text"] {
+    padding: 3px 20px 3px 5px!important;
+    width: 100px!important;
+    position: relative;
+    margin-left: 6px;
+}
+
+/*#endregion*/
+
+/*#region iPHONE RADIO BUTTON*/
+.cb-enable, .cb-disable, .cb-enable span, .cb-disable span {
+    background: url(../Images/switch.gif) repeat-x;
+    display: block;
+    float: left;
+}
+
+    .cb-enable span, .cb-disable span {
+        line-height: 20px;
+        display: block;
+        background-repeat: no-repeat;
+        color: #599414;
+    }
+
+    .cb-enable span {
+        background-position: left -90px;
+        padding: 0 10px;
+    }
+
+    .cb-disable span {
+        background-position: right -180px;
+        padding: 0 10px;
+        color: #c34d4d;
+    }
+
+    .cb-disable.selected {
+        background-position: 0 -30px;
+    }
+
+        .cb-disable.selected span {
+            background-position: right -210px;
+            color: #22282a;
+        }
+
+    .cb-enable.selected {
+        background-position: 0 -60px;
+    }
+
+        .cb-enable.selected span {
+            background-position: left -150px;
+            color: #fff;
+        }
+
+.switch label {
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.switch input {
+    display: none !important;
+}
+/*#endregion*/
+
+/*#region GRIDSTER STYLES */
+.gridster {
+    width: inherit;
+    margin: 0 auto;
+    /*background: #89141D;*/
+    -moz-opacity: 1;
+    opacity: 1;
+    -webkit-transition: opacity .6s;
+    -moz-transition: opacity .6s;
+    -o-transition: opacity .6s;
+    -ms-transition: opacity .6s;
+    transition: opacity .6s;
+}
+
+    .gridster .gs_w {
+        /*background: #2F67A5;*/
+        cursor: pointer;
+        -webkit-box-shadow: 0 0 3px rgba(0,0,0,0.5);
+        -moz-box-shadow: 0 0 3px rgba(0,0,0,0.5);
+        box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    }
+
+    .gridster .player {
+        -webkit-box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+        -moz-box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+        box-shadow: 3px 3px 5px rgba(0,0,0,0.3);
+    }
+
+
+    .gridster .gs_w.try {
+        background-image: url(../img/sprite.png);
+        background-repeat: no-repeat;
+        background-position: 37px -169px;
+    }
+
+    .gridster .preview-holder {
+        border: 1px dashed #66A243 !important;
+        -moz-border-radius: 0!important;
+        -webkit-border-radius: 0!important;
+        border-radius: 0!important;
+        background: rgba(172, 225, 141, 0.38) !important;
+    }
+
+    .gridster .widget-content p {
+        margin-top: 0px;
+    }
+
+    .gridster .widget-content img:not(.icon) {
+        height: auto !important;
+        width: 100% !important;
+        max-width: inherit;
+    }
+
+    .gridster .widget-content .icon {
+        margin-right: 5px;
+    }
+/*#endregion*/
+
+/*#region WIDGET OPTIONS*/
+.widget-options-wrap {
+    padding: 3px 3px 0px 0px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.widget-options {
+    display: block;
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+
+.widget-options-edit, .widget-options-delete, .widget-options-accept {
+    display: none;
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+
+    .widget-options:hover, .widget-options-edit:hover, .widget-options-delete:hover, .widget-options-accept:hover {
+        -moz-opacity: 1 !important;
+        opacity: 1 !important;
+    }
+
+.ui-dialog-titlebar-close {
+    visibility: hidden;
+}
+/*#endregion*/
+
+/*#region ADVANCED SLIDER THUMBNAIL TEXT ELLIPSIS*/
+.thumbnail .long {
+    text-overflow: ellipsis;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+/*#endregion*/
+
+/*#region Z-INDEX COLLECTION BEGIN*/
+#footer {
+    z-index: 1000;
+}
+
+.ui-resizable-handle {
+    z-index: 6313271561;
+    /*cursor: ew-resize;*/
+}
+/*#endregion Z-INDEX COLLECTION END*/

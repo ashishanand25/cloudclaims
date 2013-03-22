@@ -1,0 +1,83 @@
+﻿<!-- BEGIN HEADER -->
+<header id="header">
+    <!--Top Header-->
+    <div id="top-header">
+        <div class="container">
+            <div class="grid_12">
+
+                <!-- Begin Language Switcher -->
+
+                <ul class="lang-switcher sf-menu">
+                    <li><a href="#">login</a>
+                        <ul>
+                            <li><a class="signin" data-reveal-id="signin" href="#">free tier</a></li>
+                            <li><a class="signin" data-reveal-id="signin" href="#">standard tier</a></li>
+                            <li><a class="signin" data-reveal-id="signin" href="#">platinum tier</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- End Language Switcher -->
+
+                <div class="login-holder fright">
+                    <a href="#" class="signin" data-reveal-id="signup">sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Main Header-->
+    <div id="main-header">
+        <div class="container">
+            <div class="grid_12">
+
+                <!-- BEGIN LOGO -->
+                <div id="logo">
+                    <!-- Image based Logo-->
+                    <a href="home"><img src="cloudclaims.png" alt=""/></a>
+
+
+                    <!-- Text based Logo-->
+                    <!--<h1><a href="index.html"><span>Cloud</span>Claims</a></h1>-->
+                    <p class="tagline">free | mobile | fast</p>
+
+
+                </div>
+                <!-- END LOGO -->
+
+                <!-- BEGIN NAVIGATION -->
+                <nav class="primary">
+                    <ul class="sf-menu">
+                        <li class="current-menu-item"><a href="Home">home</a>
+                        </li>
+                        <li class=""><a href="DemoVideo">intro video</a></li>
+                        <li><a href="#">details</a>
+                            <ul>
+                                <li><a href="Features">features</a></li>
+                                <li><a href="Pricing">pricing</a></li>
+                            </ul>
+                        </li>
+                        <!--<li class=""><a href="#">gallery</a>
+                            <ul>
+                                <li><a href="Videos">videos</a></li>
+                                <li><a href="Screenshots">screenshots</a></li>
+                            </ul>
+                        </li>-->
+                        <li class=""><a href="Careers">careers</a></li>
+                        <li class=""><a href="Contact">contact</a></li>
+                    </ul>
+                </nav>
+                <!-- END NAVIGATION -->
+            </div>
+        </div>
+    </div>
+</header>
+<!-- END HEADER -->
+
+
+
+<!-- BEGIN MODAL WINDOWS -->
+@{Html.RenderPartial("SignInPopup");}
+@{Html.RenderPartial("SignUpPopup");}
+<!-- END MODAL WINDOWS -->
+

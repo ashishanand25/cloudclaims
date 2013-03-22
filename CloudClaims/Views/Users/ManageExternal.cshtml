@@ -1,0 +1,40 @@
+﻿@model IEnumerable<CloudClaims.Data.Portal.CCPersonANDCCClientOrganization>
+@{
+    ViewBag.Title = "Manage External Users";
+}
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    <!-- Dynamic table -->
+    <div class="widget">
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>External Users</h6>
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
+            <thead>
+                <tr>
+                    <th>Organization</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Created</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var u in Model) {
+                    <tr class="gradeA">
+                        <td>
+                            <a href="~/Organizations/Edit?id=@u.org.clientOrgGUID">@u.org.clientOrgName</a>
+                        </td>
+                        <td>
+                            <a href="~/Users/EditExternal?id=@u.person.personGUID">@u.person.personFName @u.person.personMName @u.person.personLName</a>
+                        </td>
+                        <td>@u.person.personUserName</td>
+                        <td>@u.person.personPassword</td>
+                        <td>@u.person.personCreationDate</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

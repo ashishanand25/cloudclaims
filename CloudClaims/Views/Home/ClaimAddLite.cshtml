@@ -1,0 +1,54 @@
+﻿@model CloudClaims.Model.CCClaim
+
+@{ViewBag.Title = "New Claim (Lite Version)";}
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    @using (Html.BeginForm("ClaimAddLite", "Home", FormMethod.Post, new { @class = "form", @id = "validate" })) {
+        if (ViewData["message"] != null || !this.ViewData.ModelState.IsValid) {
+        <script>
+            Notifications.displayGlobalNotification({ message: '@ViewData["message"]', type: '@ViewData["type"]' });
+        </script>
+        }
+        <div class="toggle acc">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Add New Claim (Lite Version)</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                <div class="formRow">
+                    <label>File #<span class="req">*</span></label>
+                    <div class="formRight">
+                        <span class="oneTwo">
+                            @Html.TextBoxFor(m => m.claimAlias1, new { @class = "validate[required]", @autofocus = "autofocus" })
+                        </span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formSubmit">
+                    <input type="submit" value="create" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Add New Claim (Lite Version)</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                <div class="formRow">
+                    <label>File #<span class="req">*</span></label>
+                    <div class="formRight">
+                        @Html.TextBoxFor(m => m.claimAlias2, new { @class = "validate[required]" })
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="formSubmit">
+                    <input type="submit" value="create" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    }
+</div>
+

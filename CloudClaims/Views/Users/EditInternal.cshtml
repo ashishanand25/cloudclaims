@@ -1,0 +1,87 @@
+﻿@model CloudClaims.Data.Portal.CCPersonANDCCGenericContactCard
+
+@{ViewBag.Title = "Edit Internal User";}
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    @using (Html.BeginForm("EditInternal", "Users", FormMethod.Post, new { @class = "form", @id = "validate" })) {
+        if (ViewData["message"] != null || !this.ViewData.ModelState.IsValid) {
+        <script>
+            Notifications.displayGlobalNotification({ message: '@ViewData["message"]', type: '@ViewData["type"]' });
+        </script>
+        }
+        @Html.HiddenFor(m => m.person.personID)
+        @Html.HiddenFor(m => m.person.personGUID)
+        @Html.HiddenFor(m => m.person.clientID)
+        @Html.HiddenFor(m => m.person.personGenericContactCardID)
+        @Html.HiddenFor(m => m.person.personParentID)
+        @Html.HiddenFor(m => m.person.personParentTable)
+        @Html.HiddenFor(m => m.person.personClientOrgID)
+        @Html.HiddenFor(m => m.person.personCreationDate)
+        @Html.HiddenFor(m => m.person.personRoleID)
+        <div class="widget">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>Core Info</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>First name:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personFName, new { @class = "validate[required]", @autofocus = "autofocus" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Middle name:</label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personMName, new { @class = "" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>First name:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personLName, new { @class = "validate[required]" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Username:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personUserName, new { @class = "validate[required]" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Password:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.PasswordFor(m => m.person.personPassword, new { @class = "validate[required]", value = Model.person.personPassword })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formSubmit">
+                <input type="submit" value="save" class="greenB" />
+            </div>
+            <div class="clear"></div>
+        </div>
+        <!-- Toggles group -->
+        <div class="toggle acc">
+
+            <div class="title closed">
+                <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>Contact Info</h6>
+            </div>
+            <div class="menu_body">
+                @Html.Partial("GenericContactCard", Model.contactCard, new ViewDataDictionary(Html.ViewDataContainer.ViewData) { TemplateInfo = new System.Web.Mvc.TemplateInfo { HtmlFieldPrefix = "contactCard" } })
+                <div class="formSubmit">
+                    <input type="submit" value="save" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/key.png" alt="" class="titleIcon" /><h6>More Settings</h6>
+            </div>
+            <div class="menu_body">This widget is closed by default.</div>
+        </div>
+        <div class="clear"></div>
+            
+    }
+</div>

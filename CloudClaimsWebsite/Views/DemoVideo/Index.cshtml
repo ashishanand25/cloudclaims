@@ -1,0 +1,92 @@
+﻿<!-- Primary Page Layout
+	================================================== -->
+
+<!-- BEGIN WRAPPER -->
+<div id="wrapper">
+    @{Html.RenderPartial("_Layout_Header"); }
+    <!-- BEGIN VIDEO PRESENTATION -->
+    <section id="intro-video-wrapper">
+
+        <div class="container">
+            <div class="grid_12">
+
+                <!-- BEGIN VIDEO HOLDER -->
+                <figure class="media-holder">
+                    <div class="media-holder-bg"></div>
+                    <div class="media-holder-inner">
+                        @*<iframe src="http://player.vimeo.com/video/7449107?title=0&byline=0&portrait=0" width="530" height="298" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>*@
+                        <iframe width="530" height="298" src="http://www.youtube.com/embed/G0hUV7OTqFY?list=PLF65196892F88AE1A&amp;hl=en_US" frameborder="2" allowfullscreen></iframe>
+                    </div>
+                </figure>
+                <!-- END VIDEO HOLDER -->
+
+                <!-- BEGIN MEDIA CAPTION -->
+                <div class="media-caption">
+                    <h2>why cloudclaims?</h2>
+                    <p>
+                        1st FREE cloud-based mobile CMS ever
+                                <br />
+                        Real-time validation: fast, precise data entry
+                                <br />
+                        Smooth data migration from existing CMS's
+                    </p>
+                    <!-- .ribbon button -->
+                    <span class="ribbon-button">find out in 2 minutes</span>
+                    <!-- //.ribbon button -->
+                </div>
+                <!-- END MEDIA CAPTION -->
+
+            </div>
+        </div>
+
+    </section>
+    <!-- END VIDEO PRESENTATION -->
+    <!-- BEGIN CONTENT HOLDER -->
+    <div id="content-wrapper">
+
+        <section class="indent">
+
+            <div class="container">
+                <div class="grid_12">
+
+                    <ul class="home-services">
+                        <li>
+                            <figure class="img-holder">
+                                <a href="#">
+                                    <img src="images/service-img1.png" alt="" width="220" height="220" border="0" /></a>
+                            </figure>
+                            <h3><a href="#">Any Computer, Any Phone, Any Browser</a></h3>
+                            Seriously leveraging the power of the cloud and presenting a cross-browser compatible, mobile & tablet ready fully functionaly CMS.
+                        </li>
+                        <li>
+                            <figure class="img-holder">
+                                <a href="#">
+                                    <img src="images/service-img2.png" alt="" width="220" height="220" border="0" /></a>
+                            </figure>
+                            <h3><a href="#">Instantly Save Cash</a></h3>
+                            Use the out-of-the-box version of the software for FREE. No strings attached. No commitments.
+                        </li>
+                        <li>
+                            <figure class="img-holder">
+                                <a href="#">
+                                    <img src="images/service-img3.png" alt="" width="220" height="220" border="0" /></a>
+                            </figure>
+                            <h3><a href="#">No Support Required</a></h3>
+                            The software just works out of the box. Or cloud. No lengthy training processes. The software guides you in real-time through the claim life cycle.
+                        </li>
+                    </ul>
+
+
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+    <!-- END CONTENT HOLDER -->
+    <!-- BEGIN FOOTER -->
+    @{Html.RenderPartial("_Layout_Footer");}
+    <!-- END FOOTER -->
+</div>
+<!-- END WRAPPER -->
+

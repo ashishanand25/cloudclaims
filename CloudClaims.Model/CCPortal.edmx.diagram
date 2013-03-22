@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e21aeffdb9fa4915990d0e3f5052e998" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="CC.PortalModel.CCClaimDate" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCClaimDateType" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCClaimPerson" Width="1.5" PointX="8.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCClaim" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCClientOrganization" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCClient" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCCustomLabel" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCGenericContactCard" Width="1.5" PointX="3.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCGenericContactCardType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCPerson" Width="1.5" PointX="6" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCSetting_ClaimDropdownTypes" Width="1.5" PointX="3" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCSetting_ClaimDropdownValues" Width="1.5" PointX="5.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCSetting_ClaimPersonnelTypes" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimDates_CCClaims" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimDates_CCClients" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimDateTypes_CCClients" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimPersons_CCClaims" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimPersons_CCClients" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimPersons_CCPersons" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimPersons_CCSetting_ClaimPersonnelTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaims_CCClients" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClientOrganizations_CCClients" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCCustomLabels_CCClients" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCPersons_CCClients" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCSetting_ClaimDropdownTypes_CCClients" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCSetting_ClaimDropdownValues_CCClients" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCSetting_ClaimPersonnelTypes_CCClients" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCPersons_CCGenericContactCard" ManuallyRouted="false" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCSetting_ClaimDropdownValues_CCSetting_ClaimDropdownTypes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCClaimDropdownValue" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimDropdownValues_CCClaims" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimDropdownValues_CCClients" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimDropdownValues_CCSetting_ClaimDropdownTypes" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCClaimTextboxValue" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCSetting_ClaimTextboxTypes" Width="1.5" PointX="3" PointY="19.5" IsExpanded="true" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimTextboxValues_CCClaims" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimTextboxValues_CCClients" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimTextboxValues_CCSetting_ClaimTextboxTypes" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCSetting_ClaimTextboxTypes_CCClients" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCSetting_ClaimCheckboxTypes" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCSetting_ClaimCheckboxTypes_CCClients" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCClaimCheckboxValue" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimCheckboxValues_CCClaims" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimCheckboxValues_CCClients" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimCheckboxValues_CCSetting_ClaimCheckboxTypes" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimDropdownValues_CCSetting_ClaimDropdownValues" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCSetting_CustomFormSections" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCSetting_CustomFormSectionSectionItems" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCSetting_SectionItems_CCClients" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCSetting_SectionTypes_CCClients1" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCSetting_CustomFormSectionSectionItems_CCSetting_CustomFormSections" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCSetting_CustomForms" Width="1.5" PointX="3.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCSetting_SectionTypes_CCSettings_CustomForms" />
+        <EntityTypeShape EntityType="CC.PortalModel.CCClaimMedia" Width="1.5" PointX="11.099181878892324" PointY="7.786400709201768" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimMedia_CCClaimPersons" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimMedia_CCClaims" />
+        <AssociationConnector Association="CC.PortalModel.FK_CCClaimMedia_CCClients" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

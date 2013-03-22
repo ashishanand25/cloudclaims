@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{21EEFEBD-D65D-4D2C-8E6F-7635753B299D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CloudClaims.Model</RootNamespace>
+    <AssemblyName>CloudClaims.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CCClaim.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCClaimCheckboxValue.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCClaimDate.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCClaimDateType.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCClaimDropdownValue.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCClaimMedia.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCClaimPerson.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCClaimTextboxValue.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCClient.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCClientOrganization.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCCustomLabel.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCGenericContactCard.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCGenericContactCardType.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCPerson.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCPortal.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCPortal.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCPortal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCPortal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCPortal.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="CCSetting_ClaimCheckboxTypes.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCSetting_ClaimDropdownTypes.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCSetting_ClaimDropdownValues.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCSetting_ClaimPersonnelTypes.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCSetting_ClaimTextboxTypes.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCSetting_CustomForms.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCSetting_CustomFormSections.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CCSetting_CustomFormSectionSectionItems.cs">
+      <DependentUpon>CCPortal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMetaData\CCClaimDateTypeMetaData.cs" />
+    <Compile Include="ModelMetaData\CCClientMetaData.cs" />
+    <Compile Include="ModelMetaData\CCGenericContactCardMetaData.cs" />
+    <Compile Include="ModelMetaData\CCPersonMetaData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="CCPortal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CCPortal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.config" />
+    <None Include="CCPortal.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CCPortal.edmx</DependentUpon>
+      <LastGenOutput>CCPortal.Context.cs</LastGenOutput>
+    </None>
+    <None Include="CCPortal.edmx.diagram">
+      <DependentUpon>CCPortal.edmx</DependentUpon>
+    </None>
+    <None Include="CCPortal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CCPortal.edmx</DependentUpon>
+      <LastGenOutput>CCPortal.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

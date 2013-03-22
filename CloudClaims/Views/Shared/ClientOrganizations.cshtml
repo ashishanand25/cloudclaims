@@ -1,0 +1,18 @@
+﻿@model IEnumerable<CloudClaims.Data.Portal.CCClientOrganizationDropDown>
+
+<div class="formRow">
+    <label>Organization/Company: </label>
+    <div class="formRight searchDrop">
+        <select id="clientOrg" data-placeholder="Choose Organization..." class="chzn-select validate[required]" style="width: 350px;">
+            <option value=""></option>
+            @foreach (var o in Model) {
+                if(o.selectedFlag) {
+                    <option selected value="@o.org.clientOrgID">@o.org.clientOrgName</option>
+            } else {
+                    <option value="@o.org.clientOrgID">@o.org.clientOrgName</option>
+                }
+            }
+        </select>
+    </div>
+    <div class="clear"></div>
+</div>

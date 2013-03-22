@@ -1,0 +1,216 @@
+﻿@model IEnumerable<CloudClaims.Model.CCSetting_ClaimDropdownTypes>
+
+<form class="form" id="form-claim-dropdown-types">
+    <div class="formRow">
+        <label>Add new claim dropdown type: </label>
+        <div class="formRight">
+            <span class="oneTwo">
+                <input id="claim-dropdown-type" type="text" class="validate[required]" name="req" />
+            </span>
+            <a id="add-claim-dropdown-type" href="#" title="" class="button greenB">
+                <img src="~/Content/crwn/images/icons/light/add.png" alt="" class="icon">
+                <span>Add</span>
+            </a>
+        </div>
+        <div id="result"></div>
+        <div class="clear"></div>
+    </div>
+
+    <div class="widget">
+        <table cellpadding="0" cellspacing="0" width="100%" class="sTable taskWidget">
+            <thead>
+                <tr>
+                    <td>Claim Dropdown Type</td>
+                    <td width="15%">Dropdown Values</td>
+                    <td width="15%">Status</td>
+                    <td width="10%">Action</td>
+                </tr>
+            </thead>
+            <tbody id="table-claim-dropdown-types">
+                @foreach (var d in Model) {
+                    <tr id="row-claim-dropdown-type-@d.dropdownTypeID">
+                        @if (d.dropdownDisabled) { 
+                            <td class="taskD">
+                                <span>@d.dropdownName</span>
+                            </td>
+                            <td>
+                                <a href="javascript: void(0);" title="" data-dropdownTypeID="@d.dropdownTypeID" data-dropdownName="@d.dropdownName" class="configureDropdownValues button basic" style="margin: 5px;">
+                                    <img src="~/Content/crwn/images/icons/light/pencil.png" alt="" class="icon" /><span>Configure</span></a>
+                            </td>
+                            <td>
+                                <div class="field switch">
+                                    <label for="radio1" class="claim-dropdown-types cb-enable"><span>Enabled</span></label>
+                                    <label for="radio2" class="claim-dropdown-types cb-disable selected"><span>Disabled</span></label>
+                                </div>
+                            </td>
+                        } else { 
+                            <td class="taskPr">
+                                <span>@d.dropdownName</span>
+                            </td>
+                            <td>
+                                <a href="javascript: void(0);" title="" data-dropdownTypeID="@d.dropdownTypeID" data-dropdownName="@d.dropdownName" class="configureDropdownValues button basic" style="margin: 5px;">
+                                    <img src="~/Content/crwn/images/icons/light/pencil.png" alt="" class="icon" /><span>Configure</span></a>
+                            </td>
+                            <td>
+                                <div class="field switch">
+                                    <label for="radio1" class="claim-dropdown-types cb-enable selected"><span>Enabled</span></label>
+                                    <label for="radio2" class="claim-dropdown-types cb-disable"><span>Disabled</span></label>
+                                </div>
+                            </td>
+                        }
+                        <td class="actBtns">
+                            @Html.HiddenFor(m => d.dropdownTypeID)
+                            <a href="#" title="Update" class="tipS">
+                                <img src="~/Content/crwn/images/icons/edit.png" alt="" />
+                            </a>
+                            <a href="javascript: void(0);" id="@d.dropdownTypeID" title="Remove" class="remove-claim-dropdown-type">
+                                <img src="~/Content/crwn/images/icons/remove.png" alt="" />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    <div id="dialog-message" title="Configure Dropdown Values">
+        <div id="existing-dropdown-values"></div>
+        <div class="center oneThree">
+            <input id="new-dropdown-value" type="text" maxlength="50" />
+        </div>
+    </div>
+
+</form>
+<script type="text/javascript">
+    $(function () {
+        //#region ADD CLAIM DROPDOWN TYPE
+        $('#add-claim-dropdown-type').click(function () {
+            if ($("#form-claim-dropdown-types").validationEngine('validate')) {
+                $.ajax({
+                    url: 'AddClaimDropdownType',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ claimDropdownType: $('#claim-dropdown-type').val() }),
+                    success: function (data_received) {
+                        Notifications.displayGlobalNotification(data_received, function () {
+                            if (data_received.type == 3) {
+                                //
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        //#endregion
+
+        //#region DELETE CLAIM DROPDOWN TYPE
+        $('.remove-claim-dropdown-type').click(function () {
+            var item = $(this);
+            var itemID = $(this).attr('id');
+            $.ajax({
+                url: 'DeleteClaimDropdownType',
+                type: 'POST',
+                dataType: 'json',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify({ id: itemID }),
+                success: function (data_received) {
+                    Notifications.displayGlobalNotification(data_received, function () {
+                        if (data_received.type == 2) {
+                            $('#row-claim-dropdown-type-' + itemID).fadeOut(1000, function () {
+                                $(this).remove();
+                            });
+                        }
+                    });
+                }
+            });
+        });
+        //#endregion
+
+        //#region ENABLE/DISABLE CLAIM DROPDOWN TYPE
+        $('.cb-enable, .cb-disable').click(function () {
+            if ($(this).hasClass('claim-dropdown-types')) {
+                var enableORdisable;
+                var newLight;
+                if ($(this).hasClass('cb-enable')) {
+                    enableORdisable = false;
+                    newLight = "taskPr";
+                } else if ($(this).hasClass('cb-disable')) {
+                    enableORdisable = true;
+                    newLight = "taskD";
+                }
+                var item = $(this);
+                var itemID = $(this).parent().parent().parent().attr('id').replace('row-claim-dropdown-type-', '');
+                $.ajax({
+                    url: GLOBAL_SETTINGS_URL + 'DisableClaimDropdownType',
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ claimDropdownTypeID: itemID, state: enableORdisable }),
+                    success: function (data_received) {
+                        Notifications.displayGlobalNotification(data_received, function () {
+                            if (data_received.type == 2) {
+                                //Success
+                                item.parent().parent().parent().find('td:eq(0)').attr('class', newLight);
+                            }
+                        });
+                    }
+                });
+            }
+        });
+        //#endregion
+
+        //#region CONFIGURE DROPDOWN TYPE
+        $(".configureDropdownValues").click(function () {
+            var dropdownTypeID = $(this).attr('data-dropdownTypeID');
+            var dropdownName = $(this).attr('data-dropdownName');
+            $("#dialog-message").dialog({
+                title: "Configure Dropdown: [" + dropdownName + "]",
+                resizable: false,
+                buttons: {
+                    'add': {
+                        text: 'Add', class: 'margin-y', click: function () {
+                            var newValue = $('#new-dropdown-value').val();
+                            if (newValue.length > 0) {
+                                $.ajax({
+                                    url: GLOBAL_SETTINGS_URL + 'AddCCSetting_ClaimDropdownValues',
+                                    type: 'POST',
+                                    dataType: 'json',
+                                    contentType: 'application/json; charset=utf-8',
+                                    data: JSON.stringify({ dropdownTypeID: dropdownTypeID, dropdownValue: newValue }),
+                                    success: function (data_received) {
+                                        Notifications.displayGlobalNotification(data_received, function () {
+                                            if (data_received.type == 3) {
+                                                $('#new-dropdown-value').val('');
+                                                $('#existing-dropdown-values').fadeOut(500, function () {
+                                                    $(this).append('<div>' + newValue + '</div>').fadeIn(500);
+                                                });
+                                            }
+                                        });
+                                    }
+                                });
+                            } else {
+                                Notifications.displayGlobalNotification({ message: 'Please enter a value first!', type: 4 });
+                            }
+                        }
+                    },
+                    'exit': {
+                        text: 'Done', class: 'margin-y', click: function () {
+                            $(this).dialog('close');
+                        }
+                    }
+                }
+            });
+            //Fetch dropdown values
+            $.post(GLOBAL_SETTINGS_URL + 'CCSetting_ClaimDropdownValues', { dropdownTypeID: dropdownTypeID }, function (result) {
+                $("#dialog-message").dialog({
+                    title: "Configure Dropdown: [" + dropdownName + "]"
+                });
+                $("#existing-dropdown-values").html(result);
+                $("#dialog-message").dialog('open');
+            });
+        });
+        //#endregion
+    });
+</script>

@@ -1,0 +1,78 @@
+﻿<!-- BEGIN WIDGETS -->
+<section id="widgets">
+    <div class="indent">
+        <div class="container">
+            <div class="grid_2">
+                <!-- BEGIN NAV Widget -->
+                <div class="widget widget-nav">
+
+                    <ul>
+                        <li><a class="signin" data-reveal-id="signup" href="#">Sign Up</a></li>
+                        <li><a href="AboutUs">About Us</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <!-- END NAV Widget -->
+            </div>
+
+            <div class="grid_3">
+                <!-- BEGIN SOCIAL LINKS Widget -->
+                <div class="widget widget-social">
+
+                    <ul class="social-links">
+                        <li class="facebook"><a href="#">Be a fan on Facebook</a></li>
+                        <li class="twitter"><a href="#">Follow us on Twitter</a></li>
+                        <li class="google-plus"><a href="#">Join us on Google Plus</a></li>
+                        <li class="linkedin"><a href="#">Find us on Linkedin</a></li>
+                    </ul>
+                </div>
+                <!-- END SOCIAL LINKS Widget -->
+            </div>
+            <div class="grid_4 colborder">
+                <div class="extra-widget-area">
+                    <div class="inner">
+
+                        <!-- BEGIN REQUEST Widget -->
+                        <div class="widget widget-request">
+
+                            <!-- .btn -->
+                            <a href="DemoVideo" class="btn full-w">
+                                <span class="btn-inner">play video<em>2 minute demo</em><i class="marker"></i></span>
+                            </a>
+                            <!-- //.btn -->
+                        </div>
+                        <!-- END REQUEST Widget -->
+
+                        <!-- BEGIN NEWSLETTER Widget -->
+                        <div class="widget widget-newsletter">
+                            <div id="newsletter-form">
+                                <input type="text" name="newsletter-text-input" id="newsletter-text-input" value="" placeholder="submit email to setup a meeting.." />
+                                <div class="submit-holder">
+                                    <input type="submit" value="" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END NEWSLETTER Widget -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END WIDGETS -->
+<!-- END FOOTER -->
+<script type="text/javascript">
+    $(".submit-holder").click(function () {
+        var email = JSON.stringify($("#newsletter-text-input").val());
+        $.ajax({
+            url: '/Contact/JsonDepositEmailAddress',
+            type: 'POST',
+            data: email,
+            contentType: 'application/json; charset=utf-8',
+            success: function (data_received) {
+                alert(jsonToSend);
+            }
+        });
+    });
+</script>

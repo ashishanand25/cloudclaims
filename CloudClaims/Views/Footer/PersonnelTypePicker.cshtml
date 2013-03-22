@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CloudClaims.Model.CCSetting_ClaimPersonnelTypes>
+
+<!-- Main content wrapper -->
+<div class="">
+    <!-- Dynamic table -->
+    <div class="widget">
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" />
+        </div>
+        <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
+            <thead>
+                <tr>
+                    <th>Personnel Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var p in Model) {
+                    <tr>
+                        <td id="personnelTypeID-@p.claimPersonnelTypeID" class="gradeA draggable-custom-form-item draggable-claim-personnel cursor-pointer">@p.claimPersonnelType</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    var personnelObject = {
+        personnelTypeID: '',
+        personnelType: '',
+    };
+
+    $(function () {
+        $(".draggable-claim-personnel").draggable({
+            //revert: "valid",
+            revert: true,
+            opacity: 0.7,
+            helper: "clone",
+            //containment: "#rightSide",
+            scroll: false,
+            cursor: "move",
+            cursorAt: { top: 5, left: 5 },
+            start: function (event, ui) {
+                GLOBAL_DRAGGED_ITEM_TYPE.id = $(this).attr('id').replace('personnelTypeID-', '');
+                GLOBAL_DRAGGED_ITEM_TYPE.type = 'personnel';
+                GLOBAL_DRAGGED_ITEM_TYPE.name = $(this).html();
+                //console.log('Setting GLOBAL_DRAGGED_ITEM_TYPE to: ' + GLOBAL_DRAGGED_ITEM_TYPE.type);
+                textboxObject.personnelTypeID = $(this).attr('id').replace('personnelTypeID-', '');
+                textboxObject.personnelType = $(this).html();
+            }
+        });
+    });
+</script>

@@ -1,0 +1,81 @@
+﻿@{ViewBag.Title = "CloudClaims Settings";}
+
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    TEST - This line was added in the main branch. Lets check if this shows in the child branch AFTER MERGING.
+    <!-- Toggles group -->
+    <div class="toggle acc">
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/link2.png" alt="" class="titleIcon" /><h6>Clients/Organizations</h6>
+            <div class="clear"></div>
+        </div>
+        <div class="menu_body">
+            <a href="~/Organizations/Add" title="" class="button greenB" style="margin: 5px;">
+                <img src="~/Content/crwn/images/icons/light/add.png" alt="" class="icon" /><span>Add Organization</span></a>
+            <a href="~/Organizations/Manage" title="" class="button greyishB" style="margin: 5px;">
+                <img src="~/Content/crwn/images/icons/light/users2.png" alt="" class="icon" /><span>Manage Organizations</span></a>
+        </div>
+
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/users2.png" alt="" class="titleIcon" /><h6>Users/Staff</h6>
+        </div>
+        <div class="menu_body">
+            <a href="~/Users/AddInternal" title="" class="button greenB" style="margin: 5px;">
+                <img src="~/Content/crwn/images/icons/light/add.png" alt="" class="icon" /><span>Add Internal Users</span></a>
+            <a href="~/Users/ManageInternal" title="" class="button greyishB" style="margin: 5px;">
+                <img src="~/Content/crwn/images/icons/light/users2.png" alt="" class="icon" /><span>Manage Internal Users</span></a>
+            <a href="~/Users/AddExternal" title="" class="button greenB" style="margin: 5px;">
+                <img src="~/Content/crwn/images/icons/light/add.png" alt="" class="icon" /><span>Add External Users</span></a>
+            <a href="~/Users/ManageExternal" title="" class="button greyishB" style="margin: 5px;">
+                <img src="~/Content/crwn/images/icons/light/users2.png" alt="" class="icon" /><span>Manage External Users</span></a>
+        </div>
+
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/key.png" alt="" class="titleIcon" /><h6>Event Date Types</h6>
+        </div>
+        <div class="menu_body">
+            @{ Html.RenderAction("ClaimDateTypes", "Settings"); }
+        </div>
+
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/key.png" alt="" class="titleIcon" /><h6>Claim Personnel Types</h6>
+        </div>
+        <div class="menu_body">
+            @{ Html.RenderAction("CCSetting_ClaimPersonnelTypes", "Settings"); }
+        </div>
+
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/key.png" alt="" class="titleIcon" /><h6>Claim Dropdown Types</h6>
+        </div>
+        <div class="menu_body">
+            @{ Html.RenderAction("CCSetting_ClaimDropdownTypes", "Settings"); }
+        </div>
+
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/key.png" alt="" class="titleIcon" /><h6>Claim Textbox Types</h6>
+        </div>
+        <div class="menu_body">
+            @{ Html.RenderAction("CCSetting_ClaimTextboxTypes", "Settings"); }
+        </div>
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/key.png" alt="" class="titleIcon" /><h6>Claim Checkbox Types</h6>
+        </div>
+        <div class="menu_body">
+            @{ Html.RenderAction("CCSetting_ClaimCheckboxTypes", "Settings"); }
+        </div>
+
+        <div class="title">
+            <img src="~/Content/crwn/images/icons/dark/key.png" alt="" class="titleIcon" /><h6>Custom Form Builder</h6>
+        </div>
+        <div class="menu_body">
+            <a href="~/Settings/CCSetting_CustomFormBuilder" title="" class="button greenB" style="margin: 5px;">
+                <img src="~/Content/crwn/images/icons/light/add.png" alt="" class="icon" /><span>Design New Form</span></a>
+            <a href="~/Settings/CCSetting_CustomFormBuilderManage" title="" class="button greyishB" style="margin: 5px;">
+                <img src="~/Content/crwn/images/icons/light/users2.png" alt="" class="icon" /><span>Manage Custom Forms</span></a>
+        </div>
+
+    </div>
+    <div class="clear"></div>
+</div>
+
+

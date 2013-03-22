@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CloudClaimsModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="CloudClaimsModelStoreContainer">
+          <EntitySet Name="contactForm" EntityType="CloudClaimsModel.Store.contactForm" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="emailSubscriptions" EntityType="CloudClaimsModel.Store.emailSubscriptions" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="IPLog" EntityType="CloudClaimsModel.Store.IPLog" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="contactForm">
+          <Key>
+            <PropertyRef Name="requestID" />
+          </Key>
+          <Property Name="requestID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" />
+          <Property Name="website" Type="nvarchar" MaxLength="100" />
+          <Property Name="message" Type="nvarchar" MaxLength="2000" />
+          <Property Name="timeStamp" Type="datetime" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="emailSubscriptions">
+          <Key>
+            <PropertyRef Name="subscriberID" />
+          </Key>
+          <Property Name="subscriberID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="emailAddress" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="timeStamp" Type="datetime" Nullable="false" />
+          <Property Name="IPAddress" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="IPLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="IPAddress" Type="char" MaxLength="15" />
+          <Property Name="timeStamp" Type="datetime" />
+          <Property Name="data" Type="nvarchar" MaxLength="300" />
+        </EntityType>
+        <Function Name="AddIPLog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IPAddress" Type="char" Mode="In" />
+          <Parameter Name="data" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="AddRegistrationRequest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userLogin" Type="nvarchar" Mode="In" />
+          <Parameter Name="userPassword" Type="nvarchar" Mode="In" />
+          <Parameter Name="userFName" Type="nvarchar" Mode="In" />
+          <Parameter Name="userLName" Type="nvarchar" Mode="In" />
+          <Parameter Name="userEmail" Type="nvarchar" Mode="In" />
+          <Parameter Name="userHintQuestion" Type="nvarchar" Mode="In" />
+          <Parameter Name="userHintAnswer" Type="nvarchar" Mode="In" />
+          <Parameter Name="IPAddress" Type="nvarchar" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CloudClaimsModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="CloudClaimsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="contactForms" EntityType="CloudClaimsModel.contactForm" />
+          <EntitySet Name="emailSubscriptions" EntityType="CloudClaimsModel.emailSubscription" />
+          <EntitySet Name="IPLogs" EntityType="CloudClaimsModel.IPLog" />
+          <FunctionImport Name="AddIPLog">
+            <Parameter Name="IPAddress" Mode="In" Type="String" />
+            <Parameter Name="data" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddRegistrationRequest">
+            <Parameter Name="userLogin" Mode="In" Type="String" />
+            <Parameter Name="userPassword" Mode="In" Type="String" />
+            <Parameter Name="userFName" Mode="In" Type="String" />
+            <Parameter Name="userLName" Mode="In" Type="String" />
+            <Parameter Name="userEmail" Mode="In" Type="String" />
+            <Parameter Name="userHintQuestion" Mode="In" Type="String" />
+            <Parameter Name="userHintAnswer" Mode="In" Type="String" />
+            <Parameter Name="IPAddress" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="contactForm">
+          <Key>
+            <PropertyRef Name="requestID" />
+          </Key>
+          <Property Name="requestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="phone" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="website" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="message" Type="String" MaxLength="2000" Unicode="true" FixedLength="false" />
+          <Property Name="timeStamp" Type="DateTime" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="emailSubscription">
+          <Key>
+            <PropertyRef Name="subscriberID" />
+          </Key>
+          <Property Name="subscriberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="emailAddress" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="timeStamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IPAddress" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="IPLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IPAddress" Type="String" MaxLength="15" Unicode="false" FixedLength="true" />
+          <Property Name="timeStamp" Type="DateTime" Precision="3" />
+          <Property Name="data" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CloudClaimsModelStoreContainer" CdmEntityContainer="CloudClaimsEntities">
+          <EntitySetMapping Name="contactForms">
+            <EntityTypeMapping TypeName="CloudClaimsModel.contactForm">
+              <MappingFragment StoreEntitySet="contactForm">
+                <ScalarProperty Name="requestID" ColumnName="requestID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="website" ColumnName="website" />
+                <ScalarProperty Name="message" ColumnName="message" />
+                <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="emailSubscriptions">
+            <EntityTypeMapping TypeName="CloudClaimsModel.emailSubscription">
+              <MappingFragment StoreEntitySet="emailSubscriptions">
+                <ScalarProperty Name="subscriberID" ColumnName="subscriberID" />
+                <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+                <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IPLogs">
+            <EntityTypeMapping TypeName="CloudClaimsModel.IPLog">
+              <MappingFragment StoreEntitySet="IPLog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+                <ScalarProperty Name="timeStamp" ColumnName="timeStamp" />
+                <ScalarProperty Name="data" ColumnName="data" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddIPLog" FunctionName="CloudClaimsModel.Store.AddIPLog" />
+          <FunctionImportMapping FunctionImportName="AddRegistrationRequest" FunctionName="CloudClaimsModel.Store.AddRegistrationRequest" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

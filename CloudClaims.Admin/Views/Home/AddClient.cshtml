@@ -1,0 +1,87 @@
+﻿@model CloudClaims.Model.CCClient
+
+@{
+    ViewBag.Title = "Add New Client";
+}
+
+
+@{Html.RenderPartial("TopNav");}
+<!-- Start Main Wrapper -->
+<div id="mws-wrapper">
+    @{Html.RenderPartial("LeftNav");}
+    <!-- Main Container Start -->
+    <div id="mws-container" class="clearfix hidden-wrapper">
+        <!-- Inner Container Start -->
+        <div class="container">
+            <!-- Panels Start -->
+            <div class="mws-panel grid_8 mws-collapsible">
+                <div class="mws-panel-header">
+                    <span class="mws-i-24 i-list">Add Client</span>
+                </div>
+                <div class="mws-panel-body">
+                    @using (Html.BeginForm("AddClient", "Home", FormMethod.Post, new { @class = "mws-form", @id = "mws-validate" })) {
+                        if (!this.ViewData.ModelState.IsValid) {
+                            <div id="mws-validate-error" class="mws-form-message error" style="display: block;">
+                            @Html.ValidationSummary()
+                        </div>
+                        }
+                        <div id="mws-validate-success" class="mws-form-message success" style="display: none;">
+                        </div>
+                        <div class="mws-form-block">
+                            <div class="mws-form-row">
+                                @Html.LabelFor(model => model.clientName)
+                                <div class="mws-form-item small">
+                                    @Html.TextBoxFor(model => model.clientName, new { @class = "mws-textinput", @autofocus = "autofocus" })
+                                    @Html.ValidationMessageFor(model => model.clientName)
+                                </div>
+                            </div>
+                            <div class="mws-form-row">
+                                @Html.LabelFor(model => model.clientTaxID)
+                                <div class="mws-form-item small">
+                                    @Html.TextBoxFor(model => model.clientTaxID, new { @class = "mws-textinput" })
+                                    @Html.ValidationMessageFor(model => model.clientTaxID)
+                                </div>
+                            </div>
+                            <div class="mws-form-row">
+                                @Html.LabelFor(model => model.clientTimeZone)
+                                <div class="mws-form-item small">
+                                    @Html.EditorFor(model => model.clientTimeZone)
+                                    @Html.ValidationMessageFor(model => model.clientTimeZone)
+                                </div>
+                            </div>
+                            <div class="mws-form-row">
+                                @Html.LabelFor(model => model.clientNotes)
+                                <div class="mws-form-item large">
+                                    @Html.TextAreaFor(model => model.clientNotes)
+                                    @Html.ValidationMessageFor(model => model.clientNotes)
+                                </div>
+                            </div>
+                            <div class="mws-form-row">
+                                @Html.LabelFor(model => model.clientDomainName)
+                                <div class="mws-form-item small">
+                                    @Html.TextBoxFor(model => model.clientDomainName, new { @class = "mws-textinput" })
+                                    @Html.ValidationMessageFor(model => model.clientDomainName)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mws-button-row">
+                            <input type="submit" value="Create" class="mws-button green" />
+                            <input type="reset" value="Reset" class="mws-button red" />
+                        </div>
+                    }
+                </div>
+            </div>
+            <!-- Panels End -->
+        </div>
+        <!-- Inner Container End -->
+    </div>
+    <!-- Main Container End -->
+</div>
+<script type="text/javascript">
+    $(function () {
+        $('#Clients').addClass('active');
+    });
+    
+</script>
+
+@Scripts.Render("~/bundles/jqueryval")

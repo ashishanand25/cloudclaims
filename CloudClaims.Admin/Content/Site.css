@@ -1,0 +1,13 @@
+﻿/*Custom Rules BEGIN*/
+.hidden-wrapper {
+    /*display: none;*/
+}
+.generic-center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.cloud-claims-logo {
+}
+    
+/*Custom Rules END*/

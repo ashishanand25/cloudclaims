@@ -1,0 +1,77 @@
+﻿@model CloudClaims.Admin.ViewModels.vmDashboard
+@{
+    ViewBag.Title = "CloudClaims Administration Dashboard";
+}
+<!-- Themer (Remove if not needed) -->
+<div id="mws-themer">
+    <div id="mws-themer-content">
+        <div id="mws-themer-ribbon"></div>
+        <div id="mws-themer-toggle"></div>
+        <div id="mws-theme-presets-container" class="mws-themer-section">
+            <label for="mws-theme-presets">Color Presets</label>
+        </div>
+        <div class="mws-themer-separator"></div>
+        <div id="mws-theme-pattern-container" class="mws-themer-section">
+            <label for="mws-theme-patterns">Background</label>
+        </div>
+        <div class="mws-themer-separator"></div>
+        <div class="mws-themer-section">
+            <ul>
+                <li class="clearfix"><span>Base Color</span>
+                    <div id="mws-base-cp" class="mws-cp-trigger"></div>
+                </li>
+                <li class="clearfix"><span>Highlight Color</span>
+                    <div id="mws-highlight-cp" class="mws-cp-trigger"></div>
+                </li>
+                <li class="clearfix"><span>Text Color</span>
+                    <div id="mws-text-cp" class="mws-cp-trigger"></div>
+                </li>
+                <li class="clearfix"><span>Text Glow Color</span>
+                    <div id="mws-textglow-cp" class="mws-cp-trigger"></div>
+                </li>
+                <li class="clearfix"><span>Text Glow Opacity</span>
+                    <div id="mws-textglow-op"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="mws-themer-separator"></div>
+        <div class="mws-themer-section">
+            <button class="mws-button red small" id="mws-themer-getcss">Get CSS</button>
+        </div>
+    </div>
+    <div id="mws-themer-css-dialog">
+        <form class="mws-form">
+            <div class="mws-form-row">
+                <div class="mws-form-item">
+                    <textarea cols="auto" rows="auto" readonly="readonly"></textarea>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Themer End -->
+@{Html.RenderPartial("TopNav");}
+<!-- Start Main Wrapper -->
+<div id="mws-wrapper">
+    @{Html.RenderPartial("LeftNav");}
+    <!-- Main Container Start -->
+    <div id="mws-container" class="clearfix hidden-wrapper">
+
+        <!-- Inner Container Start -->
+        <div class="container">
+
+
+
+            <!-- Panels Start -->
+
+
+          
+
+            <!-- Panels End -->
+        </div>
+        <!-- Inner Container End -->
+
+
+    </div>
+    <!-- Main Container End -->
+</div>

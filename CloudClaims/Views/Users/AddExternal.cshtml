@@ -1,0 +1,91 @@
+﻿@model CloudClaims.Data.Portal.CCPersonANDCCGenericContactCard
+
+@{ViewBag.Title = "Add External User";}
+<!-- Main content wrapper -->
+<div class="wrapper hidden-wrapper">
+    @using (Html.BeginForm("AddExternal", "Users", FormMethod.Post, new { @class = "form", @id = "validate" })) {
+        if (ViewData["message"] != null || !this.ViewData.ModelState.IsValid) {
+        <script>
+            Notifications.displayGlobalNotification({ message: '@ViewData["message"]', type: '@ViewData["type"]' });
+        </script>
+        }
+        <div class="widget">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/alert.png" alt="" class="titleIcon" /><h6>Add new external user</h6>
+                <div class="clear"></div>
+            </div>
+            @Html.HiddenFor(m => m.person.personClientOrgID)
+            @{ Html.RenderAction("ClientOrganizations", "Organizations", new { selectedID = 0 }); }
+            <script type="text/javascript">
+                $(function () {
+                    $('#clientOrg').chosen().change(function () {
+                        $('#person_personClientOrgID').val($('#clientOrg').val());
+                    });
+                });
+            </script>
+            @*@Html.Partial("ClientOrganizations", new CloudClaims.Model.CCClientOrganization(), new ViewDataDictionary(Html.ViewDataContainer.ViewData) { TemplateInfo = new System.Web.Mvc.TemplateInfo { HtmlFieldPrefix = "clientOrg" } })*@
+            <div class="formRow">
+                <label>First name:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personFName, new { @class = "validate[required]" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Middle name:</label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personMName, new { @class = "" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>First name:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personLName, new { @class = "validate[required]" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Username:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.TextBoxFor(m => m.person.personUserName, new { @class = "validate[required]" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Password:<span class="req">*</span></label>
+                <div class="formRight">
+                    @Html.PasswordFor(m => m.person.personPassword, new { @class = "validate[required]" })
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="formRow">
+                <label>Repeat password:<span class="req">*</span></label>
+                <div class="formRight">
+                    <input type="password" class="validate[required,equals[person_personPassword]]" name="personPassword2" id="personPassword2" />
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="formSubmit">
+                <input type="submit" value="create" class="greenB" />
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="toggle acc">
+            <div class="title">
+                <img src="~/Content/crwn/images/icons/dark/users.png" alt="" class="titleIcon" /><h6>Contact Info</h6>
+                <div class="clear"></div>
+            </div>
+            <div class="menu_body">
+                @Html.Partial("GenericContactCard", new CloudClaims.Model.CCGenericContactCard(), new ViewDataDictionary(Html.ViewDataContainer.ViewData) { TemplateInfo = new System.Web.Mvc.TemplateInfo { HtmlFieldPrefix = "contactCard" } })
+                <div class="formSubmit">
+                    <input type="submit" value="create" class="greenB" />
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+            
+    }
+</div>
+
